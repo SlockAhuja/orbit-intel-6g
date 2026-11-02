@@ -1,0 +1,37 @@
+Component_ID,Module,Claimed_Capability,Implementation_File,Audit_Status,Verification_Details
+VERIF-001,simulation_engine,WGS-84 Geodetic to ECEF conversion,src/simulation_engine/orbital.py,Verified,Round-trip conversion error < 0.01 meters
+VERIF-002,simulation_engine,Keplerian LEO orbital propagation,src/simulation_engine/orbital.py,Verified,Satisfies orbital velocity 7.56 km/s and 96.6 min period
+VERIF-003,simulation_engine,Topocentric ENU elevation & azimuth,src/simulation_engine/orbital.py,Verified,Exact vector rotation from ECEF to local horizon
+VERIF-004,channel_models,Free-Space Path Loss (FSPL),src/channel_models/propagation.py,Verified,Follows 20 dB/decade Friis scaling exactly
+VERIF-005,channel_models,Doppler frequency & rate calculation,src/channel_models/doppler.py,Verified,Follows relative velocity projection formula fd = fc*(v/c)
+VERIF-006,channel_models,Thermal noise & SINR calculation,src/channel_models/sinr_calculator.py,Verified,Follows k*T*B with NF=7 dB yielding -87 dBm for 100 MHz
+VERIF-007,channel_models,ITU-R P.618 Earth-space rain attenuation,src/channel_models/propagation.py,Incorrect,Applied incorrectly to terrestrial base stations (path > 300 km)
+VERIF-008,prediction_engine,17-variable feature extraction,src/prediction_engine/feature_engineering.py,Verified,All 17 RF and kinematic features engineered properly
+VERIF-009,prediction_engine,Quantile gradient boosting models,src/prediction_engine/models.py,Verified,Quantile regressors (q05, q50, q95) train and output valid bounds
+VERIF-010,prediction_engine,Random Forest ensemble variance,src/prediction_engine/models.py,Verified,Variance across individual RF tree estimators computed properly
+VERIF-011,prediction_engine,Train/test evaluation split,src/prediction_engine/data_collector.py,Incorrect,Random train_test_split introduces temporal data leakage
+VERIF-012,prediction_engine,Uncertainty formula documentation,src/prediction_engine/models.py,Partially Verified,Formula in code omits the documented lambda*(q95-q05) term
+VERIF-013,prediction_engine,Expected Calibration Error (ECE),src/prediction_engine/uncertainty.py,Incorrect,Classification ECE formula misapplied across interval width bins
+VERIF-014,orchestration_engine,CAPRO decision score (R_adj),src/orchestration_engine/capro_engine.py,Incorrect,Sums incompatible units (dB, ms, load ratio) without normalization
+VERIF-015,orchestration_engine,Proactive orbital departure trigger,src/orchestration_engine/capro_engine.py,Verified,Triggers proactive handover when remaining visibility < 12s
+VERIF-016,orchestration_engine,Explainable decision logging,src/orchestration_engine/capro_engine.py,Verified,Generates ExplainableDecision dataclass records properly
+VERIF-017,baseline_methods,M1 Reactive Baseline,src/baseline_methods/m1_reactive.py,Verified,Operates strictly on current instantaneous SINR
+VERIF-018,baseline_methods,M2 Threshold Predictive Baseline,src/baseline_methods/m2_threshold_predictive.py,Partially Verified,Lacks hysteresis and filtering creating an artificial 141 HO/min strawman
+VERIF-019,baseline_methods,M3 Prediction-Only AI Baseline,src/baseline_methods/m3_prediction_only.py,Verified,Implements unpenalized expectation maximization
+VERIF-020,experiments,60-run benchmark execution,src/experiments/benchmark_runner.py,Verified,Runs all 4 methods across 5 scenarios and 3 seeds reproducibly
+VERIF-021,experiments,Scenario 4 satellite descent execution,src/experiments/scenarios.py,Missing,apply_scenario_4 contains empty pass statement
+VERIF-022,experiments,M4 superiority over M3,results/metrics/benchmark_results_raw.csv,Not Verified,M3 and M4 yield identical PDR and latency (satellite unselected)
+VERIF-023,visualization,Figure 1 PDR comparison,src/visualization/plots.py,Verified,Plotted directly from benchmark_results_raw.csv
+VERIF-024,visualization,Figure 2 Latency vs Outage,src/visualization/plots.py,Verified,Plotted directly from benchmark_results_raw.csv
+VERIF-025,visualization,Figure 3 Handover stability,src/visualization/plots.py,Verified,Plotted directly from benchmark_results_raw.csv
+VERIF-026,visualization,Figure 4 Uncertainty Calibration,src/visualization/plots.py,Incorrect,Plotted from hard-coded static numpy array
+VERIF-027,visualization,Figure 5 Dynamic SINR Trace,src/visualization/plots.py,Incorrect,Plotted from hard-coded synthetic sinusoidal formula
+VERIF-028,visualization,Figure 6 Kappa parameter ablation,src/visualization/plots.py,Incorrect,Plotted from hard-coded static python lists
+VERIF-029,visualization,Figure 7 Energy consumption,src/visualization/plots.py,Verified,Plotted directly from benchmark_results_raw.csv
+VERIF-030,dashboard,Page 1 Network Overview,dashboard/app.py,Verified,Interactive 3D SAGIN plot connected to live simulator
+VERIF-031,dashboard,Page 2 Predictive Intelligence,dashboard/app.py,Verified,Active ML inference with confidence interval ribbons
+VERIF-032,dashboard,Page 3 Intelligent Orchestration,dashboard/app.py,Verified,Live CAPRO decision audit table with trigger codes
+VERIF-033,dashboard,Page 4 Experimental Comparison,dashboard/app.py,Verified,Connected to saved benchmark CSV outputs
+VERIF-034,dashboard,Page 5 Research Analysis,dashboard/app.py,Incorrect,Contains hard-coded Plotly traces for calibration and ablation
+VERIF-035,dashboard,Page 6 Live Demonstration Sandbox,dashboard/app.py,Verified,Interactive sliders and step controls modifying simulator state
+

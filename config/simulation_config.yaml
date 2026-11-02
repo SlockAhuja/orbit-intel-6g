@@ -1,0 +1,81 @@
+# ORBIT-INTEL 6G Simulation and System Configuration
+system:
+  carrier_frequency_s_band_hz: 2000000000.0   # 2.0 GHz S-band for NTN mobile service
+  carrier_frequency_ka_band_hz: 28000000000.0 # 28.0 GHz Ka-band for feeder & high-capacity
+  speed_of_light_m_s: 300000000.0
+  boltzmann_constant: 1.380649e-23
+  temperature_system_k: 290.0
+  outage_sinr_threshold_db: 3.0
+  urllc_delay_max_ms: 10.0
+  embb_delay_max_ms: 50.0
+
+leo_satellite:
+  altitude_km: 600.0
+  orbital_velocity_m_s: 7560.0
+  tx_power_dbm: 43.0            # 20 W
+  tx_antenna_gain_dbi: 30.0
+  bandwidth_mhz: 100.0
+  capacity_mbps: 300.0
+  min_elevation_deg: 10.0
+  energy_capacity_wh: 1200.0
+
+haps:
+  altitude_km: 20.0
+  drift_speed_m_s: 2.0
+  tx_power_dbm: 35.0            # 3.16 W
+  tx_antenna_gain_dbi: 20.0
+  bandwidth_mhz: 50.0
+  capacity_mbps: 150.0
+  min_elevation_deg: 5.0
+  energy_capacity_wh: 800.0
+
+uav:
+  altitude_km: 0.3              # 300 m
+  speed_m_s: 15.0
+  tx_power_dbm: 28.0            # 630 mW
+  tx_antenna_gain_dbi: 10.0
+  bandwidth_mhz: 20.0
+  capacity_mbps: 80.0
+  min_elevation_deg: 15.0
+  energy_capacity_wh: 300.0
+
+terrestrial_bs:
+  altitude_km: 0.03             # 30 m tower
+  tx_power_dbm: 43.0            # 20 W
+  tx_antenna_gain_dbi: 16.0
+  bandwidth_mhz: 100.0
+  capacity_mbps: 500.0
+  cell_radius_km: 2.5
+  energy_capacity_wh: 5000.0
+
+user_equipment:
+  rx_antenna_gain_dbi: 2.0
+  noise_figure_db: 7.0
+  default_traffic_type: "URLLC"
+  urllc_rate_mbps: 5.0
+  embb_rate_mbps: 25.0
+
+channel:
+  shadow_fading_std_max_db: 8.0
+  shadow_fading_std_min_db: 4.0
+  rician_k_factor_db: 9.0
+  itu_rain_rate_normal_mm_h: 0.0
+  itu_rain_rate_degraded_mm_h: 45.0
+
+orchestration:
+  lookahead_horizons_s: [5, 10, 20]
+  primary_horizon_s: 10
+  risk_aversion_kappa: 1.5
+  hysteresis_margin_db: 2.5
+  handover_margin_s: 12.0
+  weights:
+    w_outage: 0.35
+    w_latency: 0.25
+    w_handover: 0.15
+    w_energy: 0.10
+    w_resource: 0.15
+
+scenarios:
+  duration_s: 120
+  random_seed: 42
+  num_users: 12
