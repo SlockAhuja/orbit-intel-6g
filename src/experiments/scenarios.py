@@ -5,7 +5,9 @@ Defines 5 rigorous operational scenarios for benchmarking M1-M4.
 
 from dataclasses import dataclass
 from typing import Callable, Optional
+import numpy as np
 from src.simulation_engine.network_simulator import NetworkSimulator
+from src.simulation_engine.orbital import LEOSatelliteOrbit
 
 
 @dataclass
@@ -46,13 +48,48 @@ def apply_scenario_3(sim: NetworkSimulator, current_t: int):
 
 
 def apply_scenario_4(sim: NetworkSimulator, current_t: int):
-    """Scenario 4: Satellite visibility reduction & orbital departure."""
+    """
+    Scenario 4: Satellite visibility reduction & orbital departure.
+    SAT-01 approaches topocentric horizon, dropping from ~11.6° to <10° at t ≈ 35s.
+    SAT-02 rises from ~9.4° to >10° at t ≈ 15-20s, providing handover target.
+    """
     sim.rain_rate_mm_h = 5.0
     sim.shadowing_flutter_std = 0.5
-    # SAT-01 sets over horizon around mid-simulation
-    if current_t >= 35:
-        # Force satellite to descend near horizon threshold
-        pass
+
+    # At the start of Scenario 4 (t=0), configure orbital ephemeris for true departure & handover
+    if current_t == 0:
+        if "SAT-01" in sim.nodes:
+            sat1 = sim.nodes["SAT-01"]
+            # Advance mean anomaly so remaining visibility over ground hub is ~35s
+            n_mean = sat1.orbit.n_mean
+            sat1.orbit = LEOSatelliteOrbit(
+                sat_id="SAT-01",
+                altitude_km=float(sim.cfg["leo_satellite"]["altitude_km"]),
+                inclination_deg=53.0,
+                raan_deg=75.0,
+                initial_mean_anomaly_deg=18.0 + 115.0 * n_mean * 180.0 / np.pi,
+            )
+            pos, vel, lat, lon = sat1.orbit.get_state_at_time(0.0)
+            sat1.pos_ecef = pos
+            sat1.vel_ecef = vel
+            sat1.lat_deg = lat
+            sat1.lon_deg = lon
+
+        if "SAT-02" in sim.nodes:
+            sat2 = sim.nodes["SAT-02"]
+            # Position rising secondary satellite so it becomes visible at t ≈ 15s
+            sat2.orbit = LEOSatelliteOrbit(
+                sat_id="SAT-02",
+                altitude_km=float(sim.cfg["leo_satellite"]["altitude_km"]),
+                inclination_deg=53.0,
+                raan_deg=75.0,
+                initial_mean_anomaly_deg=8.0,
+            )
+            pos2, vel2, lat2, lon2 = sat2.orbit.get_state_at_time(0.0)
+            sat2.pos_ecef = pos2
+            sat2.vel_ecef = vel2
+            sat2.lat_deg = lat2
+            sat2.lon_deg = lon2
 
 
 def apply_scenario_5(sim: NetworkSimulator, current_t: int):

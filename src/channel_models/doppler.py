@@ -51,7 +51,9 @@ class DopplerModel:
         """
         fc = float(carrier_freq_hz)
         v_los, distance = self.compute_los_velocity(node_pos, node_vel, user_pos, user_vel)
-        doppler_hz = float(fc * (v_los / self.c))
+        # Physical Doppler: f_d = -f_c * (v_los / c) where v_los is range rate dr/dt.
+        # When node approaches observer (v_los < 0), received frequency increases (f_d > 0).
+        doppler_hz = float(-fc * (v_los / self.c))
 
         return {
             "v_los_m_s": v_los,

@@ -1,7 +1,8 @@
 # ORBIT-INTEL 6G Simulation and System Configuration
+# Parameterized in compliance with 3GPP TR 38.811 (Rel-17/18 NTN) & ITU-R recommendations
 system:
-  carrier_frequency_s_band_hz: 2000000000.0   # 2.0 GHz S-band for NTN mobile service
-  carrier_frequency_ka_band_hz: 28000000000.0 # 28.0 GHz Ka-band for feeder & high-capacity
+  carrier_frequency_s_band_hz: 2000000000.0   # 2.0 GHz S-band for NTN mobile service links
+  carrier_frequency_ka_band_hz: 28000000000.0 # 28.0 GHz Ka-band for feeder & high-capacity links
   speed_of_light_m_s: 300000000.0
   boltzmann_constant: 1.380649e-23
   temperature_system_k: 290.0
@@ -11,49 +12,51 @@ system:
 
 leo_satellite:
   altitude_km: 600.0
-  orbital_velocity_m_s: 7560.0
-  tx_power_dbm: 43.0            # 20 W
-  tx_antenna_gain_dbi: 30.0
-  bandwidth_mhz: 100.0
-  capacity_mbps: 300.0
+  orbital_velocity_m_s: 7562.0  # Keplerian velocity sqrt(mu/r)
+  tx_power_dbm: 43.0            # 20 W RF power per beam
+  tx_antenna_gain_dbi: 34.0     # 3GPP TR 38.811 Table 6.1.1-1 reference phased array gain
+  bandwidth_mhz: 30.0           # 3GPP NTN S-band channel bandwidth
+  capacity_mbps: 150.0
   min_elevation_deg: 10.0
   energy_capacity_wh: 1200.0
 
 haps:
-  altitude_km: 20.0
-  drift_speed_m_s: 2.0
-  tx_power_dbm: 35.0            # 3.16 W
-  tx_antenna_gain_dbi: 20.0
-  bandwidth_mhz: 50.0
+  altitude_km: 20.0             # Stratospheric platform
+  drift_speed_m_s: 2.0          # Station-keeping drift
+  tx_power_dbm: 37.0            # 5 W
+  tx_antenna_gain_dbi: 22.0
+  bandwidth_mhz: 40.0
   capacity_mbps: 150.0
   min_elevation_deg: 5.0
+  coverage_radius_km: 25.0      # Regional coverage radius
   energy_capacity_wh: 800.0
 
 uav:
-  altitude_km: 0.3              # 300 m
+  altitude_km: 0.3              # 300 m tactical altitude
   speed_m_s: 15.0
-  tx_power_dbm: 28.0            # 630 mW
-  tx_antenna_gain_dbi: 10.0
+  tx_power_dbm: 30.0            # 1 W
+  tx_antenna_gain_dbi: 12.0
   bandwidth_mhz: 20.0
   capacity_mbps: 80.0
   min_elevation_deg: 15.0
+  coverage_radius_km: 3.0       # Hotspot coverage radius
   energy_capacity_wh: 300.0
 
 terrestrial_bs:
-  altitude_km: 0.03             # 30 m tower
+  altitude_km: 0.03             # 30 m cell tower
   tx_power_dbm: 43.0            # 20 W
   tx_antenna_gain_dbi: 16.0
-  bandwidth_mhz: 100.0
-  capacity_mbps: 500.0
-  cell_radius_km: 2.5
+  bandwidth_mhz: 50.0
+  capacity_mbps: 300.0
+  cell_radius_km: 2.5           # Standard urban/suburban macro cell radius
   energy_capacity_wh: 5000.0
 
 user_equipment:
-  rx_antenna_gain_dbi: 2.0
-  noise_figure_db: 7.0
+  rx_antenna_gain_dbi: 2.0      # Omni/patch handheld terminal antenna
+  noise_figure_db: 7.0          # 3GPP standard UE noise figure
   default_traffic_type: "URLLC"
   urllc_rate_mbps: 5.0
-  embb_rate_mbps: 25.0
+  embb_rate_mbps: 20.0
 
 channel:
   shadow_fading_std_max_db: 8.0
@@ -76,6 +79,6 @@ orchestration:
     w_resource: 0.15
 
 scenarios:
-  duration_s: 120
+  duration_s: 60
   random_seed: 42
   num_users: 12
