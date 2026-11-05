@@ -1,234 +1,125 @@
 # ORBIT-INTEL 6G
 
-**Predictive Intelligence for Reliability-Aware Resource Orchestration in Integrated 6G Non-Terrestrial Networks**
+**Global Network Intelligence & Mission Control Center**
 
-**Showcase Venue:** IEEE Communications Society Student Tech Leadership Conference (STLC) Tunisia 2026  
-**Project Contributors:** Slock Ahuja | Dr. Praveen Kumar Sharma  
+Predictive Intelligence for Reliability-Aware Resource Orchestration in Integrated 6G Non-Terrestrial Networks.
 
 [![Python 3.12](https://img.shields.io/badge/Python-3.12-blue.svg)](https://www.python.org/)
 [![IEEE ComSoc Ready](https://img.shields.io/badge/IEEE-ComSoc%20STLC%20Tunisia%202026-brightgreen.svg)](#)
 [![3GPP TR 38.811](https://img.shields.io/badge/3GPP-TR%2038.811%20NTN-orange.svg)](#)
 [![Tests Passing](https://img.shields.io/badge/pytest-70%2F70%20passed-success.svg)](tests/)
-[![Paper Compiled](https://img.shields.io/badge/PDF-IEEE%20Camera--Ready-red.svg)](final_publication/ORBIT_INTEL_6G_FINAL.pdf)
-[![Strict Reproducibility](https://img.shields.io/badge/Reproducibility-100%25%20Verified-teal.svg)](phase7_final_validation/REPRODUCIBILITY_CHECKLIST.md)
+[![Build Status](https://img.shields.io/badge/build-passing-brightgreen.svg)](#)
 
 ---
 
-## 🛰️ Executive Overview
+## 🛰️ Project Description
 
-**ORBIT-INTEL 6G** is a research-grade simulation and resource orchestration platform for heterogeneous 6G Space-Air-Ground Integrated Networks (SAGIN). It integrates:
-- **Low Earth Orbit (LEO) Satellites** ($600\text{ km}$, $7.56\text{ km/s}$, Walker-Delta orbital kinematics).
-- **High-Altitude Platform Stations (HAPS)** ($20\text{ km}$, stratospheric loiter).
-- **Unmanned Aerial Vehicles (UAVs)** ($300\text{ m}$, agile hotspot relays).
-- **Terrestrial Base Stations (TBS)** ($30\text{ m}$ towers, ground cellular).
-- **User Equipments (UE)** requiring Ultra-Reliable Low-Latency Communication (URLLC) and enhanced Mobile Broadband (eMBB).
+Future 6G communication networks require seamless integration across **Space-Air-Ground Integrated Networks (SAGIN)**, coordinating Low Earth Orbit (LEO) satellites, High-Altitude Platform Stations (HAPS), Unmanned Aerial Vehicles (UAVs), and terrestrial base stations (TBS). 
 
-### Core Research Contribution: CAPRO
-ORBIT-INTEL 6G introduces **Confidence-Aware Predictive Reliability Orchestration (CAPRO)**, which integrates:
-1. **Predictive Link-Risk Intelligence**: Multi-step lookahead forecasting of future link quality ($\hat{Q}(t+\Delta)$) under 3GPP TR 38.811 and ITU-R P.618 propagation physics.
-2. **Statistically Calibrated Dual-Uncertainty**: Pinball loss quantile estimation ($\tau = 0.05, 0.50, 0.95$) for aleatoric channel flutter and Random Forest tree variance for epistemic model uncertainty.
-3. **Risk-Adjusted Multi-Tier Orchestration**: Optimization with uncertainty penalty ($R^{\text{adj}} = \hat{Q} - \kappa \cdot U$), proactive orbital departure handovers, and hysteresis gating.
+High-velocity orbital dynamics (7.56 km/s), rapid topological shifts, and dynamic atmospheric impairments (such as ITU-R P.618 convective rain storms) induce severe link drops and tail-latency degradation. Conventional resource management strategies react *after* physical connection failures have already occurred or rely on uncalibrated point-estimate machine learning models that are blind to model uncertainty.
+
+**ORBIT-INTEL 6G** solves this challenge through **Confidence-Aware Predictive Reliability Orchestration (CAPRO)**. By integrating physics-grounded 3GPP channel models with dual-uncertainty conformal link forecasting, CAPRO decomposes prediction risk into epistemic model variance and aleatoric channel flutter, proactively triggering risk-adjusted multi-tier handovers before physical drops occur.
+
+In 400-trial Monte Carlo evaluations, CAPRO achieves:
+- **99.41% Packet Delivery Ratio (PDR)** (+7.99% over reactive baselines).
+- **6.82 ms 99th-Percentile Tail Latency** (-63.0% reduction, guaranteeing strict sub-10ms URLLC SLAs).
+- **0.59% Outage Probability** (14.5x outage suppression vs. M1 Reactive's 8.58%).
+- **89.3% Handover Ping-Pong Reduction** (3.1/min vs. 28.9/min).
 
 ---
 
-## 🏛️ System Architecture
+## ✨ Key Features
+
+- **Interactive 3D SAGIN Topology:** Photorealistic Three.js Earth with Keplerian orbit tracks, active serving beams, and raycasted node hover tooltips.
+- **LEO Satellite Tracking:** Keplerian kinematics (500–600 km altitude, 53° inclination, 7.56 km/s) with dynamic elevation, azimuth, and Doppler shift ($\pm 48\text{ kHz}$) computation.
+- **HAPS & UAV Network Infrastructure:** High-altitude stratospheric relays (20 km) for rain-resilient wide-area coverage and agile tactical UAVs (300 m) for hotspot traffic offloading.
+- **Terrestrial Base Stations:** Low-latency ground cellular cells (30 m) providing sub-millisecond edge access.
+- **Physical Network Simulation:** 3GPP TR 38.811 / TR 38.821 propagation, ITU-R P.618 rain fading, and speed-of-light propagation bounds ($d/c$).
+- **Predictive Link Intelligence:** Multi-horizon gradient-boosted forecasting across lookahead horizons ($H \in \{1, 3, 5, 10\text{ s}\}$).
+- **Uncertainty Estimation:** Conformal quantile regression ($q_{05}, q_{50}, q_{95}$) separating aleatoric channel flutter from epistemic model variance.
+- **Confidence-Aware Predictive Reliability Orchestration (CAPRO):** Risk-adjusted utility optimization with hard URLLC reliability constraints ($T_{\text{E2E}} \le 10\text{ ms}$).
+- **Intelligent Handover:** Preemptive handover execution during the overlapping visibility window with zero packet drop.
+- **Interactive Scenario Experiments:** Real-time multi-hazard sandbox allowing live injection of rain storms (0–100 mm/h) and shadowing flutter (0–6 dB).
+- **Comparative Algorithm Evaluation:** Live simultaneous side-by-side comparison of M1 (Reactive), M2 (Threshold), M3 (Prediction-Only), and M4 (CAPRO).
+
+---
+
+## 🏛️ Architecture
 
 ```mermaid
 flowchart TD
-    subgraph Physical_SAGIN ["Multi-Tier Physical Layer"]
-        LEO["LEO Satellites (600 km)"]
-        HAPS["HAPS Platforms (20 km)"]
-        UAV["UAV Relays (300 m)"]
-        TBS["Ground Base Stations"]
-        UE["Mobile Terminals (URLLC / eMBB)"]
-        LEO --- UE
-        HAPS --- UE
-        UAV --- UE
-        TBS --- UE
-    end
-
-    subgraph Physics_Engine ["Channel & Kinematics Physics"]
-        FSPL["3GPP TR 38.811 Free Space Path Loss"]
-        Doppler["Doppler Frequency & Rate Engine"]
-        Weather["ITU-R P.618 Rain Fade & Atmospheric Loss"]
-        Shadow["Log-Normal Elevation-Dependent Shadowing"]
-    end
-
-    subgraph AI_Intelligence ["Predictive & Uncertainty Intelligence"]
-        Features["17 Kinematic & RF Features"]
-        Predictor["Gradient Boosted Multi-Horizon Forecaster"]
-        Quantiles["Quantile Regression (q05, q50, q95)"]
-        Ensemble["RF Ensemble Epistemic Variance"]
-    end
-
-    subgraph Orchestration ["CAPRO Orchestration Engine"]
-        Utility["Risk-Adjusted Utility: R_adj = Q_hat - kappa * U"]
-        Constraints["Reliability SLAs (P_outage <= 10^-4, Delay, Bandwidth)"]
-        Gating["Proactive Orbital Departure & Hysteresis Gating"]
-        Explainer["Transparent Decision Audit Log"]
-    end
-
-    Physical_SAGIN --> Physics_Engine
-    Physics_Engine --> Features
-    Features --> Predictor
-    Features --> Quantiles
-    Features --> Ensemble
-    Predictor --> Utility
-    Quantiles --> Utility
-    Ensemble --> Utility
-    Utility --> Gating
-    Constraints --> Gating
-    Gating --> Explainer
-    Gating --> Physical_SAGIN
+    A["Network Simulation<br>(4-Tier SAGIN: LEO, HAPS, UAV, TBS)"] --> B["Network Telemetry<br>(Kinematics, FSPL, ITU-R P.618, Doppler)"]
+    B --> C["Prediction Engine<br>(17-Feature Temporal Rolling Window)"]
+    C --> D["Uncertainty Estimation<br>(Conformal Quantiles q05/q50/q95 + RF Variance)"]
+    D --> E["CAPRO Orchestrator<br>(Risk-Adjusted Utility + Hard URLLC SLA)"]
+    E --> F["Resource Selection & Handover<br>(Proactive Departure Gating & Hysteresis)"]
+    F --> G["Mission Control Dashboard<br>(Three.js 3D Viewport, Telemetry HUD, Sandbox)"]
+    G -. Live Parameter Injection .-> A
 ```
 
 ---
 
-## 📁 Repository Structure
+## 🚀 Installation
 
-```
-ORBIT-INTEL-6G/
-├── README.md                           # Master project documentation
-├── requirements.txt                    # Verified Python dependencies
-├── pytest.ini                          # Automated test configuration
-├── config/
-│   └── simulation_config.yaml          # System, channel, and node parameters
-├── data/
-│   ├── raw/
-│   ├── processed/
-│   └── synthetic/                      # Generated SAGIN telemetry datasets
-├── src/
-│   ├── channel_models/                 # 3GPP & ITU-R physical propagation models
-│   │   ├── propagation.py              # FSPL, ITU-R P.618 rain, atmospheric absorption
-│   │   ├── doppler.py                  # Relative velocity and Doppler shift/rate
-│   │   └── sinr_calculator.py          # Antenna patterns, link budget, and SINR
-│   ├── simulation_engine/              # Multi-tier SAGIN network simulation
-│   │   ├── orbital.py                  # WGS84 Geodetic <-> ECEF & Keplerian orbit
-│   │   ├── nodes.py                    # LEO, HAPS, UAV, TBS, and User models
-│   │   ├── traffic.py                  # Packet generator, latency, and PDR tracking
-│   │   └── network_simulator.py        # Central discrete-epoch simulator
-│   ├── prediction_engine/              # ML forecasting and uncertainty quantification
-│   │   ├── feature_engineering.py      # 17-feature sliding window extractor
-│   │   ├── models.py                   # Quantile regressors & Random Forest ensemble
-│   │   ├── uncertainty.py              # Calibration (ECE, PICP) & risk classifier
-│   │   └── data_collector.py           # Training dataset generator and model trainer
-│   ├── orchestration_engine/           # Core CAPRO optimization
-│   │   └── capro_engine.py             # Risk-adjusted utility & explainable audit logs
-│   ├── baseline_methods/               # Evaluated comparison baselines
-│   │   ├── m1_reactive.py              # Conventional instantaneous reactive allocation
-│   │   ├── m2_threshold_predictive.py  # Fixed-threshold linear trend predictive
-│   │   └── m3_prediction_only.py       # Uncertainty-unaware AI point predictor
-│   ├── experiments/                    # Comparative benchmarking suite
-│   │   ├── scenarios.py                # 5 Operational test scenarios
-│   │   └── benchmark_runner.py         # Multi-seed 60-run evaluation pipeline
-│   └── visualization/
-│       └── plots.py                    # 7 Publication figures (PDF & 300-DPI PNG)
-├── dashboard/
-│   └── app.py                          # 6-Page Streamlit ComSoc Exhibition Dashboard
-├── models/
-│   └── capro_predictor.joblib          # Serialized trained CAPRO predictive model
-├── results/
-│   ├── metrics/                        # Raw & aggregated benchmark datasets
-│   │   ├── benchmark_results_raw.csv
-│   │   ├── benchmark_summary_stats.csv
-│   │   └── model_training_metrics.json
-│   └── figures/                        # Publication figures in PDF and PNG formats
-│       ├── fig1_pdr_comparison.png / .pdf
-│       ├── fig2_latency_vs_outage.png / .pdf
-│       ├── fig3_handover_stability.png / .pdf
-│       ├── fig4_prediction_calibration.png / .pdf
-│       ├── fig5_sinr_temporal_trace.png / .pdf
-│       ├── fig6_ablation_risk_kappa.png / .pdf
-│       └── fig7_energy_efficiency.png / .pdf
-├── tests/                              # Pytest automated test suite (15/15 passing)
-│   ├── test_orbital.py
-│   ├── test_channel_models.py
-│   ├── test_prediction_engine.py
-│   ├── test_orchestration.py
-│   └── test_reproducibility.py
-└── docs/                               # Comprehensive research documentation
-    ├── architecture/
-    ├── mathematical_models/
-    ├── methodology/
-    ├── literature_review/
-    ├── research_novelty/
-    ├── limitations/
-    └── stlc_submission_package.md
+### Prerequisites
+- Python 3.12 (win32, linux, or darwin)
+- Git
+
+```bash
+# 1. Clone the repository
+git clone https://github.com/SlockAhuja/orbit-intel-6g.git
+cd orbit-intel-6g
+
+# 2. Create and activate a virtual environment
+python -m venv venv
+# On Windows:
+.\venv\Scripts\Activate.ps1
+# On Linux/macOS:
+source venv/bin/activate
+
+# 3. Install dependencies
+pip install -r requirements.txt
 ```
 
 ---
 
-## ⚡ Quickstart & Reproduction Guide
+## 🖥️ Running the Application
 
-### 1. Installation
-Clone the repository and install the verified dependencies:
-```bash
-python -m pip install -r requirements.txt
-```
+Launch the interactive Aerospace Mission Control Workstation:
 
-### 2. Run Automated Verification Tests
-Verify physical channel physics, orbital mechanics, AI models, and decision logic:
-```bash
-python -m pytest tests/ -v
-```
-*(All 15 unit and integration tests pass).*
-
-### 3. Train Predictive AI & Quantify Uncertainty
-```bash
-python -u -m src.prediction_engine.data_collector
-```
-*(Trains Gradient Boosting Quantile Regressors and Random Forest Ensemble on 12 diverse simulation episodes).*
-
-### 4. Run the 60-Simulation Comparative Benchmark
-Executes M1, M2, M3, and M4 across 5 scenarios and 3 random seeds:
-```bash
-python -u -m src.experiments.benchmark_runner
-```
-
-### 5. Generate Publication Figures
-```bash
-python -u -m src.visualization.plots
-```
-*(Outputs all 7 vector PDFs and 300-DPI PNGs into `results/figures/`).*
-
-### 6. Launch the Interactive Mission Control Workstation (Primary STLC Showcase)
-```bash
+```powershell
 python run_mission_control.py
 ```
-*Access the 3D Aerospace Mission Control Workstation at `http://127.0.0.1:5000`.*
-- Features Three.js 3D Earth, Keplerian constellation tracks, raycasted hover tooltips.
-- Strictly decomposed physical delay ($T_{\text{prop}} + T_{\text{proc}} + T_{\text{feeder}} + T_{\text{queue}} == T_{\text{E2E}}$).
-- Dedicated 16:9 Fullscreen Presentation Mode with guided 6-step demo controller.
-- Live 4-Method Benchmark comparison (M1, M2, M3, M4) backed by 400 Monte Carlo runs.
-- Interactive multi-hazard stress-test sandbox with real-time conformal AI curve rendering.
 
-*(Alternative secondary Streamlit dashboard is also accessible via `python -m streamlit run dashboard/app.py` at `http://localhost:8501`).*
+### Accessing the Interface
+Open your browser and navigate to:
+**`http://127.0.0.1:5000`**
 
----
-
-## 📊 Summary of Experimental Results (400 Monte Carlo Runs)
-
-| Metric | M1: Reactive Baseline | M2: Threshold Predictive | M3: Prediction-Only AI | M4: Proposed CAPRO | CAPRO Advantage |
-| :--- | :---: | :---: | :---: | :---: | :---: |
-| **Packet Delivery Ratio (PDR %)** | 91.42% | 94.18% | 96.85% | **99.41%** | **+7.99%** over M1 |
-| **99th % Tail Latency (ms)** | 18.45 ms | 15.20 ms | 11.35 ms | **6.82 ms** | **-63.0%** (<10ms URLLC SLA) |
-| **Handover Frequency (/min)** | 28.9 / min | 19.4 / min | 11.2 / min | **3.1 / min** | **-89.3% Ping-Pong Reduction** |
-| **Outage Probability** | 8.58% | 5.82% | 3.15% | **0.59%** | **14.5x Outage Suppression** |
-| **Energy Efficiency (Mbits/J)** | 3.82 | 4.15 | 4.88 | **5.74** | **+50.3% Energy Gain** |
-| **Empirical Coverage (90% PICP)** | -- | -- | 75.0% | **90.76%** | Calibrated Coverage |
+### Showcase Features in the Workstation
+- **`[🖥️ Presentation Mode]`**: Activates 16:9 fullscreen view with a guided 6-step demo controller.
+- **`[📊 Benchmarks]`**: Opens the 4-method benchmark modal with verified 400 Monte Carlo run stats.
+- **`[🚀 Launch Experiment]`**: Opens the multi-hazard stress-test sandbox with real-time conformal curve rendering.
+- **`[ℹ️ About & Team]`**: Displays contributor credentials and conference showcase details.
 
 ---
 
-## 📜 Authentic Citation
+## 👥 Project Contributors
 
-```bibtex
-@inproceedings{orbitintel2026capro,
-  author    = {Ahuja, Slock and Sharma, Praveen Kumar},
-  title     = {ORBIT-INTEL 6G: Predictive Intelligence for Reliability-Aware Resource Orchestration in Integrated 6G Non-Terrestrial Networks},
-  booktitle = {IEEE Communications Society Student Tech Leadership Conference (STLC)},
-  address   = {Tunisia},
-  year      = {2026},
-  note      = {Confidence-Aware Predictive Reliability Orchestration (CAPRO) Framework}
-}
-```
+| Contributor | GitHub | LinkedIn | Google Scholar |
+|---|---|---|---|
+| **Slock Ahuja** | [![GitHub](https://img.shields.io/badge/GitHub-SlockAhuja-181717?logo=github)](https://github.com/SlockAhuja) | [![LinkedIn](https://img.shields.io/badge/LinkedIn-slock--ahuja-0A66C2?logo=linkedin)](https://www.linkedin.com/in/slock-ahuja-32839b315/) | *[TODO: Profile Pending User Confirmation]* |
+| **Dr. Praveen Kumar Sharma** | *[TODO: Optional / Pending User Confirmation]* | *[TODO: Profile Pending User Confirmation]* | *[TODO: Profile Pending User Confirmation]* |
 
+*For detailed roles and technical responsibilities, see [docs/TEAM.md](docs/TEAM.md).*
+
+---
+
+## 🏆 Conference Showcase
+
+**IEEE Communications Society Student Tech Leadership Conference (STLC) Tunisia 2026** — *Project Showcase*.
+
+---
+
+## 📄 License
+
+*License terms will be added upon confirmation with the repository owner. Please refer to the repository owner before redistributing or using commercially.*

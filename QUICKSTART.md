@@ -3,7 +3,7 @@
 **Project:** ORBIT-INTEL 6G: Predictive Intelligence for Reliability-Aware Resource Orchestration in Integrated 6G Non-Terrestrial Networks  
 **Contributors:** Slock Ahuja | Dr. Praveen Kumar Sharma  
 **Target:** IEEE Communications Society Student Tech Leadership Conference (STLC) Tunisia 2026  
-**Current Branch:** `stlc_showcase_final_polish`  
+**Default Branch:** `main`  
 
 ---
 

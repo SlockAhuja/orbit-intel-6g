@@ -1,9 +1,10 @@
+# Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
 *$py.class
 *.so
-.Python
-env/
+
+# C extension builds
 build/
 develop-eggs/
 dist/
@@ -19,9 +20,42 @@ wheels/
 *.egg-info/
 .installed.cfg
 *.egg
+
+# Virtual environments
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+.venv/
+
+# Testing & Coverage
 .pytest_cache/
 .coverage
 htmlcov/
-.streamlit/
-*.log
+.tox/
+.nox/
 
+# Streamlit, IDEs, and OS artifacts
+.streamlit/
+.idea/
+.vscode/
+*.swp
+*.swo
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Logs, scratch scripts, and temporary runtime output
+*.log
+scratch/
+temp/
+tmp/
+
+# LaTeX intermediate build artifacts
+*.aux
+*.bbl
+*.blg
+*.out
+*.toc
+*.synctex.gz

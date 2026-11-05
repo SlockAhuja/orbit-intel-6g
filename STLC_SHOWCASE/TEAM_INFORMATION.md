@@ -40,3 +40,4 @@ The project identity is prominently integrated into every user-facing layer:
 - **"About the Project & Team" Modal (`#about-modal-backdrop`):** Interactive modal presenting the project's background, contributors, core innovation, and conference venue.
 - **REST API Endpoint (`/api/team`):** Machine-readable endpoint returning exact contributor names and conference metadata.
 - **Automated Regression Suite (`tests/test_mission_control_web.py`):** Verified by `test_team_attribution_endpoint` ensuring persistent attribution integrity.
+
