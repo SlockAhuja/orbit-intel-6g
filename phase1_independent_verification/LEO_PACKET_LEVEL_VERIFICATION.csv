@@ -1,0 +1,13 @@
+User_ID,Cohort,Service_Type,Distance_To_Center_km,Visible_Nodes,Active_Serving_Nodes,Primary_Tier,Total_Packets_Gen,Packets_Tx_LEO,Packets_Rx_LEO,Packets_Tx_Other,Packets_Rx_Other,LEO_PDR_Percent,LEO_Throughput_Mbps,LEO_Mean_Latency_ms,LEO_Handovers,Genuinely_Served_By_LEO
+UE-01,Urban,URLLC,1.25,HAPS-01; SAT-01; TBS-01; TBS-02,HAPS-01; TBS-01,HAPS,600,0,0,600,597,0.0,0.0,0.0,0,False
+UE-02,Urban,eMBB,0.4,HAPS-01; SAT-01; TBS-01; TBS-02,TBS-01,TBS,600,0,0,600,600,0.0,0.0,0.0,0,False
+UE-03,Urban,URLLC,1.6,HAPS-01; SAT-01; TBS-01; TBS-02,TBS-02,TBS,600,0,0,600,600,0.0,0.0,0.0,0,False
+UE-04,Suburban,URLLC,7.42,HAPS-01; SAT-01; UAV-01,HAPS-01; UAV-01,UAV,600,0,0,600,595,0.0,0.0,0.0,0,False
+UE-05,Suburban,eMBB,7.38,HAPS-01; SAT-01; UAV-01,HAPS-01; UAV-01,HAPS,600,0,0,600,591,0.0,0.0,0.0,0,False
+UE-06,Suburban,eMBB,9.77,HAPS-01; SAT-01,HAPS-01,HAPS,600,0,0,600,600,0.0,0.0,0.0,0,False
+UE-07,Remote/Rural,URLLC,35.42,SAT-01,SAT-01,LEO,600,600,0,0,0,0.0,0.0,12.05,0,False
+UE-08,Remote/Rural,eMBB,44.9,SAT-01,SAT-01,LEO,600,600,423,0,0,70.5,0.085,12.22,0,True
+UE-09,Remote/Rural,eMBB,31.91,SAT-01,SAT-01,LEO,600,600,458,0,0,76.33,0.092,12.53,0,True
+UE-10,Maritime/Offshore,URLLC,117.13,SAT-01,SAT-01,LEO,600,600,0,0,0,0.0,0.0,12.0,0,False
+UE-11,Maritime/Offshore,eMBB,135.19,SAT-01,SAT-01,LEO,600,600,469,0,0,78.17,0.094,12.17,0,True
+UE-12,Maritime/Offshore,URLLC,114.85,SAT-01,SAT-01,LEO,600,600,0,0,0,0.0,0.0,11.72,0,False

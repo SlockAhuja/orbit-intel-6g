@@ -1,0 +1,7 @@
+User_ID,Node_ID,Tier,Slant_Distance_km,Allocated_Rate_Mbps,Reported_T_prop_ms,Recalculated_T_prop_ms,Diff_T_prop_ms,Recalculated_T_trans_ms,Recalculated_T_queue_ms,Recalculated_T_proc_ms,Recalculated_T_feeder_ms,Feeder_Type,Reported_T_e2e_ms,Recalculated_T_e2e_ms,Diff_T_e2e_ms,Reported_T_rtt_ms,Recalculated_T_rtt_ms,Diff_T_rtt_ms,Physical_Min_Prop_ms,Violates_Speed_Of_Light
+UE-01,TBS-01,TBS,0.76,50.0,0.0025,0.0025,3.3e-05,0.24,0.7692,0.3,0.1,Terrestrial/Air Backhaul,1.4118,1.4118,3.6e-05,1.7543,1.7543,3e-06,0.0025,False
+UE-04,UAV-01,UAV,1.25,30.0,0.0042,0.0042,3.3e-05,0.4,0.7692,0.8,0.1,Terrestrial/Air Backhaul,2.0734,2.0734,3e-06,2.5776,2.5776,3.6e-05,0.0042,False
+UE-07,HAPS-01,HAPS,23.5,40.0,0.0783,0.0783,3.3e-05,0.3,0.7692,1.2,0.5,Terrestrial/Air Backhaul,2.8476,2.8476,3.6e-05,3.7259,3.7259,3e-06,0.0784,False
+UE-07,SAT-01,LEO,780.0,50.0,2.6,2.6,0.0,0.24,0.7692,2.5,3.2,Configured Representative Constant,9.3092,9.3092,3.1e-05,15.3492,15.3492,3.1e-05,2.6018,True
+UE-10,SAT-01,LEO,920.0,50.0,3.0667,3.0667,3.3e-05,0.24,0.7692,2.5,3.2,Configured Representative Constant,9.7759,9.7759,3e-06,16.2826,16.2826,3.6e-05,3.0688,True
+UE-10,SAT-02,LEO,1450.0,50.0,4.8333,4.8333,3.3e-05,0.24,0.7692,2.5,3.2,Configured Representative Constant,11.5426,11.5426,3.6e-05,19.8159,19.8159,3e-06,4.8367,True
