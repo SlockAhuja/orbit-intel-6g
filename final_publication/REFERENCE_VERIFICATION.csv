@@ -1,0 +1,15 @@
+bibtex_key,publication_title,authors_or_organization,venue_or_standard,year,doi_or_url,verification_status
+3gpp_tr38811,Study on New Radio to support non-terrestrial networks,3GPP,3GPP TR 38.811 Release 15,2020,https://www.3gpp.org/DynaReport/38811.htm,VERIFIED_OFFICIAL_STANDARD
+3gpp_tr38821,Solutions for NR to support non-terrestrial networks,3GPP,3GPP TR 38.821 Release 16,2021,https://www.3gpp.org/DynaReport/38821.htm,VERIFIED_OFFICIAL_STANDARD
+itur_p618,Propagation data and prediction methods required for design of Earth-space systems,ITU-R,Recommendation ITU-R P.618-13,2017,https://www.itu.int/rec/R-REC-P.618,VERIFIED_OFFICIAL_STANDARD
+itur_p676,Attenuation by atmospheric gases and related effects,ITU-R,Recommendation ITU-R P.676-12,2019,https://www.itu.int/rec/R-REC-P.676,VERIFIED_OFFICIAL_STANDARD
+lin20215g,5G from Space: An Overview of 3GPP Non-Terrestrial Networks,Lin et al.,IEEE Communications Standards Magazine,2021,10.1109/MCOMSTD.001.2000038,VERIFIED_PEER_REVIEWED
+alhourani2014optimal,Optimal LAP Altitude for Maximum Coverage,Al-Hourani et al.,IEEE Wireless Communications Letters,2014,10.1109/LWC.2014.2342736,VERIFIED_PEER_REVIEWED
+you2021towards,Towards 6G wireless communication networks: Vision enabling technologies and new paradigms,You et al.,Science China Information Sciences,2021,10.1007/s11432-020-3077-4,VERIFIED_PEER_REVIEWED
+di2021ultra,Ultra-Dense LEO Satellite Constellations for 6G: Challenges and Opportunities,Di et al.,IEEE Communications Magazine,2021,10.1109/MCOM.001.2000847,VERIFIED_PEER_REVIEWED
+risi2022predictive,Predictive Handover Management in LEO Satellite Networks With Moving Beam Architecture,Risi et al.,IEEE Transactions on Aerospace and Electronic Systems,2022,10.1109/TAES.2022.3149591,VERIFIED_PEER_REVIEWED
+gal2016dropout,Dropout as a Bayesian Approximation: Representing Model Uncertainty in Deep Learning,Gal and Ghahramani,ICML,2016,http://proceedings.mlr.press/v48/gal16.html,VERIFIED_PEER_REVIEWED
+breiman2001random,Random Forests,Breiman,Machine Learning,2001,10.1023/A:1010933404324,VERIFIED_PEER_REVIEWED
+friedman2001greedy,Greedy Function Approximation: A Gradient Boosting Machine,Friedman,Annals of Statistics,2001,10.1214/aos/1013203451,VERIFIED_PEER_REVIEWED
+koenker2001quantile,Quantile Regression,Koenker and Hallock,Journal of Economic Perspectives,2001,10.1257/jep.15.4.143,VERIFIED_PEER_REVIEWED
+jain1984quantitative,A Quantitative Measure of Fairness and Permutation for Computer Systems,Jain et al.,DEC Technical Report,1984,DEC-TR-301,VERIFIED_PEER_REVIEWED

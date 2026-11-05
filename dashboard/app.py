@@ -76,8 +76,14 @@ def load_predictor():
 
 @st.cache_data
 def load_benchmark_data():
-    raw_path = PROJECT_ROOT / "results" / "metrics" / "benchmark_results_raw.csv"
-    summary_path = PROJECT_ROOT / "results" / "metrics" / "benchmark_summary_stats.csv"
+    p4_raw = PROJECT_ROOT / "phase4_benchmarking" / "RAW_BENCHMARK_RESULTS.csv"
+    p4_summary = PROJECT_ROOT / "phase4_benchmarking" / "BENCHMARK_METRICS_BY_METHOD.csv"
+    legacy_raw = PROJECT_ROOT / "results" / "metrics" / "benchmark_results_raw.csv"
+    legacy_summary = PROJECT_ROOT / "results" / "metrics" / "benchmark_summary_stats.csv"
+
+    raw_path = p4_raw if p4_raw.exists() else legacy_raw
+    summary_path = p4_summary if p4_summary.exists() else legacy_summary
+
     raw_df = pd.read_csv(raw_path) if raw_path.exists() else None
     summary_df = pd.read_csv(summary_path) if summary_path.exists() else None
     return raw_df, summary_df

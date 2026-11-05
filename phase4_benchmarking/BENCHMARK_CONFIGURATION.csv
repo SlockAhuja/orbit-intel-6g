@@ -1,0 +1,12 @@
+parameter,value
+Total_Monte_Carlo_Runs,400
+Runs_Per_Method,100
+Distinct_Seeds_Per_Scenario,20
+Seed_Range,101 to 120
+Scenarios_Covered,Scenarios 1 through 5
+Duration_Per_Episode_s,60
+Active_Users_Per_Episode,12
+Heterogeneous_Tiers,"LEO, HAPS, UAV, TBS"
+Hysteresis_Margin_Delta_J,0.08
+Orbital_Buffer_Margin_s,12.0
+Outage_Threshold_dB,3.0

@@ -1,0 +1,8 @@
+paper_element_id,element_type,caption_or_title,source_csv_file,data_columns_used,verification_status
+Table I,Table,Comprehensive Performance Comparison across 400 Monte Carlo Evaluation Runs,phase4_benchmarking/BENCHMARK_METRICS_BY_METHOD.csv,"pdr_percent_mean, mean_latency_ms_mean, p95_latency_ms_mean, outage_prob_mean, sla_violation_urllc_percent_mean, handover_frequency_per_min_mean",VERIFIED_EMPIRICAL
+Table II,Table,CAPRO Controlled Ablation Study (175 Runs across 5 Scenarios),phase5_robustness/ROBUSTNESS_METRICS.csv,"pdr_percent_mean, outage_prob_mean, sla_violation_urllc_percent_mean, handover_count_mean",VERIFIED_EMPIRICAL
+Equation 1,Formula,Disaggregated Path Loss Computation,src/channel_models/propagation.py,"FSPL, A_gas, A_rain, chi_sigma",VERIFIED_PHYSICAL
+Equation 2,Formula,ITU-R P.618 Rain Attenuation,src/channel_models/propagation.py,"gamma_R, L_eff, k, alpha",VERIFIED_PHYSICAL
+Equation 8,Formula,Hard Feasibility Constraint Filter F_u(t),src/orchestration_engine/capro_engine.py,"q_05 >= 3.0 dB, L <= L_max, T_vis >= 12s",VERIFIED_FORMULATION
+Equation 9,Formula,Dimensionless Multi-Attribute Utility Function J_u,src/orchestration_engine/capro_engine.py,"U_link, U_lat, U_cap, C_ho, C_risk",VERIFIED_FORMULATION
+Equation 15,Formula,Hysteresis Anti-Ping-Pong Gating,src/orchestration_engine/capro_engine.py,"Delta_hyst = 0.08",VERIFIED_FORMULATION

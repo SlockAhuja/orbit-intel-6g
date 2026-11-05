@@ -3,10 +3,11 @@
 **Predictive Intelligence for Reliability-Aware Resource Orchestration in Integrated 6G Non-Terrestrial Networks**
 
 [![Python 3.12](https://img.shields.io/badge/Python-3.12-blue.svg)](https://www.python.org/)
-[![IEEE ComSoc Ready](https://img.shields.io/badge/IEEE-ComSoc%20Ready-brightgreen.svg)](#)
+[![IEEE ComSoc Ready](https://img.shields.io/badge/IEEE-ComSoc%20STLC%20Tunisia%202026-brightgreen.svg)](#)
 [![3GPP TR 38.811](https://img.shields.io/badge/3GPP-TR%2038.811%20NTN-orange.svg)](#)
-[![Tests Passing](https://img.shields.io/badge/pytest-15%2F15%20passed-success.svg)](file:///tests/)
-[![Strict Reproducibility](https://img.shields.io/badge/Reproducibility-Verified-teal.svg)](file:///results/)
+[![Tests Passing](https://img.shields.io/badge/pytest-39%2F39%20passed-success.svg)](tests/)
+[![Paper Compiled](https://img.shields.io/badge/PDF-IEEE%20Camera--Ready-red.svg)](final_publication/ORBIT_INTEL_6G_FINAL.pdf)
+[![Strict Reproducibility](https://img.shields.io/badge/Reproducibility-100%25%20Verified-teal.svg)](phase7_final_validation/REPRODUCIBILITY_CHECKLIST.md)
 
 ---
 
