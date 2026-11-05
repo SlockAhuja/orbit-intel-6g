@@ -1,3 +1,0 @@
-detector_type,true_positives,false_positives,true_negatives,false_negatives,total_samples,precision,recall,specificity,false_alarm_rate,f1_score,missed_outage_rate
-Point_Forecast_Median_Threshold,452,106,4593,1002,6153,0.8100358422939068,0.3108665749656121,0.977442008938072,0.02255799106192807,0.44930417495029823,0.6891334250343879
-CAPRO_Risk_Lower_Bound_Threshold,1454,2431,2268,0,6153,0.37425997425997426,1.0,0.4826558842306874,0.5173441157693126,0.5446712867578198,0.0

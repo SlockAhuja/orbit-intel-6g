@@ -125,3 +125,4 @@ Use the floating presentation toolbar at the bottom of the screen (`1. Overview`
     4. **Handover Ping-Pong Frequency:** Reduced by **89.3%** (3.1/min vs. 28.9/min).
 * **Key Message:**
   - *"These results demonstrate that confidence-aware predictive intelligence is not an incremental improvement—it is an essential requirement for reliable 6G non-terrestrial networking."*
+

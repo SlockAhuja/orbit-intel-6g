@@ -133,3 +133,4 @@ $$\max_{j \in \mathcal{C}_{\text{feasible}}} J_j(t) = w_{\text{sinr}} \cdot \til
 3. **Orbital Departure Buffer:** $T_{\text{vis}, j}(t) > T_{\text{HO\_margin}} = 12.0\text{ s}$.
 
 If candidate $j$ violates any hard constraint, it is strictly eliminated from selection, preventing link drops and avoiding ping-pong handovers.
+

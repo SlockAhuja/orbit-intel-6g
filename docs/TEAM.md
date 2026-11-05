@@ -40,3 +40,4 @@ The two-person project identity is reflected uniformly across all project interf
 - **Interactive About Modal:** Accessible via the `[ℹ️ About & Team]` button on the web workstation.
 - **API Endpoint:** Machine-readable contributor metadata at `/api/team`.
 - **Automated Tests:** Verified via `test_team_attribution_endpoint` in `tests/test_mission_control_web.py`.
+
