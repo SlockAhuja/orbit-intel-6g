@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ORBIT-INTEL 6G | Global Network Intelligence & Mission Control Center</title>
+    <link rel="stylesheet" href="/static/css/mission_control.css">
+    <!-- Local Three.js and Chart.js Libraries -->
+    <script src="/static/js/three.min.js"></script>
+    <script src="/static/js/OrbitControls.js"></script>
+    <script src="/static/js/chart.min.js"></script>
+</head>
+<body>
+
+    <!-- ======================================================================
+         TOP NAVIGATION HEADER
+         ====================================================================== -->
+    <header class="top-header">
+        <div class="brand-section">
+            <div class="brand-logo-icon">🛰️</div>
+            <div class="brand-text">ORBIT-INTEL <span>6G</span></div>
+            <div class="status-indicator-pill">
+                <span class="pulse-dot"></span>
+                <span>MISSION CONTROL ONLINE</span>
+            </div>
+            <div class="badge-crumb" style="border-color:#00e5ff; color:#00e5ff;">
+                MODE: <b>LIVE SIMULATION</b>
+            </div>
+        </div>
+
+        <div class="mission-breadcrumbs">
+            <div class="badge-crumb">SCENARIO: <b id="top-scenario-badge">1: Normal_Conditions</b></div>
+            <div class="badge-crumb">EPOCH: <b id="top-epoch-text">T+00s</b></div>
+            <div class="badge-crumb">SLA: <b style="color:#00e676;">URLLC GUARANTEED (&lt;10ms)</b></div>
+            <div class="badge-crumb" id="top-utc-clock">09:50:00 UTC</div>
+        </div>
+
+        <div class="header-actions">
+            <button class="btn-launch-exp" onclick="openExperimentModal()">
+                <span>🚀</span> LAUNCH INTERACTIVE EXPERIMENT
+            </button>
+            <button class="btn-icon-action" onclick="stepSimulation(1)">▶️ Step 1s</button>
+            <button class="btn-icon-action" onclick="stepSimulation(5)">⏩ Advance 5s</button>
+            <button class="btn-icon-action" onclick="resetSimulation()">🔄 Reset</button>
+
+            <div class="user-profile">
+                <div class="user-avatar">SA</div>
+                <div class="user-info">
+                    <div class="user-name">Dr. Slock Ahuja</div>
+                    <div class="user-role">Lead NTN Architect</div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- ======================================================================
+         MAIN WORKSPACE GRID
+         ====================================================================== -->
+    <main class="main-workspace">
+
+        <!-- LEFT NARROW SIDEBAR -->
+        <aside class="sidebar-nav">
+            <div class="nav-item-list">
+                <button class="nav-btn active" title="Mission Control (Main 3D Overview)">🛰️</button>
+                <button class="nav-btn" onclick="selectEntity('SAT-01')" title="LEO Satellite 01">🛰</button>
+                <button class="nav-btn" onclick="selectEntity('SAT-02')" title="LEO Satellite 02">🛸</button>
+                <button class="nav-btn" onclick="selectEntity('HAPS-01')" title="HAPS Stratospheric Relay">🎈</button>
+                <button class="nav-btn" onclick="selectEntity('UAV-01')" title="UAV Tactical Node">✈️</button>
+                <button class="nav-btn" onclick="selectEntity('TBS-01')" title="Terrestrial Base Station">🗼</button>
+                <button class="nav-btn" onclick="openExperimentModal()" title="Scenario & Hazard Sandbox">🎛️</button>
+            </div>
+
+            <div class="sidebar-bottom">
+                <div class="mini-network-indicator">
+                    ● LINKED<br>
+                    <span style="font-size:8px; color:#64748b;">4-TIER NTN</span>
+                </div>
+            </div>
+        </aside>
+
+        <!-- CENTER 3D EARTH VIEWPORT -->
+        <section class="center-viewport">
+            <!-- Three.js Canvas Container -->
+            <div id="globe-canvas-container"></div>
+
+            <!-- Inset HUD Telemetry Card Floating in Viewport -->
+            <div class="hud-sat-info">
+                <div class="hud-sat-header">
+                    <span id="hud-entity-name">SAT-01 [Primary LEO Satellite]</span>
+                    <span class="hud-sat-badge">OPERATIONAL</span>
+                </div>
+                <div style="display:grid; grid-template-columns: 1fr 1fr; gap:6px; color:#cbd5e1;">
+                    <div>Altitude: <b id="hud-alt-val" style="color:#00e5ff;">600.0 km</b></div>
+                    <div>Velocity: <b id="hud-vel-val" style="color:#00e5ff;">7.56 km/s</b></div>
+                    <div>Latitude: <b id="hud-lat-val">12.63° N</b></div>
+                    <div>Longitude: <b id="hud-lon-val">45.21° E</b></div>
+                </div>
+            </div>
+
+            <!-- Viewport Controls -->
+            <div class="viewport-controls">
+                <button class="control-btn" id="btn-zoom-in" title="Zoom In">+</button>
+                <button class="control-btn" id="btn-zoom-out" title="Zoom Out">-</button>
+                <button class="control-btn" id="btn-reset-cam" title="Reset Camera">🌐</button>
+            </div>
+
+            <!-- Mini 2D Ground-Track Map Inset -->
+            <div class="ground-track-inset">
+                <div class="ground-track-header">
+                    <span>GROUND TRACK</span>
+                    <span style="color:#00e5ff;">ORBITAL S-BAND</span>
+                </div>
+                <canvas id="ground-track-canvas"></canvas>
+            </div>
+        </section>
+
+        <!-- RIGHT TELEMETRY PANEL -->
+        <aside class="right-panel">
+            <div class="telemetry-tabs">
+                <button class="tab-btn active" data-tab="telemetry">Telemetry</button>
+                <button class="tab-btn" data-tab="qos">Link QoS</button>
+                <button class="tab-btn" data-tab="fleet">Fleet</button>
+                <button class="tab-btn" data-tab="ai">AI & CAPRO</button>
+            </div>
+
+            <div class="telemetry-content">
+                <!-- TAB 1: ORBITAL TELEMETRY -->
+                <div class="tab-pane" id="tab-pane-telemetry" style="display:flex; flex-direction:column; gap:12px;">
+                    <div>
+                        <div class="metric-section-title">Orbital Kinematics</div>
+                        <div class="metric-row"><span class="label">Altitude (mean)</span><span class="val cyan" id="telem-alt">600.0 km</span></div>
+                        <div class="metric-row"><span class="label">Velocity (Keplerian)</span><span class="val cyan" id="telem-vel">7.56 km/s</span></div>
+                        <div class="metric-row"><span class="label">Inclination</span><span class="val" id="telem-incl">53.0°</span></div>
+                        <div class="metric-row"><span class="label">Slant Range</span><span class="val" id="telem-slant">712.4 km</span></div>
+                        <div class="metric-row"><span class="label">Elevation Angle</span><span class="val green" id="telem-elev">24.8°</span></div>
+                        <div class="metric-row"><span class="label">Doppler Shift</span><span class="val amber" id="telem-dop">+18.42 kHz</span></div>
+                        <div class="metric-row"><span class="label">Remaining Visibility</span><span class="val green" id="telem-vis">284 s (LoS OK)</span></div>
+                    </div>
+
+                    <div>
+                        <div class="metric-section-title">Subsystem Health</div>
+                        <div class="subsystem-grid">
+                            <div class="subsystem-box"><div class="subsystem-name">POWER</div><div class="subsystem-status">98% NOMINAL</div></div>
+                            <div class="subsystem-box"><div class="subsystem-name">THERMAL</div><div class="subsystem-status">NOMINAL</div></div>
+                            <div class="subsystem-box"><div class="subsystem-name">COMMS</div><div class="subsystem-status">LOCKED</div></div>
+                            <div class="subsystem-box"><div class="subsystem-name">AOCS</div><div class="subsystem-status">NOMINAL</div></div>
+                            <div class="subsystem-box"><div class="subsystem-name">PAYLOAD</div><div class="subsystem-status">ACTIVE</div></div>
+                            <div class="subsystem-box"><div class="subsystem-name">OBC</div><div class="subsystem-status">NOMINAL</div></div>
+                        </div>
+                    </div>
+
+                    <div>
+                        <div class="metric-section-title">Attitude & Communication</div>
+                        <div class="metric-row"><span class="label">Uplink Carrier</span><span class="val">8.402 GHz [LOCKED]</span></div>
+                        <div class="metric-row"><span class="label">Downlink Carrier</span><span class="val">8.256 GHz [LOCKED]</span></div>
+                        <div class="metric-row"><span class="label">Signal C/N₀</span><span class="val green">45.2 dB-Hz</span></div>
+                        <div class="metric-row"><span class="label">Load Utilization</span><span class="val cyan" id="telem-load">45.0%</span></div>
+                    </div>
+                </div>
+
+                <!-- TAB 2: LINK QOS -->
+                <div class="tab-pane" id="tab-pane-qos" style="display:none; flex-direction:column; gap:12px;">
+                    <div>
+                        <div class="metric-section-title">Radio Link Quality</div>
+                        <div class="metric-row"><span class="label">Instantaneous SINR</span><span class="val green" id="qos-sinr">16.4 dB</span></div>
+                        <div class="metric-row"><span class="label">Outage Margin</span><span class="val green">+13.4 dB (Safe)</span></div>
+                        <div class="metric-row"><span class="label">Total Path Loss</span><span class="val" id="qos-fspl">158.4 dB</span></div>
+                    </div>
+
+                    <div>
+                        <div class="metric-section-title">Decomposed Physical Delay</div>
+                        <div class="metric-row"><span class="label">1. Speed-of-Light Prop</span><span class="val" id="qos-prop-delay">2.37 ms</span></div>
+                        <div class="metric-row"><span class="label">2. Access Processing</span><span class="val">2.50 ms</span></div>
+                        <div class="metric-row"><span class="label">3. Feeder Backhaul</span><span class="val">3.20 ms</span></div>
+                        <div class="metric-row"><span class="label">4. Total End-to-End</span><span class="val cyan" id="qos-total-lat">8.42 ms</span></div>
+                        <div class="metric-row"><span class="label">URLLC SLA Compliance</span><span class="val green" id="qos-sla">✅ PASS (&lt;10ms)</span></div>
+                    </div>
+                </div>
+
+                <!-- TAB 3: FLEET RESOURCES -->
+                <div class="tab-pane" id="tab-pane-fleet" style="display:none; flex-direction:column; gap:12px;">
+                    <div>
+                        <div class="metric-section-title">4-Tier Constellation Fleet</div>
+                        <div class="metric-row"><span class="label">LEO Space Tier</span><span class="val cyan">2 Active (600 km)</span></div>
+                        <div class="metric-row"><span class="label">HAPS Stratosphere</span><span class="val amber">1 Relay (20 km)</span></div>
+                        <div class="metric-row"><span class="label">UAV Tactical Tier</span><span class="val" style="color:#ff9100;">1 Loiter (300 m)</span></div>
+                        <div class="metric-row"><span class="label">Terrestrial Ground</span><span class="val green">3 Cells (30 m)</span></div>
+                        <div class="metric-row"><span class="label">Connected Terminals</span><span class="val">12 Mobile UEs</span></div>
+                    </div>
+                </div>
+
+                <!-- TAB 4: AI & CAPRO INTELLIGENCE -->
+                <div class="tab-pane" id="tab-pane-ai" style="display:none; flex-direction:column; gap:12px;">
+                    <div>
+                        <div class="metric-section-title">Dual-Uncertainty Link Forecast</div>
+                        <div class="metric-row"><span class="label">Predicted Median SINR</span><span class="val green" id="ai-pred-sinr">15.82 dB</span></div>
+                        <div class="metric-row"><span class="label">Conformal Lower Bound (q_05)</span><span class="val cyan" id="ai-qlow">13.20 dB</span></div>
+                        <div class="metric-row"><span class="label">Conformal Upper Bound (q_95)</span><span class="val cyan" id="ai-qupp">18.45 dB</span></div>
+                        <div class="metric-row"><span class="label">Aleatoric Flutter Width</span><span class="val" id="ai-aleatoric">3.80 dB</span></div>
+                        <div class="metric-row"><span class="label">Epistemic Uncertainty (σ_RF)</span><span class="val" id="ai-epistemic">0.92 dB</span></div>
+                        <div id="ai-hazard-pill" style="margin-top:8px; padding:6px; border-radius:4px; font-size:11px; text-align:center; font-weight:700; background:rgba(0,230,118,0.15); color:#00e676; border:1px solid #00e676;">
+                            ✅ CHANNEL STABLE (q_05 &gt; 3.0 dB)
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </aside>
+
+        <!-- BOTTOM OPERATIONAL PANEL ROW -->
+        <footer class="bottom-panel-row">
+            <!-- Panel A: Satellite Passes & Handover -->
+            <div class="bottom-subpanel">
+                <div class="subpanel-header">
+                    <span>UPCOMING PASSES & HANDOVER</span>
+                    <span style="font-size:9px; color:#94a3b8;">NEXT 24H</span>
+                </div>
+                <table class="passes-table">
+                    <thead>
+                        <tr>
+                            <th>NODE</th>
+                            <th>AOS (UTC)</th>
+                            <th>DUR</th>
+                            <th>MAX EL</th>
+                            <th>STATUS</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>SAT-01</td><td>09:50:00</td><td>10m 43s</td><td>78.3°</td><td><span class="pass-status-pill">ACTIVE</span></td></tr>
+                        <tr><td>SAT-02</td><td>10:12:00</td><td>11m 38s</td><td>64.7°</td><td><span class="pass-status-pill" style="border-color:#ffd600; color:#ffd600;">RISING</span></td></tr>
+                        <tr><td>HAPS-01</td><td>CONTINUOUS</td><td>24h 00m</td><td>88.1°</td><td><span class="pass-status-pill">STANDBY</span></td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Panel B: Tactical Ground Imagery & Sector Coverage -->
+            <div class="bottom-subpanel">
+                <div class="subpanel-header">
+                    <span>TACTICAL GROUND COVERAGE</span>
+                    <span style="font-size:9px; color:#00e5ff;">SECTOR 4-B</span>
+                </div>
+                <div class="ground-imagery-frame">
+                    <img src="/static/assets/ground_imagery.jpg" class="ground-imagery-img" alt="Tactical Sector">
+                    <div class="radar-sweep-overlay"></div>
+                </div>
+            </div>
+
+            <!-- Panel C: Mission Status & Pipeline Timeline -->
+            <div class="bottom-subpanel">
+                <div class="subpanel-header">
+                    <span>MISSION PIPELINE STATUS</span>
+                    <span style="color:#00e676;">ALL NOMINAL</span>
+                </div>
+                <div class="timeline-stages">
+                    <div class="timeline-step"><span class="step-check">✓</span><span>1. Constellation Astrodynamics</span></div>
+                    <div class="timeline-step"><span class="step-check">✓</span><span>2. 3GPP/ITU-R Channel Propagation</span></div>
+                    <div class="timeline-step"><span class="step-check active">●</span><span style="color:#00e5ff;">3. Dual-Uncertainty AI Forecast</span></div>
+                    <div class="timeline-step"><span class="step-check">✓</span><span>4. CAPRO Reliability Allocation</span></div>
+                </div>
+            </div>
+
+            <!-- Panel D: Real-Time Event Log -->
+            <div class="bottom-subpanel">
+                <div class="subpanel-header">
+                    <span>REAL-TIME EVENT LOG</span>
+                    <span style="font-size:9px; color:#94a3b8;">LIVE STREAM</span>
+                </div>
+                <div class="event-log-container" id="event-log-list">
+                    <!-- Dynamic entries appended here -->
+                </div>
+            </div>
+        </footer>
+
+    </main>
+
+    <!-- ======================================================================
+         INTERACTIVE EXPERIMENT MODAL WORKSPACE
+         ====================================================================== -->
+    <div class="modal-backdrop" id="experiment-modal-backdrop">
+        <div class="experiment-modal">
+            <div class="modal-header">
+                <div class="modal-title">
+                    <span>🎛️</span> INTERACTIVE EXPERIMENT & STRESS-TEST SANDBOX
+                </div>
+                <button class="modal-close-btn" onclick="closeExperimentModal()">✕</button>
+            </div>
+
+            <div class="modal-body">
+                <!-- Control Sliders Row -->
+                <div class="modal-controls-row">
+                    <div class="modal-field">
+                        <label>Operational Scenario</label>
+                        <select class="modal-select" id="exp-scenario-select" onchange="runExperimentEvaluation()">
+                            <option value="1">1: Normal Conditions</option>
+                            <option value="2">2: High Congestion Surge</option>
+                            <option value="3">3: Sudden Rain Degradation</option>
+                            <option value="4">4: Satellite Handover Replay</option>
+                            <option value="5">5: High Uncertainty Flutter</option>
+                        </select>
+                    </div>
+
+                    <div class="modal-field">
+                        <label>Rain Rate [ITU-R P.618]: <span id="exp-rain-val" style="color:#00e5ff;">0.0 mm/h</span></label>
+                        <input type="range" class="modal-slider" id="exp-rain-slider" min="0" max="100" step="5" value="0" oninput="runExperimentEvaluation()">
+                    </div>
+
+                    <div class="modal-field">
+                        <label>Shadowing Flutter: <span id="exp-flutter-val" style="color:#00e5ff;">0.5 dB</span></label>
+                        <input type="range" class="modal-slider" id="exp-flutter-slider" min="0" max="6" step="0.5" value="0.5" oninput="runExperimentEvaluation()">
+                    </div>
+                </div>
+
+                <!-- Real-Time AI Forecasting Curve -->
+                <div style="height: 220px; background: rgba(5,10,20,0.9); border:1px solid #142845; border-radius:6px; padding:10px;">
+                    <canvas id="experiment-chart-canvas"></canvas>
+                </div>
+
+                <!-- Side-by-Side CAPRO vs Reactive Comparison -->
+                <div class="side-by-side-box">
+                    <div class="side-card capro">
+                        <h4>🟢 Proposed CAPRO (Confidence-Aware)</h4>
+                        <div style="font-size:12px; line-height:1.5;">
+                            <b>Assigned Node</b>: <code id="exp-capro-selected" style="color:#00e676;">TBS-01 (TBS)</code><br>
+                            <b>Trigger Reason</b>: <span id="exp-capro-trigger">OPTIMAL_ATTACH</span><br>
+                            <b>Utility Score</b>: <span id="exp-capro-util">J = 0.684</span><br>
+                            <b>Explainability</b>: <span id="exp-capro-expl" style="color:#cbd5e1;">Evaluated hard constraints. TBS-01 chosen for lowest delay.</span>
+                        </div>
+                    </div>
+
+                    <div class="side-card reactive">
+                        <h4>⚪ M1 Reactive Baseline (Instantaneous)</h4>
+                        <div style="font-size:12px; line-height:1.5;">
+                            <b>Assigned Node</b>: <code style="color:#ff1744;">SAT-01 (LEO)</code><br>
+                            <b>Handover Trigger</b>: Reacts only AFTER physical drop<br>
+                            <b>Ping-Pong Handovers</b>: High (28.9/min)<br>
+                            <b>Failure Risk</b>: Blind to impending orbital departure and storm cells.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Application Controller -->
+    <script src="/static/js/mission_control.js"></script>
+</body>
+</html>
