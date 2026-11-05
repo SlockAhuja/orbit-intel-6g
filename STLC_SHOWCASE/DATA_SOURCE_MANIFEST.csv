@@ -1,0 +1,25 @@
+UI Component,Exhibition Module,Source Type,Originating Path / Artifact,Mathematical Parameter / Column
+KPI Cards (Active Nodes),Module 1,Live Simulation,src/simulation_engine/network_simulator.py,len(sim.nodes)
+KPI Cards (Served Terminals),Module 1,Live Simulation,src/simulation_engine/network_simulator.py,len(sim.users)
+KPI Cards (URLLC Latency),Module 1,Empirical Benchmark,phase4_benchmarking/BENCHMARK_METRICS_BY_METHOD.csv,p95_latency_ms_mean (12.98 ms)
+KPI Cards (Handover Cut),Module 1,Empirical Benchmark,phase4_benchmarking/BENCHMARK_METRICS_BY_METHOD.csv,handover_frequency_per_min_mean (92.4% cut)
+3D SAGIN Globe,Module 2,Astrodynamics & ECEF,src/simulation_engine/orbital.py,node.pos_ecef / user.pos_ecef
+Node Registry Table,Module 2,Live Physics Engine,src/simulation_engine/nodes.py,alt_m, tx_power_dbm, bandwidth_mhz, capacity_mbps
+Doppler Shift Curve,Module 3,Keplerian Orbit Physics,src/simulation_engine/orbital.py,doppler_shift_hz (+- 48 kHz dynamic)
+Elevation Angle Curve,Module 3,Topocentric Astrodynamics,src/simulation_engine/orbital.py,elevation_deg (10 deg critical cutoff)
+Slant Range Curve,Module 3,Geometric Slant Vector,src/simulation_engine/network_simulator.py,slant_distance_m
+Forecast Curve with 90% PICP,Module 4,Trained ML Model,models/capro_predictor.joblib,y_pred, q_lower, q_upper
+Uncertainty Decomposition,Module 4,Conformal Prediction & RF,src/prediction_engine/uncertainty.py,aleatoric_width, epistemic_std, total_uncertainty
+Horizon Trade-Off Bar Chart,Module 4,Sensitivity Campaign,phase5_robustness/ROBUSTNESS_METRICS.csv,experiment_tag='Horizon_Sweep'
+Candidate Feasibility Table,Module 5,CAPRO Constraint Checker,src/orchestration_engine/capro_engine.py,q_lower >= 3.0 dB, delay <= 10 ms, T_vis >= 12 s
+Multi-Objective Utility Matrix,Module 5,CAPRO Formulation,src/orchestration_engine/capro_engine.py,U_link, U_lat, U_cap, C_ho, C_risk
+Decision Audit Log,Module 5,Explainable AI,src/orchestration_engine/capro_engine.py,ExplainableDecision.explanation
+Handover Elevation Tracking,Module 6,Scenario 4 Dynamic Ephemeris,src/experiments/scenarios.py,SAT-01 setting, SAT-02 rising
+Handover Packet Loss Comparison,Module 6,Dynamic Step Execution,src/orchestration_engine/capro_engine.py,CAPRO 0.0% loss vs M1 reactive link drop
+M1-M4 PDR by Scenario,Module 7,Monte Carlo Campaign (400 runs),phase4_benchmarking/BENCHMARK_METRICS_BY_SCENARIO.csv,pdr_percent_mean
+M1-M4 Handover Frequency,Module 7,Monte Carlo Campaign (400 runs),phase4_benchmarking/BENCHMARK_METRICS_BY_SCENARIO.csv,handover_frequency_per_min_mean
+CAPRO Component Ablation (V1-V7),Module 7,Ablation Campaign (175 runs),phase4_benchmarking/CAPRO_ABLATION_RESULTS.csv,variant_tag, handover_count_mean, pdr_percent_mean
+Statistical Hypothesis Tests,Module 7,Formal Statistical Tests,phase4_benchmarking/STATISTICAL_TEST_RESULTS.csv,wilcoxon_pvalue (p < 1e-15), cohen_d
+Rain Rate Stress Slider,Module 8,ITU-R P.618 Rain Model,src/channel_models/rain_attenuation.py,sim.rain_rate_mm_h (0 to 100 mm/h)
+Shadowing Flutter Slider,Module 8,Log-Normal Multipath Flutter,src/channel_models/shadowing.py,sim.shadowing_flutter_std (0 to 6 dB)
+Live Terminal Fleet Status,Module 8,Traffic & QoS Engine,src/simulation_engine/traffic.py,latency_ms, throughput_mbps, max_latency_ms
