@@ -36,3 +36,4 @@ t = 60s: theta = 8.688°   ===> GEOMETRICALLY VISIBLE (> 0°), but BELOW OPERATI
 1. **SAT-01 does NOT set below the geometric horizon at $t = 35\text{ s}$**: At $t = 35\text{ s}$, `SAT-01` has an elevation angle of $9.971^\circ$, which is well above the $0^\circ$ geometric horizon. It remains geometrically above the horizon throughout the entire 60-second scenario.
 2. **Operational Eligibility Drops to False at $t = 35\text{ s}$**: Because `SAT-01` breaches the $10.0^\circ$ minimum operational elevation mask ($\theta < 10.0^\circ$), the simulator sets `is_visible = False`, terminating radio link eligibility.
 3. **No Orbital Mechanics Alteration**: The physical orbital kinematics are completely valid and unaltered; only the descriptive terminology has been refined from "crossing the physical horizon" to **"crossing below the 10° minimum operational elevation mask."**
+

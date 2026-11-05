@@ -44,3 +44,4 @@ Evaluated over the 60-second Scenario 4 simulation run for LEO-dependent maritim
 - **Critical Distinction**: However, the handover event itself is **NOT completely lossless**. During the exact second of bearer migration, the 15% signaling collision model drops $1\text{--}3$ packets out of 10.
 - **Reporting Rule**: Future reports will state:  
   > *"CAPRO achieves zero coverage outage epochs by pre-emptively transferring mobile bearers during the dual-satellite overlap window, while realistically incurring a measured 14.4% transient packet drop rate during the signaling reassociation epoch."*
+

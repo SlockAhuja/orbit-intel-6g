@@ -65,3 +65,4 @@ The independent auditor reconciled this variation:
 ## 5. Auditor Conclusion
 
 The Doppler shift kinematics in `src/channel_models/doppler.py` are **flawless, mathematically rigorous, and verified to $0.0000\text{ Hz}$ precision**. The sign convention is physically verified.
+

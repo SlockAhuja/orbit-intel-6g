@@ -71,3 +71,4 @@ This finding directly reflects international telecommunication standards:
 1. **3GPP TR 38.821 (Solutions for NR to support NTN)**: Section 6.2 acknowledges that typical one-way access-plus-feeder propagation for a $600\text{ km}$ LEO constellation ranges from $6\text{--}15\text{ ms}$.
 2. **Extreme URLLC (<10 ms) over NTN**: Cannot be realized over bent-pipe or feeder-ground-station architectures without on-board Edge Computing (MEC) deployed directly on the satellite payload.
 3. **Research Significance**: This behavior demonstrates that the simulator enforces strict physical speed-of-light constraints and realistic multi-attribute SLA policies.
+
