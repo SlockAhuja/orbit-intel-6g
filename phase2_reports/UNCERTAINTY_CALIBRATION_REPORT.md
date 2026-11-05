@@ -77,3 +77,4 @@ To confirm that calibration holds across different levels of predicted uncertain
 $$\text{ECE} = \frac{1}{B} \sum_{b=1}^B \left| \text{Coverage}(b) - (1 - \alpha) \right| = \mathbf{0.0277} \quad (2.77\%)$$
 
 An ECE of $2.77\%$ across decile bins proves that the uncertainty estimates are uniformly reliable across all channel volatility regimes, from ultra-stable HAPS links ($10.7\text{ dB}$ spread) to highly volatile LEO/UAV links ($32.8\text{ dB}$ spread).
+

@@ -61,3 +61,4 @@ In the CAPRO framework, risk-adjusted utility is penalized by total uncertainty:
 $$\mathcal{R}_{\text{adj}} = \hat{\gamma} - \kappa U$$
 
 When an extreme distribution shift occurs (e.g., compound storm and flutter), the simultaneous increase in aleatoric spread and epistemic variance inflates $U$ from $6.78\text{ dB}$ to $7.00\text{ dB}$. With risk aversion $\kappa = 1.5$, this imposes an additional $0.33\text{ dB}$ to $0.75\text{ dB}$ penalty, driving user traffic away from volatile non-terrestrial links toward stable ground infrastructure before catastrophic link failure occurs.
+

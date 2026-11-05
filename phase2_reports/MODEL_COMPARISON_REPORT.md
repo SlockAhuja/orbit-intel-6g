@@ -105,3 +105,4 @@ In addition to regression accuracy, predictive orchestration relies on early det
 
 ### The Power of Risk-Aware Bounds:
 When the network uses standard point predictions, **1,002 impending outages are missed** (68.9% false negative rate) because the median forecast stays above $3.0\text{ dB}$ until the link actually fails. In contrast, CAPRO's conservative lower confidence bound ($\hat{q}_{05}$) achieves **100.0% Recall with ZERO false negatives**. Every single link outage is proactively detected ahead of time, providing the exact scientific justification for CAPRO's proactive handover mechanism.
+

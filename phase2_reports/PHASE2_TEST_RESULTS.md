@@ -85,3 +85,4 @@ tests/test_reproducibility.py::test_simulation_reproducibility_with_seed PASSED 
 1. **Zero Regressions**: All 26 previously passing Phase 1 physical validation and orbital mechanics tests continue to pass without modification.
 2. **Data Leakage Formally Barred**: Automated assertions prevent accidental introduction of random train-test splitting or cross-episode sliding windows.
 3. **Seamless Interface Compliance**: The reconstructed `DualUncertaintyPredictor` is 100% drop-in compatible with `CAPROOrchestrator`, satisfying the strict prompt constraint prohibiting modifications to `src/orchestration_engine/capro_engine.py`.
+

@@ -93,3 +93,4 @@ The empirical distribution of uncertainty metrics evaluated on the 6,153 locked 
 | **UAV** | $6.15\text{ dB}$ | $1.42\text{ dB}$ | $4.3\times$ | **Strong Epistemic** (3D aerial mobility, variable obstacle shadowing) |
 
 **Key Finding:** HAPS and LEO tiers are dominated by aleatoric channel dynamics; their orbits are kinematically predictable, so epistemic uncertainty is minimal ($\sim 0.2\text{ dB}$). In contrast, UAV and Terrestrial nodes exhibit substantially higher epistemic uncertainty ($\sim 1.2\text{--}1.4\text{ dB}$), reflecting complex local scatterer variability that decision trees cannot fully resolve.
+

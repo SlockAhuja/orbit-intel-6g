@@ -43,3 +43,4 @@ In adherence to the strict scientific integrity requirements of the IEEE Communi
 ## 3. Impact Assessment on Conference Presentation
 
 None of the above limitations invalidate the research conclusions or the conference presentation for IEEE STLC Tunisia 2026. Explicitly acknowledging these scope boundaries strengthens the paper's scientific defensibility and provides reviewers with a clear roadmap for future 6G NTN research.
+
