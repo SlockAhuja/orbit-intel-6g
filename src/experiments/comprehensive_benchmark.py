@@ -550,3 +550,4 @@ def execute_full_benchmarking_campaign():
 
 if __name__ == "__main__":
     execute_full_benchmarking_campaign()
+

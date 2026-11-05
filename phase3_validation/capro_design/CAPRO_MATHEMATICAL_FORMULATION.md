@@ -85,3 +85,4 @@ $$\text{Handover Triggered} \iff \left( s_u(t^-) \notin \mathcal{F}_u(t) \right)
 where $\Delta_{\text{hyst}} = 0.08$ (equivalent to $\sim 2.4\text{ dB}$ on normalized utility scale).
 - If the current node remains in $\mathcal{F}_u(t)$ and the utility gain is below $\Delta_{\text{hyst}}$, the user **maintains the current link**, completely eliminating the 51.7% false-positive handover burden.
 - If the current node drops below the $10^\circ$ mask ($T_{\text{vis}} < 12\text{ s}$) or violates $\mathcal{C}_{\text{rel}}$, $s_u(t^-) \notin \mathcal{F}_u(t)$ triggers an immediate, seamless proactive handover.
+

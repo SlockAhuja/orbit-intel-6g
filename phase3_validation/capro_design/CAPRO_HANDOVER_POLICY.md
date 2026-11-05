@@ -67,3 +67,4 @@ When a handover is executed ($s_u(t) \ne s_u(t^-)$), the simulation engine accur
 - **Reassociation Packet Loss:** Packets generated during the $50\text{ ms}$ transition are dropped ($15\%$ empirical drop rate at 100 pkt/s).
 - **Buffer Flush & Re-indexing:** Upper MAC layer queues are transferred and re-indexed, ensuring zero out-of-order packets.
 - **Hysteresis Dwell Time:** Once a handover executes, re-evaluation incorporates the handover penalty $w_4 C_{\text{handover}} = 0.15$, preventing rapid ping-pong return.
+

@@ -23,3 +23,4 @@ Statistical Hypothesis Tests,Module 7,Formal Statistical Tests,phase4_benchmarki
 Rain Rate Stress Slider,Module 8,ITU-R P.618 Rain Model,src/channel_models/rain_attenuation.py,sim.rain_rate_mm_h (0 to 100 mm/h)
 Shadowing Flutter Slider,Module 8,Log-Normal Multipath Flutter,src/channel_models/shadowing.py,sim.shadowing_flutter_std (0 to 6 dB)
 Live Terminal Fleet Status,Module 8,Traffic & QoS Engine,src/simulation_engine/traffic.py,latency_ms, throughput_mbps, max_latency_ms
+

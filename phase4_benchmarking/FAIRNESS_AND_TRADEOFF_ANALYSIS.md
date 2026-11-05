@@ -88,3 +88,4 @@ The fairness and trade-off analysis confirms that CAPRO's mathematical formulati
 1. Successfully resolves the reliability vs. latency dilemma via explicit SLA constraint gating.
 2. Mitigates handover ping-pong churn through normalized hysteresis controls.
 3. Guarantees geographic equity (Jain's index $0.968$) across all user cohorts, preventing remote and maritime users from being marginalized in heterogeneous 6G NTN networks.
+

@@ -64,3 +64,4 @@ Variant V5 removes the lower-bound filter $\hat{q}_{05} \ge 3.0\text{ dB}$:
 The seven-variant ablation study proves that:
 1. Every component in CAPRO plays an essential, non-redundant role in network performance.
 2. The combination of hard feasibility gating (V5, V6) and normalized soft utility optimization (V4) resolves the dual challenges of physical constraint satisfaction and control-plane stability in integrated 6G NTN networks.
+

@@ -116,3 +116,4 @@ ORBIT-INTEL 6G is architectured as a multi-tier pipeline separating physical kin
 ### 3.4 Robustness & Sweep Metrics (`phase5_robustness/ROBUSTNESS_METRICS.csv`)
 - Ingested by **Module 4**.
 - Core columns: `experiment_tag`, `experiment_param`, `pdr_percent_mean`, `mean_latency_ms_mean`, `handover_count_mean`, `outage_probability_mean`.
+

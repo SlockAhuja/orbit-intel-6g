@@ -79,3 +79,4 @@ Inspection of [`phase2_reports/CALIBRATION_CURVE_DATA.csv`](file:///C:/Users/OM/
 $$\text{ECE}_{\text{reg}} = \frac{0.0333 + 0.0349 + 0.0138 + 0.0154 + 0.0171 + 0.0220 + 0.0285 + 0.0138 + 0.0171 + 0.0317}{10} = \mathbf{0.0277} \quad (2.77\%)$$
 
 The reported ECE is mathematically sound, correctly computed, and represents excellent calibration uniformity across uncertainty bins.
+

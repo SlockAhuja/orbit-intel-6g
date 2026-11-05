@@ -73,3 +73,4 @@ Weights are assigned based on 3GPP Service-Level Agreement (SLA) priorities:
 1. **Boundedness:** $J_{u, j}(t) \in [-w_4 - w_5, w_1 + w_2 + w_3] \subseteq [-0.20, 1.00]$ for all links.
 2. **Scale Invariance:** Multiplying underlying physical units (e.g. converting ms to seconds, or Watts to dBm) leaves $J_{u, j}$ completely unchanged.
 3. **Monotonicity:** Utility is strictly increasing in predicted SINR, available capacity, and connection stability, and strictly decreasing in latency, congestion, and epistemic doubt.
+

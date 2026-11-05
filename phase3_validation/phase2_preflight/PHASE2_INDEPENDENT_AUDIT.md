@@ -65,3 +65,4 @@ Full audited records are preserved in [PHASE2_METRIC_REPRODUCTION.csv](file:///C
   - Episode 29: Scenario 5 (Volatile multipath flutter, 1,234 observations)
 - **Scientific Caveat:** While 6,153 observations provide strong statistical power across varied link geometries (elevation $10^\circ\text{--}90^\circ$, slant range $20\text{--}1800\text{ km}$), each scenario is represented by **one specific pseudo-random seed trajectory** in the locked test set.
 - **Pre-flight Requirement for Phase 4:** To ensure paper conclusions do not depend on specific seed idiosyncrasies, Phase 4 benchmarking must execute **100 independent Monte Carlo seed iterations** across all 4 benchmark methods (M1–M4).
+

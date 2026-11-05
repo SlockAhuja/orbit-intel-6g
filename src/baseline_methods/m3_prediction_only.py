@@ -32,9 +32,17 @@ class M3PredictionOnlyBaseline:
         argmax_{j} Q_hat_j(t + Delta)
         No uncertainty penalty applied.
         """
+        # Normalize predicted_qualities to scalar floats if dicts were passed
+        scalar_preds = {}
+        for nid, val in predicted_qualities.items():
+            if isinstance(val, dict):
+                scalar_preds[nid] = float(val.get("y_pred", val.get("predicted_sinr", 0.0)))
+            else:
+                scalar_preds[nid] = float(val)
+
         viable_nodes = {
             n_id: data for n_id, data in available_links.items()
-            if data["is_visible"] and n_id in predicted_qualities
+            if data["is_visible"] and n_id in scalar_preds
         }
 
         if not viable_nodes:
@@ -46,11 +54,11 @@ class M3PredictionOnlyBaseline:
             }
 
         # Select candidate with highest point prediction
-        best_cand_id = max(viable_nodes.keys(), key=lambda nid: predicted_qualities[nid])
-        best_pred_sinr = predicted_qualities[best_cand_id]
+        best_cand_id = max(viable_nodes.keys(), key=lambda nid: scalar_preds[nid])
+        best_pred_sinr = scalar_preds[best_cand_id]
 
         if current_serving_id in viable_nodes:
-            curr_pred_sinr = predicted_qualities[current_serving_id]
+            curr_pred_sinr = scalar_preds[current_serving_id]
 
             # Handover triggered if best predicted alternative exceeds current by hysteresis
             if (best_cand_id != current_serving_id) and (best_pred_sinr > curr_pred_sinr + self.hysteresis_db):

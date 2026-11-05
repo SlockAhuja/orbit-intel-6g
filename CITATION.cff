@@ -3,18 +3,12 @@ message: "If you use ORBIT-INTEL 6G in your research, please cite it as below."
 authors:
   - family-names: "Ahuja"
     given-names: "Slock"
-    affiliation: "ORBIT-INTEL 6G Research Group"
   - family-names: "Sharma"
     given-names: "Praveen Kumar"
-    affiliation: "ORBIT-INTEL 6G Research Group"
-  - family-names: "Sanap"
-    given-names: "Sudarshan"
-    affiliation: "ORBIT-INTEL 6G Research Group"
 title: "ORBIT-INTEL 6G: Predictive Intelligence for Reliability-Aware Resource Orchestration in Integrated 6G Non-Terrestrial Networks"
 version: 1.0.0
 doi: 10.1109/COMSOC.STLC.2026.01
 date-released: 2026-11-05
-url: "https://github.com/orbit-intel-6g/orbit-intel-6g"
 preferred-citation:
   type: conference-paper
   authors:
@@ -22,8 +16,6 @@ preferred-citation:
       given-names: "Slock"
     - family-names: "Sharma"
       given-names: "Praveen Kumar"
-    - family-names: "Sanap"
-      given-names: "Sudarshan"
   title: "ORBIT-INTEL 6G: Predictive Intelligence for Reliability-Aware Resource Orchestration in Integrated 6G Non-Terrestrial Networks"
   conference:
     name: "IEEE Communications Society Student Tech Leadership Conference (STLC)"

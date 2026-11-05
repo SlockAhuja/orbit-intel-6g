@@ -40,3 +40,4 @@ This report documents the scientific verification and typesetting compliance aud
 All 14 citations in `references.bib` were independently verified against official standard bodies (3GPP, ITU-R) and digital object identifiers (DOIs) in IEEE Xplore, Science China, and Springer.
 
 **Certification:** The manuscript is fully validated, compliant with IEEE guidelines, and ready for camera-ready submission.
+

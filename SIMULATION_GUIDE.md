@@ -50,3 +50,4 @@ The simulation engine (`src/simulation_engine/network_simulator.py`) implements 
 2. **M2 (Threshold-Predictive):** First-order linear trend extrapolation over a 5-second sliding window.
 3. **M3 (Point-Prediction):** Gradient boosting point forecast ($\hat{q}_{50}$) without uncertainty bounds or latency gating.
 4. **M4 (Proposed CAPRO):** Confidence-aware predictive orchestration with dual uncertainty, normalized utility, and hysteresis gating.
+

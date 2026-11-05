@@ -42,3 +42,4 @@ Prior to authorizing Phase 3 orchestration redesign and Phase 4 benchmarking, al
 - **Observation:** The reported Expected Calibration Error ($\text{ECE} = 0.0277$) is calculated across 10 decile width bins around the nominal 90% confidence target.
 - **Limitation:** While valid and informative, decile binning smooths intra-bin coverage variations.
 - **Required Action:** Both tabular multi-level calibration (50%, 80%, 90%, 95%) and binned decile reliability curves must be reported side-by-side in the final manuscript.
+

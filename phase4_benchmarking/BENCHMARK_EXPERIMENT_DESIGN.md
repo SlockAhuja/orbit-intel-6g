@@ -69,3 +69,4 @@ To guarantee absolute fairness and eliminate simulation seed bias, the campaign 
 - **Jain's Fairness Index ($\mathcal{J}$):**
    $$\mathcal{J} = \frac{\left( \sum_{j=1}^{|\mathcal{N}|} \rho_j \right)^2}{|\mathcal{N}| \sum_{j=1}^{|\mathcal{N}|} \rho_j^2}$$
 - **Energy per Megabit ($E_{\text{mbit}}$, J/Mbit):** Total RF and payload energy consumed per delivered Megabit.
+

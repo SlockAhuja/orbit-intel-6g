@@ -54,3 +54,4 @@ graph TD
    Under extreme cloudburst attenuation, CAPRO's epistemic risk penalty rises to $2.14\text{ dB}$. This immediately prunes direct LEO satellite paths and proactively routes traffic to High-Altitude Platform Stations (HAPS), which operate above tropospheric cloud formations ($20\text{ km}$ altitude) and remain completely unaffected by ground rain cells.
 3. **Suppression of Thrashing:**
    While M2's handover frequency explodes to $72.50\text{ HO/min}$ under severe flutter, CAPRO limits handovers to $2.80\text{ HO/min}$, preventing control-plane collapse during severe weather events.
+

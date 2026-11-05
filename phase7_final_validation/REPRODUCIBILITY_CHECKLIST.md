@@ -75,3 +75,4 @@ All stochastic physical processes (Ricean shadow fading, ITU-R rain fluctuations
 - Pre-flight Audit: `random_seed = 42`
 - Monte Carlo Evaluation Runs: `seeds = [101, 102, ..., 120]` (20 paired seeds per scenario)
 - Common Random Numbers (CRN) are strictly maintained across M1, M2, M3, and M4.
+

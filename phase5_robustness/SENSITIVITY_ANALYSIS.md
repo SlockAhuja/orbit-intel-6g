@@ -62,3 +62,4 @@ We sweep $\Delta_{\text{hyst}} \in [0.00, 0.02, 0.05, 0.08, 0.12, 0.18]$:
    Setting $\Delta = 0.00$ increases handover frequency by over $400\%$ ($8.95$ vs $2.20\text{ HO/min}$) without delivering any PDR improvement. A normalized margin of $\Delta_{\text{hyst}} = 0.08$ ($\approx 2.4\text{ dB}$ on a $30\text{ dB}$ scale) represents the exact optimal operating point.
 2. **Robustness to Weight Vector Tuning:**
    CAPRO maintains high delivery reliability ($>67\%$) across all weight configurations, confirming that the hard feasibility constraint filter $\mathcal{F}_u(t)$ safeguards reliability while the weight vector provides tunable operational flexibility.
+

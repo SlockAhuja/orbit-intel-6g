@@ -6,3 +6,4 @@ Equation 2,Formula,ITU-R P.618 Rain Attenuation,src/channel_models/propagation.p
 Equation 8,Formula,Hard Feasibility Constraint Filter F_u(t),src/orchestration_engine/capro_engine.py,"q_05 >= 3.0 dB, L <= L_max, T_vis >= 12s",VERIFIED_FORMULATION
 Equation 9,Formula,Dimensionless Multi-Attribute Utility Function J_u,src/orchestration_engine/capro_engine.py,"U_link, U_lat, U_cap, C_ho, C_risk",VERIFIED_FORMULATION
 Equation 15,Formula,Hysteresis Anti-Ping-Pong Gating,src/orchestration_engine/capro_engine.py,"Delta_hyst = 0.08",VERIFIED_FORMULATION
+

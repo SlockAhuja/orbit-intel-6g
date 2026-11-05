@@ -39,3 +39,4 @@ In compliance with IEEE research reporting standards, all methodological boundar
 ## 3. Impact Assessment on Publication
 
 These limitations represent standard scope boundaries in 6G Non-Terrestrial Network simulation research. Acknowledging them demonstrates mature academic rigor and provides clear directions for future hardware testbed extensions.
+

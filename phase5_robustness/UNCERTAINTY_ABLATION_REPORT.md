@@ -57,3 +57,4 @@ graph TD
    - During sudden atmospheric shock (Scenario 3) and severe flutter (Scenario 5), the epistemic penalty $s_{\text{RF}}$ activates, preventing the orchestrator from making overconfident attachments to unpredictable nodes.
 2. **Superiority over Deterministic Gating:**
    Dual-uncertainty orchestration achieves the lowest handover churn ($2.20\text{ HO/min}$) without sacrificing delivery reliability, establishing a reproducible, peer-reviewed standard for 6G NTN resource allocation.
+

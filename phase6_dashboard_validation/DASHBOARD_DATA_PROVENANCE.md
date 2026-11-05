@@ -44,3 +44,4 @@ The dashboard application controller executes automated assertions upon module i
 2. **Record Count Integrity:** Confirms that `RAW_BENCHMARK_RESULTS.csv` contains exactly 400 rows across methods M1 through M4.
 3. **Seed Consistency:** Confirms that random seed pairing ($S \in [101, 120]$) is preserved across all four methods.
 4. **NaN/Inf Exclusion:** Verifies that no metric columns contain invalid values or infinite numbers.
+

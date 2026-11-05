@@ -69,3 +69,4 @@ $$\hat{q}_{0.05, j} \equiv \hat{q}_{50, j} - \frac{1}{2} \mathcal{A}(\mathbf{x})
 
 1. **Zero Overlap:** The objective function contains no term in $\mathcal{A}(\mathbf{x})$, and the constraint contains no term in $\mathcal{E}(\mathbf{x})$.
 2. **Defensible Trade-Off:** The decision trades off expected link quality ($\hat{q}_{50}$), delay ($\hat{L}$), available capacity ($1-\rho$), and switching cost ($C_{\text{HO}}$) among candidates whose physical reliability lower bound ($\hat{q}_{05}$) is already certified, while penalizing links with high model ignorance ($\mathcal{E}$).
+

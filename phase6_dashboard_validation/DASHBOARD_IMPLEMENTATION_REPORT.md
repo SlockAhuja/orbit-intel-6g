@@ -52,3 +52,4 @@ The dashboard is engineered for high-visibility international scientific exhibit
 ### Module 7: Live Stress-Testing Sandbox
 - Allows exhibition attendees to dynamically inject severe convective cloudburst rain cells ($R = 0\text{--}100\text{ mm/h}$) and intense shadow flutter ($\sigma = 0\text{--}6\text{ dB}$).
 - Provides a side-by-side live comparison between CAPRO and the M1 Reactive baseline, highlighting CAPRO's predictive lookahead vs. reactive link dropouts.
+

@@ -2,11 +2,12 @@
    ORBIT-INTEL 6G: Global Network Intelligence & Mission Control Center CSS
    Inspired by Aerospace Mission Control Workstations.
    Target: IEEE ComSoc STLC 2026 Showcase.
+   Contributors: Slock Ahuja | Dr. Praveen Kumar Sharma
    ========================================================================== */
 
 :root {
     --bg-dark: #050a14;
-    --panel-bg: rgba(10, 18, 33, 0.85);
+    --panel-bg: rgba(10, 18, 33, 0.88);
     --panel-border: rgba(0, 229, 255, 0.16);
     --panel-border-glow: rgba(0, 229, 255, 0.35);
     --accent-cyan: #00e5ff;
@@ -45,8 +46,8 @@ body {
    TOP NAVIGATION HEADER
    ========================================================================== */
 .top-header {
-    height: 50px;
-    background: rgba(7, 13, 24, 0.95);
+    height: 52px;
+    background: rgba(7, 13, 24, 0.96);
     border-bottom: 1px solid var(--panel-border);
     display: flex;
     align-items: center;
@@ -63,15 +64,15 @@ body {
 }
 
 .brand-logo-icon {
-    width: 28px;
-    height: 28px;
+    width: 30px;
+    height: 30px;
     border-radius: 6px;
     background: linear-gradient(135deg, #00e5ff, #0052cc);
     display: flex;
     align-items: center;
     justify-content: center;
     font-size: 16px;
-    box-shadow: 0 0 10px rgba(0, 229, 255, 0.4);
+    box-shadow: 0 0 12px rgba(0, 229, 255, 0.45);
 }
 
 .brand-text {
@@ -119,13 +120,13 @@ body {
 .mission-breadcrumbs {
     display: flex;
     align-items: center;
-    gap: 10px;
+    gap: 8px;
     font-family: var(--font-mono);
     font-size: 11px;
 }
 
 .badge-crumb {
-    background: rgba(15, 23, 42, 0.8);
+    background: rgba(15, 23, 42, 0.85);
     border: 1px solid #1e293b;
     padding: 3px 8px;
     border-radius: 4px;
@@ -135,19 +136,40 @@ body {
     color: var(--accent-cyan);
 }
 
+.mode-badge-live {
+    background: rgba(0, 229, 255, 0.12);
+    border: 1px solid var(--accent-cyan);
+    color: var(--accent-cyan);
+    padding: 3px 8px;
+    border-radius: 4px;
+    font-weight: 700;
+    font-size: 10px;
+    letter-spacing: 0.5px;
+}
+.mode-badge-replay {
+    background: rgba(255, 214, 0, 0.15);
+    border: 1px solid var(--accent-amber);
+    color: var(--accent-amber);
+    padding: 3px 8px;
+    border-radius: 4px;
+    font-weight: 700;
+    font-size: 10px;
+    letter-spacing: 0.5px;
+}
+
 .header-actions {
     display: flex;
     align-items: center;
-    gap: 12px;
+    gap: 8px;
 }
 
 .btn-launch-exp {
     background: linear-gradient(135deg, #00b0ff, #0052cc);
     color: #ffffff;
     border: 1px solid #00e5ff;
-    padding: 6px 14px;
+    padding: 6px 12px;
     border-radius: 6px;
-    font-size: 12px;
+    font-size: 11px;
     font-weight: 700;
     cursor: pointer;
     display: flex;
@@ -163,10 +185,10 @@ body {
 }
 
 .btn-icon-action {
-    background: rgba(15, 23, 42, 0.8);
+    background: rgba(15, 23, 42, 0.85);
     border: 1px solid var(--panel-border);
     color: var(--text-primary);
-    padding: 5px 10px;
+    padding: 5px 9px;
     border-radius: 4px;
     font-size: 11px;
     font-weight: 600;
@@ -179,30 +201,46 @@ body {
     color: var(--accent-cyan);
 }
 
-.user-profile {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    border-left: 1px solid #1e293b;
-    padding-left: 12px;
-}
-.user-avatar {
-    width: 26px;
-    height: 26px;
-    border-radius: 50%;
-    background: #1e3a8a;
-    border: 1px solid var(--accent-cyan);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 12px;
-}
-.user-info {
+.btn-presentation-toggle {
+    background: rgba(213, 0, 249, 0.15);
+    border: 1px solid #d500f9;
+    color: #f5d0fe;
+    padding: 5px 10px;
+    border-radius: 4px;
     font-size: 11px;
-    line-height: 1.2;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.2s;
 }
-.user-name { font-weight: 700; color: #ffffff; }
-.user-role { color: var(--text-secondary); font-size: 10px; }
+.btn-presentation-toggle:hover {
+    background: rgba(213, 0, 249, 0.3);
+    box-shadow: 0 0 10px rgba(213, 0, 249, 0.4);
+}
+
+/* Two-Person Team Header Pill */
+.team-credits-header {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    border-left: 1px solid #1e293b;
+    padding-left: 10px;
+    font-size: 11px;
+    line-height: 1.25;
+}
+.team-label {
+    font-size: 9px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: var(--text-secondary);
+}
+.team-names {
+    font-weight: 700;
+    color: #ffffff;
+    font-family: var(--font-mono);
+}
+.team-names span {
+    color: var(--accent-cyan);
+}
 
 /* ==========================================================================
    APP WORKSPACE GRID
@@ -210,9 +248,9 @@ body {
 .main-workspace {
     flex: 1;
     display: grid;
-    grid-template-columns: 58px 1fr 340px;
+    grid-template-columns: 58px 1fr 345px;
     grid-template-rows: 1fr 240px;
-    height: calc(100vh - 50px);
+    height: calc(100vh - 52px);
     width: 100vw;
     overflow: hidden;
 }
@@ -222,7 +260,7 @@ body {
    ========================================================================== */
 .sidebar-nav {
     grid-row: 1 / 3;
-    background: rgba(6, 12, 22, 0.95);
+    background: rgba(6, 12, 22, 0.96);
     border-right: 1px solid var(--panel-border);
     display: flex;
     flex-direction: column;
@@ -299,12 +337,29 @@ body {
     left: 0;
 }
 
+/* Hover Tooltip over 3D Nodes */
+#node-hover-tooltip {
+    position: absolute;
+    display: none;
+    background: rgba(6, 14, 28, 0.92);
+    border: 1px solid var(--accent-cyan);
+    color: #ffffff;
+    font-family: var(--font-mono);
+    font-size: 11px;
+    padding: 6px 10px;
+    border-radius: 4px;
+    pointer-events: none;
+    z-index: 100;
+    box-shadow: 0 0 15px rgba(0, 229, 255, 0.35);
+    transform: translate(-50%, -125%);
+}
+
 /* Inset HUD Overlays in 3D Viewport */
 .hud-sat-info {
     position: absolute;
     top: 14px;
     left: 14px;
-    background: rgba(10, 18, 33, 0.85);
+    background: rgba(10, 18, 33, 0.88);
     border: 1px solid var(--panel-border);
     backdrop-filter: blur(8px);
     border-radius: 6px;
@@ -345,7 +400,7 @@ body {
     width: 32px;
     height: 32px;
     border-radius: 4px;
-    background: rgba(10, 18, 33, 0.85);
+    background: rgba(10, 18, 33, 0.88);
     border: 1px solid var(--panel-border);
     color: var(--text-primary);
     font-size: 14px;
@@ -369,7 +424,7 @@ body {
     left: 14px;
     width: 220px;
     height: 120px;
-    background: rgba(10, 18, 33, 0.85);
+    background: rgba(10, 18, 33, 0.88);
     border: 1px solid var(--panel-border);
     border-radius: 6px;
     overflow: hidden;
@@ -398,7 +453,7 @@ body {
 .right-panel {
     grid-column: 3 / 4;
     grid-row: 1 / 3;
-    background: rgba(8, 14, 26, 0.95);
+    background: rgba(8, 14, 26, 0.96);
     border-left: 1px solid var(--panel-border);
     display: flex;
     flex-direction: column;
@@ -408,7 +463,7 @@ body {
 
 .telemetry-tabs {
     display: flex;
-    background: rgba(5, 10, 20, 0.9);
+    background: rgba(5, 10, 20, 0.92);
     border-bottom: 1px solid var(--panel-border);
     overflow-x: auto;
 }
@@ -430,7 +485,7 @@ body {
 .tab-btn.active {
     color: var(--accent-cyan);
     border-bottom-color: var(--accent-cyan);
-    background: rgba(0, 229, 255, 0.05);
+    background: rgba(0, 229, 255, 0.06);
 }
 
 .telemetry-content {
@@ -468,6 +523,37 @@ body {
 .metric-row .val.green { color: var(--accent-green); }
 .metric-row .val.amber { color: var(--accent-amber); }
 
+/* Strict Latency Summation Box */
+.latency-summation-box {
+    background: rgba(11, 20, 36, 0.7);
+    border: 1px solid rgba(0, 229, 255, 0.2);
+    border-radius: 6px;
+    padding: 8px 10px;
+    margin-top: 6px;
+}
+.latency-item {
+    display: flex;
+    justify-content: space-between;
+    font-size: 11px;
+    padding: 2px 0;
+}
+.latency-item .item-lbl { color: #94a3b8; }
+.latency-item .item-val { font-family: var(--font-mono); color: #ffffff; }
+.latency-divider {
+    height: 1px;
+    background: rgba(0, 229, 255, 0.25);
+    margin: 5px 0;
+}
+.latency-total-row {
+    display: flex;
+    justify-content: space-between;
+    font-size: 12px;
+    font-weight: 700;
+    padding-top: 2px;
+}
+.latency-total-row .total-lbl { color: var(--accent-cyan); }
+.latency-total-row .total-val { font-family: var(--font-mono); color: var(--accent-cyan); }
+
 /* Subsystem Health Badges Grid */
 .subsystem-grid {
     display: grid;
@@ -491,7 +577,7 @@ body {
 .bottom-panel-row {
     grid-column: 2 / 3;
     grid-row: 2 / 3;
-    background: rgba(6, 11, 20, 0.95);
+    background: rgba(6, 11, 20, 0.96);
     border-top: 1px solid var(--panel-border);
     display: grid;
     grid-template-columns: 28% 24% 24% 24%;
@@ -614,7 +700,7 @@ body {
 /* Scrolling Terminal Event Log */
 .event-log-container {
     flex: 1;
-    background: rgba(3, 7, 14, 0.85);
+    background: rgba(3, 7, 14, 0.88);
     border: 1px solid #142845;
     border-radius: 4px;
     padding: 6px;
@@ -626,7 +712,7 @@ body {
     gap: 4px;
 }
 .log-entry {
-    line-height: 1.3;
+    line-height: 1.35;
     display: flex;
     gap: 6px;
 }
@@ -637,7 +723,7 @@ body {
 .log-entry.WARN .log-msg { color: #fed7aa; }
 
 /* ==========================================================================
-   INTERACTIVE EXPERIMENT MODAL DIALOG
+   MODAL DIALOGS (SHARED BACKDROP)
    ========================================================================== */
 .modal-backdrop {
     position: fixed;
@@ -645,7 +731,7 @@ body {
     left: 0;
     width: 100vw;
     height: 100vh;
-    background: rgba(3, 7, 18, 0.82);
+    background: rgba(3, 7, 18, 0.84);
     backdrop-filter: blur(8px);
     z-index: 1000;
     display: none;
@@ -654,9 +740,7 @@ body {
 }
 .modal-backdrop.open { display: flex; }
 
-.experiment-modal {
-    width: 880px;
-    max-height: 85vh;
+.modal-window {
     background: #0a1324;
     border: 1px solid var(--accent-cyan);
     border-radius: 10px;
@@ -668,14 +752,14 @@ body {
 
 .modal-header {
     padding: 14px 20px;
-    background: rgba(15, 23, 42, 0.95);
+    background: rgba(15, 23, 42, 0.96);
     border-bottom: 1px solid var(--panel-border);
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
 .modal-title {
-    font-size: 16px;
+    font-size: 15px;
     font-weight: 800;
     color: var(--accent-cyan);
     display: flex;
@@ -688,6 +772,7 @@ body {
     color: var(--text-secondary);
     font-size: 20px;
     cursor: pointer;
+    line-height: 1;
 }
 .modal-close-btn:hover { color: #ffffff; }
 
@@ -697,6 +782,14 @@ body {
     display: flex;
     flex-direction: column;
     gap: 16px;
+}
+
+/* ==========================================================================
+   INTERACTIVE EXPERIMENT MODAL
+   ========================================================================== */
+.experiment-modal {
+    width: 900px;
+    max-height: 88vh;
 }
 
 .modal-controls-row {
@@ -724,22 +817,161 @@ body {
     font-size: 12px;
 }
 
-.side-by-side-box {
+/* 4-Method Comparison Side-by-Side */
+.methods-quad-grid {
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 14px;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
 }
-.side-card {
+.method-card {
     background: #0f1c34;
     border: 1px solid #1e3a8a;
     border-radius: 6px;
-    padding: 12px;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    font-size: 11px;
 }
-.side-card.capro { border-color: var(--accent-green); }
-.side-card.reactive { border-color: var(--accent-red); }
-.side-card h4 {
-    font-size: 13px;
+.method-card.m4-capro {
+    border-color: var(--accent-green);
+    background: rgba(0, 230, 118, 0.05);
+}
+.method-card.m1-reactive {
+    border-color: #64748b;
+}
+.method-card.m2-threshold {
+    border-color: var(--accent-amber);
+}
+.method-card.m3-pred {
+    border-color: var(--accent-cyan);
+}
+.method-card h5 {
+    font-size: 11px;
+    font-weight: 700;
+    margin-bottom: 2px;
+}
+
+/* ==========================================================================
+   ABOUT & TEAM MODAL
+   ========================================================================== */
+.about-modal {
+    width: 760px;
+    max-height: 85vh;
+}
+.about-section {
+    border-left: 3px solid var(--accent-cyan);
+    padding-left: 12px;
     margin-bottom: 6px;
 }
-.side-card.capro h4 { color: var(--accent-green); }
-.side-card.reactive h4 { color: var(--accent-red); }
+.about-heading {
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--accent-cyan);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 4px;
+}
+.about-text {
+    font-size: 13px;
+    color: #cbd5e1;
+    line-height: 1.5;
+}
+.team-contributors-card {
+    background: rgba(15, 28, 52, 0.6);
+    border: 1px solid rgba(0, 229, 255, 0.25);
+    border-radius: 6px;
+    padding: 14px 18px;
+    display: flex;
+    justify-content: space-around;
+    text-align: center;
+}
+.contributor-item .c-name {
+    font-size: 16px;
+    font-weight: 800;
+    color: #ffffff;
+    font-family: var(--font-mono);
+}
+.contributor-item .c-role {
+    font-size: 11px;
+    color: var(--accent-cyan);
+    margin-top: 2px;
+}
+
+/* ==========================================================================
+   4-METHOD BENCHMARK MODAL
+   ========================================================================== */
+.benchmark-modal {
+    width: 960px;
+    max-height: 88vh;
+}
+.benchmark-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 11px;
+    font-family: var(--font-mono);
+}
+.benchmark-table th {
+    background: #0f1c34;
+    color: var(--accent-cyan);
+    padding: 6px 8px;
+    text-align: left;
+    border-bottom: 1px solid var(--panel-border);
+}
+.benchmark-table td {
+    padding: 6px 8px;
+    border-bottom: 1px solid rgba(30, 41, 59, 0.4);
+}
+.benchmark-table tr.capro-highlight {
+    background: rgba(0, 230, 118, 0.08);
+    font-weight: 700;
+}
+
+/* ==========================================================================
+   PRESENTATION MODE OVERRIDES
+   ========================================================================== */
+body.presentation-mode .sidebar-nav {
+    display: none;
+}
+body.presentation-mode .bottom-panel-row {
+    display: none;
+}
+body.presentation-mode .main-workspace {
+    grid-template-columns: 1fr 360px;
+    grid-template-rows: 1fr;
+}
+body.presentation-mode .presentation-toolbar {
+    display: flex !important;
+}
+
+.presentation-toolbar {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(7, 13, 24, 0.95);
+    border: 1px solid var(--accent-cyan);
+    border-radius: 30px;
+    padding: 8px 18px;
+    display: none;
+    align-items: center;
+    gap: 12px;
+    z-index: 1000;
+    box-shadow: 0 0 25px rgba(0, 229, 255, 0.35);
+}
+.demo-step-btn {
+    background: rgba(15, 23, 42, 0.85);
+    border: 1px solid var(--panel-border);
+    color: #ffffff;
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 11px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+.demo-step-btn:hover, .demo-step-btn.active {
+    background: var(--accent-cyan);
+    color: #000000;
+    box-shadow: 0 0 10px var(--accent-cyan);
+}

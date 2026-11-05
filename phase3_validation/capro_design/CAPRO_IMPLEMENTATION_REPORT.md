@@ -75,3 +75,4 @@ Every orchestration decision yields an immutable [`ExplainableDecision`](file://
 - Exact numeric telemetry: `predicted_sinr_db`, `q_lower_bound_db`, `total_uncertainty_db`, `risk_adjusted_utility_db`
 - Plain-language `explanation` detailing the exact physical or statistical reason.
 - `fallback_used` boolean and `eligible_candidates` list for post-simulation auditing.
+

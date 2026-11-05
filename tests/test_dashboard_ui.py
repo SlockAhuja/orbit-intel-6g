@@ -128,3 +128,4 @@ class TestScenarioDynamics:
         assert snap is not None
         assert sim.rain_rate_mm_h == 50.0
         assert sim.shadowing_flutter_std == 3.0
+

@@ -86,3 +86,4 @@ pytest tests/test_dashboard_ui.py -v
 - `STLC_SHOWCASE/DATA_SOURCE_MANIFEST.csv`: Traceability mapping connecting every UI metric to disk artifacts.
 - `STLC_SHOWCASE/FEATURE_STATUS.md`: Comprehensive audit of all features.
 - `STLC_SHOWCASE/TEST_REPORT.md`: Test execution results and verification summary.
+

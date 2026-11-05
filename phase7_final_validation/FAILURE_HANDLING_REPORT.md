@@ -55,3 +55,4 @@ stateDiagram-v2
 ## 4. Conclusion
 
 The anomaly resilience tests confirm that CAPRO is fail-safe, mathematically bounded, and robust to physical network extremes.
+

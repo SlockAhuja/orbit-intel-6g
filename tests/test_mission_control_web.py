@@ -91,3 +91,80 @@ class TestMissionControlWeb:
         data = json.loads(response.data)
         assert "by_method" in data
         assert "ablation" in data
+
+    def test_team_attribution_endpoint(self, client):
+        """Verifies exact two-person project attribution without extra titles or omissions."""
+        response = client.get("/api/team")
+        assert response.status_code == 200
+        data = json.loads(response.data)
+        assert data["contributors"] == ["Slock Ahuja", "Dr. Praveen Kumar Sharma"]
+        assert "STLC" in data["showcase"] and "Tunisia 2026" in data["showcase"]
+
+    def test_scenario_details_endpoint(self, client):
+        """Verifies detailed parameter and behavioral descriptions for all 5 scenarios."""
+        response = client.get("/api/scenario_details")
+        assert response.status_code == 200
+        data = json.loads(response.data)
+        assert len(data["scenarios"]) == 5
+        sc1 = data["scenarios"][0]
+        assert sc1["id"] == 1
+        assert "explanation" in sc1
+        assert "initial_conditions" in sc1
+        assert "configurable_params" in sc1
+        assert "expected_behavior" in sc1
+        assert "observed_behavior" in sc1
+
+    def test_compare_methods_endpoint(self, client):
+        """Verifies simultaneous execution of M1, M2, M3, and M4 on identical instantaneous state."""
+        response = client.get("/api/compare_methods?user_id=UE-01")
+        assert response.status_code == 200
+        data = json.loads(response.data)
+        assert "methods" in data
+        methods = data["methods"]
+        assert "M1_reactive" in methods
+        assert "M2_threshold" in methods
+        assert "M3_prediction_only" in methods
+        assert "M4_capro" in methods
+        assert methods["M4_capro"]["selected_node"] is not None
+
+    def test_latency_strict_summation_identity(self, client):
+        """
+        Verifies that for every link across all 4 tiers (LEO, HAPS, UAV, TBS),
+        total_latency_ms == propagation_delay_ms + processing_delay_ms + feeder_delay_ms + queue_delay_ms.
+        Enforces zero mathematical discrepancy.
+        """
+        response = client.get("/api/state")
+        assert response.status_code == 200
+        data = json.loads(response.data)
+        assert len(data["links"]) > 0
+
+        for link_id, link in data["links"].items():
+            prop = link["propagation_delay_ms"]
+            proc = link["processing_delay_ms"]
+            feeder = link["feeder_delay_ms"]
+            queue = link["queue_delay_ms"]
+            total = link["total_latency_ms"]
+
+            expected_sum = round(prop + proc + feeder + queue, 2)
+            assert abs(expected_sum - total) <= 0.02, (
+                f"Link {link_id} latency summation mismatch: "
+                f"{prop} + {proc} + {feeder} + {queue} = {expected_sum} != {total}"
+            )
+
+    def test_index_page_team_and_modals(self, client):
+        """Verifies that the HTML template renders the exact team attribution, decomposed latency, and modals."""
+        response = client.get("/")
+        assert response.status_code == 200
+        html = response.data.decode("utf-8")
+        assert "Slock Ahuja" in html
+        assert "Dr. Praveen Kumar Sharma" in html
+        assert "Decomposed Physical Delay (Strict Summation)" in html
+        assert "qos-proc-delay" in html
+        assert "qos-feeder-delay" in html
+        assert "qos-queue-delay" in html
+        assert "about-modal-backdrop" in html
+        assert "benchmark-modal-backdrop" in html
+        assert "presentation-toolbar" in html
+        assert "node-hover-tooltip" in html
+
+

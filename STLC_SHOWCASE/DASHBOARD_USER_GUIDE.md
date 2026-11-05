@@ -102,3 +102,4 @@ The dashboard features a persistent sidebar with a global **Demonstration Mode**
   - Click **▶️ Step 1s** or **⏩ Advance 5s** to advance the simulation.
   - Observe how the live terminal fleet table updates SINR, delay, and SLA compliance in real-time.
   - Click **🔄 Reset Sandbox** to return to initial conditions.
+

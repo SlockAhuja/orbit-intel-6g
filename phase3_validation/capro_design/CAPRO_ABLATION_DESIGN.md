@@ -45,3 +45,4 @@ To scientifically demonstrate that CAPRO's performance improvements stem from it
 - **V1 vs. V7:** V1 will exhibit higher outage probability during convective rain cells (Scenario 3) and satellite departure (Scenario 4) because point estimates miss 68.9% of impending outages.
 - **V4 vs. V7:** V4 will exhibit a dramatic spike in total handover count ($>3\times$) and elevated packet loss during execution ($>2.5\times$), proving the necessity of $\Delta_{\text{hyst}} = 0.08$.
 - **V6 vs. V7:** V6 will exhibit severe URLLC SLA violation rates ($>40\%$) because URLLC users will attach to LEO satellites for high throughput, despite incurring $>11.6\text{ ms}$ delay.
+

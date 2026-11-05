@@ -141,3 +141,4 @@ class TestCAPRORedesign:
         assert dec.selected_node_id == "SAT-01"
         assert dec.fallback_used is True
         assert dec.trigger_code == "FALLBACK_RELAXED_LATENCY_SLA"
+

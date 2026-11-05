@@ -55,3 +55,4 @@ graph LR
    Even at $H = 10\text{ s}$, PDR drops by less than $0.70\%$, proving that CAPRO's lower-bound formulation prevents catastrophic outages by gracefully transitioning to more stable stratospheric HAPS nodes when long-horizon uncertainty widens.
 3. **Handover Frequency Monotonicity:**
    Handover frequency decreases monotonically from $3.45\text{ HO/min}$ ($H = 1\text{ s}$) to $1.40\text{ HO/min}$ ($H = 10\text{ s}$). Longer horizons favor long-dwell nodes (HAPS and TBS), naturally penalizing fast-departing LEO satellites whose remaining visibility falls below the lookahead window.
+

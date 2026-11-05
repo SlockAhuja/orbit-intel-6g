@@ -79,3 +79,4 @@ flowchart TD
    *Audit Tag:* `GLOBAL_OUTAGE_NO_VIABLE_TIER`.
 
 All fallback invocations are explicitly logged in the explainable decision audit trail, enabling post-simulation inspection of SLA breach root causes.
+

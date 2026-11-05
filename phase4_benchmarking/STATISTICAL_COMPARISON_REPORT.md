@@ -92,3 +92,4 @@ The machine-precision statistical test results derived directly from `RAW_BENCHM
    While M3 achieves high throughput, its point forecast lacks uncertainty boundaries, triggering $35\%$ more handovers ($2.98$ vs $2.20\text{ HO/min}$, $p = 7.59 \times 10^{-16}$). CAPRO's epistemic risk penalty successfully prevents premature handover transitions while maintaining equivalent delivery performance.
 4. **Holm-Bonferroni Corrected Multi-Comparison Validity:**
    Even under rigorous multi-hypothesis corrections across all 36 statistical tests, the primary hypotheses on handover stabilization, latency percentile reduction, and M2 dominance remain statistically significant with $p_{\text{adj}} < 10^{-10}$.
+
