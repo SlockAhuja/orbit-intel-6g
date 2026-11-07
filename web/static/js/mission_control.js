@@ -858,5 +858,12 @@ document.addEventListener("DOMContentLoaded", () => {
     document.getElementById("btn-zoom-in").addEventListener("click", () => { camera.position.multiplyScalar(0.85); });
     document.getElementById("btn-zoom-out").addEventListener("click", () => { camera.position.multiplyScalar(1.15); });
     document.getElementById("btn-reset-cam").addEventListener("click", () => { camera.position.set(2.2, 1.4, 2.4); controls.target.set(0,0,0); });
+
+    // Check URL parameters for direct modal views
+    const urlParams = new URLSearchParams(window.location.search);
+    if (urlParams.get("modal") === "experiment") openExperimentModal();
+    if (urlParams.get("modal") === "benchmark") openBenchmarkModal();
+    if (urlParams.get("modal") === "about") openAboutModal();
+    if (urlParams.get("presentation") === "1") togglePresentationMode();
 });
 

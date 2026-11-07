@@ -1,0 +1,896 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ORBIT-INTEL 6G — Predictive Intelligence for Reliability-Aware NTN Orchestration</title>
+  
+  <!-- SEO & Social Meta -->
+  <meta name="description" content="Official showcase for ORBIT-INTEL 6G: Confidence-Aware Predictive Reliability Orchestration (CAPRO) in Integrated 6G Non-Terrestrial Networks. IEEE ComSoc STLC Tunisia 2026.">
+  <meta name="keywords" content="6G, Non-Terrestrial Networks, NTN, SAGIN, LEO Satellite, CAPRO, Conformal Prediction, STLC 2026, URLLC, Handover">
+  <meta name="author" content="Slock Ahuja, Dr. Praveen Kumar Sharma">
+  
+  <!-- OpenGraph -->
+  <meta property="og:title" content="ORBIT-INTEL 6G — 6G Non-Terrestrial Network Mission Control">
+  <meta property="og:description" content="Predictive Intelligence for Reliability-Aware Resource Orchestration in Integrated 6G Non-Terrestrial Networks. STLC Tunisia 2026.">
+  <meta property="og:image" content="assets/images/dashboard_main.png">
+  <meta property="og:url" content="https://slockahuja.github.io/orbit-intel-6g/">
+  <meta property="og:type" content="website">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%2300f0ff'><circle cx='12' cy='12' r='4'/><path d='M12 2a10 10 0 0 1 10 10h-2a8 8 0 0 0-8-8V2zm0 18a8 8 0 0 0 8-8h2a10 10 0 0 1-10 10v-2z'/></svg>">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+  <!-- =========================================================================
+       Navigation Header
+       ========================================================================= -->
+  <header class="header">
+    <div class="container nav-container">
+      <a href="#" class="brand">
+        <div class="brand-icon">
+          <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg>
+        </div>
+        <span>ORBIT-INTEL 6G</span>
+        <span class="brand-tag">STLC 2026</span>
+      </a>
+
+      <ul class="nav-links">
+        <li><a href="#overview" class="nav-link">Overview</a></li>
+        <li><a href="#architecture" class="nav-link">Architecture</a></li>
+        <li><a href="#technology" class="nav-link">CAPRO</a></li>
+        <li><a href="#dashboard" class="nav-link">Mission Control</a></li>
+        <li><a href="#results" class="nav-link">Benchmark</a></li>
+        <li><a href="#docs" class="nav-link">Documentation</a></li>
+        <li><a href="#team" class="nav-link">Team</a></li>
+      </ul>
+
+      <div class="nav-cta">
+        <a href="#launch" class="btn btn-primary">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l4 8-8 8 16-4-12-12z"/></svg>
+          Launch Control
+        </a>
+        <a href="https://github.com/SlockAhuja/orbit-intel-6g" target="_blank" rel="noopener" class="btn btn-outline" title="GitHub Repository">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+          GitHub
+        </a>
+      </div>
+
+      <button class="mobile-toggle" aria-label="Toggle Menu">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+      </button>
+    </div>
+  </header>
+
+  <!-- =========================================================================
+       Hero Section with Interactive 3D Canvas
+       ========================================================================= -->
+  <section class="hero" id="hero">
+    <div id="heroGlobeContainer" class="hero-bg-canvas"></div>
+
+    <div class="container hero-grid">
+      <div class="hero-content">
+        <div class="conference-badge">
+          <span class="badge-dot"></span>
+          <span>IEEE ComSoc STLC Tunisia 2026 — Project Showcase</span>
+        </div>
+
+        <h1 class="hero-title">ORBIT-INTEL 6G</h1>
+        <h2 class="hero-subtitle">Predictive Intelligence for Reliability-Aware Resource Orchestration in Integrated 6G Non-Terrestrial Networks</h2>
+        
+        <p class="hero-description">
+          A scientifically grounded, multi-tier Space-Air-Ground Integrated Network (SAGIN) framework featuring Keplerian orbital dynamics, physically decomposed latency summation, dual-uncertainty conformal forecasting, and risk-adjusted utility optimization (CAPRO).
+        </p>
+
+        <div class="hero-actions">
+          <a href="#launch" class="btn btn-primary">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+            Launch Mission Control
+          </a>
+          <a href="#technology" class="btn btn-outline">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg>
+            Explore CAPRO
+          </a>
+          <a href="https://github.com/SlockAhuja/orbit-intel-6g" target="_blank" rel="noopener" class="btn btn-ghost">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+            GitHub Repository
+          </a>
+        </div>
+
+        <div class="hero-stats">
+          <div class="stat-item">
+            <div class="stat-val highlight">
+              <span data-counter-target="99.41" data-counter-decimals="2">0.00</span><span class="unit">%</span>
+            </div>
+            <div class="stat-label">Packet Delivery (PDR)</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-val highlight">
+              <span data-counter-target="6.82" data-counter-decimals="2">0.00</span><span class="unit">ms</span>
+            </div>
+            <div class="stat-label">99th % Tail Latency</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-val highlight">
+              <span data-counter-target="0.59" data-counter-decimals="2">0.00</span><span class="unit">%</span>
+            </div>
+            <div class="stat-label">Outage Probability</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-val highlight">
+              <span data-counter-target="89.3" data-counter-decimals="1">0.0</span><span class="unit">%</span>
+            </div>
+            <div class="stat-label">Ping-Pong Reduction</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Hero Telemetry HUD Overlay -->
+      <div class="hero-hud">
+        <div class="hud-header">
+          <span>LIVE TELEMETRY STREAM</span>
+          <span class="hud-status-badge">● NOMINAL</span>
+        </div>
+        <div class="hud-telemetry-rows">
+          <div class="hud-row active">
+            <span class="hud-label">Active Serving Node</span>
+            <span class="hud-val" id="hudSatId">LEO-SAT-1 (Kepler)</span>
+          </div>
+          <div class="hud-row">
+            <span class="hud-label">Downlink SINR (q50)</span>
+            <span class="hud-val" id="hudSinr">19.4 dB</span>
+          </div>
+          <div class="hud-row">
+            <span class="hud-label">Decomposed E2E Latency</span>
+            <span class="hud-val" id="hudDelay">6.82 ms</span>
+          </div>
+          <div class="hud-row">
+            <span class="hud-label">Instantaneous PDR</span>
+            <span class="hud-val" id="hudPdr">99.41%</span>
+          </div>
+          <div class="hud-row">
+            <span class="hud-label">Doppler Compensation</span>
+            <span class="hud-val" id="hudDoppler">+18.4 kHz</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================================
+       Project Overview & Problem Statement
+       ========================================================================= -->
+  <section class="section section-alt" id="overview">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Research Problem</span>
+        <h2 class="section-title">The Challenge of Integrated 6G Non-Terrestrial Networks</h2>
+        <p class="section-desc">
+          Space-Air-Ground Integrated Networks (SAGIN) bridge LEO satellites, stratospheric HAPS, aerial UAVs, and terrestrial cells. However, conventional resource allocation paradigms fail in ultra-dynamic NTN environments.
+        </p>
+      </div>
+
+      <div class="overview-grid">
+        <div class="glass-card overview-card">
+          <div class="overview-card-icon">⚡</div>
+          <h3>Extreme Orbital Dynamics</h3>
+          <p>
+            LEO satellites travel at ~7.56 km/s, resulting in brief visibility windows (8–14 min), rapid geometry shifts, and severe Doppler frequency shifts (up to ±37.4 kHz at 28 GHz Ka-band).
+          </p>
+        </div>
+
+        <div class="glass-card overview-card">
+          <div class="overview-card-icon">⏱️</div>
+          <h3>Delayed Channel State Feedback</h3>
+          <p>
+            Round-trip propagation delay over 600–1200 km slant ranges makes channel state information (CSI) stale upon reception, causing severe misallocations and high outage spikes under reactive schemes.
+          </p>
+        </div>
+
+        <div class="glass-card overview-card">
+          <div class="overview-card-icon">🔄</div>
+          <h3>Ping-Pong Handover Instability</h3>
+          <p>
+            Point-estimate channel predictors ignore environmental variance and epistemic uncertainty, triggering destructive ping-pong handovers (up to 28.9/min) and dropping active sessions.
+          </p>
+        </div>
+      </div>
+
+      <!-- Problem vs Solution Comparison -->
+      <div class="comparison-container">
+        <div class="comparison-col flaw">
+          <h4>❌ Conventional Approaches (M1 & M2)</h4>
+          <ul class="comparison-list">
+            <li>
+              <span class="bullet">✕</span>
+              <span><strong>Reactive RSSI Decisions:</strong> Waits for link failure before triggering handovers, causing 8.58% session outages.</span>
+            </li>
+            <li>
+              <span class="bullet">✕</span>
+              <span><strong>Point-Estimate Prediction:</strong> Ignores prediction variance; a single deep fade breaches strict 10ms URLLC latency bounds.</span>
+            </li>
+            <li>
+              <span class="bullet">✕</span>
+              <span><strong>Constant Propagation Latency:</strong> Fails to account for dynamic elevation angles, queue backpressure, and feeder gateway transit delays.</span>
+            </li>
+          </ul>
+        </div>
+
+        <div class="comparison-col solve">
+          <h4>✓ ORBIT-INTEL 6G Solution (CAPRO)</h4>
+          <ul class="comparison-list">
+            <li>
+              <span class="bullet">✓</span>
+              <span><strong>Confidence-Aware Orchestration:</strong> Leverages conformal prediction bounds (q05, q50, q95) to guarantee 99.41% PDR under uncertainty.</span>
+            </li>
+            <li>
+              <span class="bullet">✓</span>
+              <span><strong>Risk-Adjusted Utility:</strong> Penalizes total epistemic + aleatoric uncertainty, reducing ping-pong handovers by 89.3%.</span>
+            </li>
+            <li>
+              <span class="bullet">✓</span>
+              <span><strong>Physically Decomposed Latency:</strong> Strict summation of T_prop + T_proc + T_feeder + T_queue validated under 3GPP Rel-17/18 specs.</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================================
+       System Architecture
+       ========================================================================= -->
+  <section class="section" id="architecture">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Network Architecture</span>
+        <h2 class="section-title">5-Tier Heterogeneous Space-Air-Ground Topology</h2>
+        <p class="section-desc">
+          Integrated hierarchical cross-tier coordination ensuring seamless coverage across urban centers, remote disaster zones, and maritime corridors.
+        </p>
+      </div>
+
+      <!-- Architecture Tier Tabs -->
+      <div class="tier-tabs">
+        <button class="tier-tab active" data-tier="space">🛰️ Space Layer (LEO)</button>
+        <button class="tier-tab" data-tier="stratospheric">🎈 Stratospheric Layer (HAPS)</button>
+        <button class="tier-tab" data-tier="aerial">🛸 Aerial Layer (UAV)</button>
+        <button class="tier-tab" data-tier="terrestrial">🗼 Terrestrial Layer (TBS)</button>
+        <button class="tier-tab" data-tier="user">📱 User Equipment Layer</button>
+      </div>
+
+      <div class="tier-display">
+        <div class="tier-content">
+          <h3 id="tierTitle">Space Layer: Low Earth Orbit (LEO) Constellation</h3>
+          <div class="tier-meta" id="tierMeta">ALTITUDE: 550 - 650 km | NODES: 6 Keplerian Satellites | BAND: Ka/S-Band (28 GHz / 2 GHz)</div>
+          <p id="tierDesc">
+            Six distributed LEO satellite nodes operating in 86° inclined circular orbits. Features inter-satellite cross-links (ISLs), dynamic Doppler shift compensation (±37.4 kHz), and high-gain phased-array beamforming to provide resilient global coverage.
+          </p>
+          <div class="tier-specs" id="tierSpecs">
+            <div class="spec-box"><div class="k">Orbital Velocity</div><div class="v">7.56 km/s</div></div>
+            <div class="spec-box"><div class="k">Orbit Period</div><div class="v">96.2 min</div></div>
+            <div class="spec-box"><div class="k">Visibility Window</div><div class="v">8 - 14 min</div></div>
+            <div class="spec-box"><div class="k">Doppler Shift</div><div class="v">±37.4 kHz</div></div>
+          </div>
+        </div>
+
+        <div class="tier-visual">
+          <div class="tier-orbit-graphic">
+            <div class="orbit-circle c1"></div>
+            <div class="orbit-circle c2"></div>
+            <div class="tier-icon-center" id="tierIconCenter">🛰️</div>
+          </div>
+          <div class="hud-status-badge">ACTIVE CROSS-LAYER ROUTING</div>
+        </div>
+      </div>
+
+      <!-- Processing Pipeline Flow -->
+      <div class="pipeline-flow">
+        <div class="pipeline-step">
+          <div class="step-num">01</div>
+          <h5>Physics Simulator</h5>
+          <p>3GPP Rel-17/18 Keplerian orbits, atmospheric gas & rain attenuation models.</p>
+        </div>
+        <div class="pipeline-step">
+          <div class="step-num">02</div>
+          <h5>Telemetry Engine</h5>
+          <p>Real-time sliding buffer collecting decomposed SINR, latency, and Doppler vectors.</p>
+        </div>
+        <div class="pipeline-step">
+          <div class="step-num">03</div>
+          <h5>Temporal Forecaster</h5>
+          <p>TCN/BiLSTM neural predictor estimating multi-horizon channel trajectories.</p>
+        </div>
+        <div class="pipeline-step">
+          <div class="step-num">04</div>
+          <h5>Conformal Bounds</h5>
+          <p>Quantile calibration generating lower (q05), median (q50), and upper (q95) bounds.</p>
+        </div>
+        <div class="pipeline-step">
+          <div class="step-num">05</div>
+          <h5>CAPRO Engine</h5>
+          <p>Risk-adjusted utility maximization under strict URLLC & visibility constraints.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================================
+       Core Technology: CAPRO
+       ========================================================================= -->
+  <section class="section section-alt" id="technology">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Core Innovation</span>
+        <h2 class="section-title">Confidence-Aware Predictive Reliability Orchestration</h2>
+        <p class="section-desc">
+          CAPRO addresses the stochastic nature of non-terrestrial links by decomposing uncertainty into epistemic (model uncertainty) and aleatoric (channel variance) components to drive robust resource allocation.
+        </p>
+      </div>
+
+      <div class="capro-grid">
+        <div>
+          <!-- Mathematical Utility Formulation -->
+          <div class="math-card">
+            <div class="math-title">
+              <span>📐 Risk-Adjusted Utility Formulation</span>
+            </div>
+            <div class="formula-box">
+              J(a, u) = R̂(a, u) − κ · σ_total(a, u) − β · P_tx(a) − γ · 𝕀(handover)
+            </div>
+            <div class="formula-terms">
+              <div class="term-row">
+                <code>R̂(a, u)</code>
+                <span>Predicted Shannon spectral efficiency over link candidate <em>a</em> for terminal <em>u</em>.</span>
+              </div>
+              <div class="term-row">
+                <code>κ · σ_total</code>
+                <span>Risk aversion penalty scaling combined epistemic + aleatoric prediction uncertainty.</span>
+              </div>
+              <div class="term-row">
+                <code>β · P_tx(a)</code>
+                <span>Transmit RF power and energy consumption penalty.</span>
+              </div>
+              <div class="term-row">
+                <code>γ · 𝕀(handover)</code>
+                <span>Hysteresis switching cost suppressing spurious ping-pong beam transitions.</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Latency Decomposition Formula -->
+          <div class="math-card">
+            <div class="math-title">
+              <span>⏱️ Physical Latency Decomposition</span>
+            </div>
+            <div class="formula-box">
+              T_E2E = T_prop(d, θ) + T_proc + T_feeder + T_queue
+            </div>
+            <div class="formula-terms">
+              <div class="term-row">
+                <code>T_prop(d, θ)</code>
+                <span>Slant distance propagation delay: <em>d(t) / c</em> computed from real-time orbital geometry.</span>
+              </div>
+              <div class="term-row">
+                <code>T_proc</code>
+                <span>On-board satellite / node packet forwarding & modulation processing delay (0.50 ms).</span>
+              </div>
+              <div class="term-row">
+                <code>T_feeder</code>
+                <span>Optical/Ka feeder link transit delay between gateway and core network (1.20 ms).</span>
+              </div>
+              <div class="term-row">
+                <code>T_queue</code>
+                <span>Dynamic buffer queuing delay based on current interface backlog.</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div>
+          <!-- Hard URLLC Constraints -->
+          <div class="constraints-card">
+            <h4 style="font-size: 1.15rem; margin-bottom: 1.25rem; color: #fff;">🔒 Hard Deterministic Constraints</h4>
+            
+            <div class="constraint-item">
+              <span class="constraint-badge">SINR BOUND</span>
+              <div class="constraint-desc">
+                <strong>q05(SINR) ≥ 3.0 dB</strong>
+                The 5th-percentile conservative conformal lower bound must exceed the link demodulation threshold to prevent channel outage.
+              </div>
+            </div>
+
+            <div class="constraint-item">
+              <span class="constraint-badge">URLLC LATENCY</span>
+              <div class="constraint-desc">
+                <strong>T_E2E ≤ 10.0 ms</strong>
+                Total decomposed end-to-end latency must satisfy 6G Ultra-Reliable Low-Latency Communication bounds.
+              </div>
+            </div>
+
+            <div class="constraint-item">
+              <span class="constraint-badge">VISIBILITY</span>
+              <div class="constraint-desc">
+                <strong>T_vis(s) &gt; 12.0 s</strong>
+                Candidate satellites must remain above the minimum elevation mask (10°) for at least 12 seconds to prevent mid-packet dropouts.
+              </div>
+            </div>
+
+            <div class="constraint-item">
+              <span class="constraint-badge">UNCERTAINTY SPLIT</span>
+              <div class="constraint-desc">
+                <strong>σ_total = √(σ_epistemic² + σ_aleatoric²)</strong>
+                Distinguishes between model knowledge gaps and rapid environmental fading for calibrated confidence.
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================================
+       Mission Control Dashboard Showcase
+       ========================================================================= -->
+  <section class="section" id="dashboard">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Interactive Showcase</span>
+        <h2 class="section-title">Mission Control Center Interface</h2>
+        <p class="section-desc">
+          High-performance aerospace-grade operations console designed for live IEEE ComSoc STLC demonstration, featuring real-time 3D orbital tracking, telemetry analytics, and interactive scenario injection.
+        </p>
+      </div>
+
+      <!-- Dashboard Screenshot Grid (Clickable Lightbox) -->
+      <div class="dashboard-grid">
+        <div class="dashboard-card" data-lightbox>
+          <div class="dashboard-thumb">
+            <img src="assets/images/dashboard_main.png" alt="3D Mission Control Globe View" loading="lazy">
+            <div class="thumb-overlay">
+              <span class="thumb-tag">3D GLOBE & TELEMETRY HUD</span>
+            </div>
+          </div>
+          <div class="dashboard-info">
+            <h4>Primary Operations Console</h4>
+            <p>Interactive Three.js 3D Earth displaying Keplerian satellite orbits, ground tracking footprints, cross-link beams, and real-time telemetry gauges.</p>
+          </div>
+        </div>
+
+        <div class="dashboard-card" data-lightbox>
+          <div class="dashboard-thumb">
+            <img src="assets/images/dashboard_experiment.png" alt="Live Scenario Injection Sandbox" loading="lazy">
+            <div class="thumb-overlay">
+              <span class="thumb-tag">LIVE EXPERIMENT SANDBOX</span>
+            </div>
+          </div>
+          <div class="dashboard-info">
+            <h4>Scenario Injection & Monte Carlo Sandbox</h4>
+            <p>Control panel allowing live trigger of solar storms, rain fades, UAV failures, and multi-trial Monte Carlo batch simulations.</p>
+          </div>
+        </div>
+
+        <div class="dashboard-card" data-lightbox>
+          <div class="dashboard-thumb">
+            <img src="assets/images/dashboard_benchmarks.png" alt="Comparative Benchmarks View" loading="lazy">
+            <div class="thumb-overlay">
+              <span class="thumb-tag">BENCHMARK ANALYTICS</span>
+            </div>
+          </div>
+          <div class="dashboard-info">
+            <h4>4-Method Comparative Benchmark Analytics</h4>
+            <p>Side-by-side performance evaluation across Reactive RSSI, Point Estimate, Conservative Margin, and CAPRO orchestration.</p>
+          </div>
+        </div>
+
+        <div class="dashboard-card" data-lightbox>
+          <div class="dashboard-thumb">
+            <img src="assets/images/dashboard_presentation.png" alt="Conference Presentation Mode" loading="lazy">
+            <div class="thumb-overlay">
+              <span class="thumb-tag">CONFERENCE PRESENTATION MODE</span>
+            </div>
+          </div>
+          <div class="dashboard-info">
+            <h4>Full-Screen Presentation HUD</h4>
+            <p>Streamlined high-contrast display designed for IEEE conference projection, highlighting key system innovations and live metrics.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Launch Instructions Card -->
+      <div class="launch-card" id="launch">
+        <div class="launch-text">
+          <h3>🚀 Run Mission Control Locally</h3>
+          <p>
+            The full interactive Mission Control Center runs as a Python / Flask application on your local workstation with GPU/CPU hardware acceleration and live WebSocket streaming.
+          </p>
+          <div style="display: flex; gap: 0.75rem;">
+            <a href="https://github.com/SlockAhuja/orbit-intel-6g#quick-start" target="_blank" rel="noopener" class="btn btn-primary">
+              View Quickstart Guide
+            </a>
+            <a href="https://github.com/SlockAhuja/orbit-intel-6g" target="_blank" rel="noopener" class="btn btn-outline">
+              Clone on GitHub
+            </a>
+          </div>
+        </div>
+
+        <div class="terminal-box">
+          <div class="terminal-header">
+            <div class="terminal-dots">
+              <span class="terminal-dot red"></span>
+              <span class="terminal-dot yellow"></span>
+              <span class="terminal-dot green"></span>
+            </div>
+            <button class="copy-btn" data-copy-target="termCode" title="Copy Commands">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z"/></svg>
+              Copy
+            </button>
+          </div>
+          <div class="terminal-body" id="termCode">
+<span class="comment"># 1. Clone repository</span>
+<span class="cmd">git clone https://github.com/SlockAhuja/orbit-intel-6g.git</span>
+<span class="cmd">cd orbit-intel-6g</span>
+
+<span class="comment"># 2. Install dependencies</span>
+<span class="cmd">pip install -r requirements.txt</span>
+
+<span class="comment"># 3. Launch Mission Control</span>
+<span class="cmd">python run_mission_control.py</span>
+
+<span class="comment"># -> Open http://127.0.0.1:5000 in your browser</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================================
+       Experimental Benchmark Results
+       ========================================================================= -->
+  <section class="section section-alt" id="results">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Empirical Validation</span>
+        <h2 class="section-title">400-Trial Monte Carlo Benchmark Results</h2>
+        <p class="section-desc">
+          Rigorous independent evaluation comparing CAPRO against existing baseline resource management strategies across 400 Monte Carlo simulation runs with stochastic fading and rain attenuation.
+        </p>
+      </div>
+
+      <!-- Comparative Table -->
+      <div class="benchmark-table-wrapper">
+        <table class="benchmark-table">
+          <thead>
+            <tr>
+              <th>Method</th>
+              <th>Packet Delivery Ratio (PDR)</th>
+              <th>99th % Tail Latency</th>
+              <th>Session Outage</th>
+              <th>Handover Rate</th>
+              <th>Ping-Pong Ratio</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><span class="method-tag method-m1">M1: Reactive RSSI</span></td>
+              <td>91.42%</td>
+              <td>18.44 ms</td>
+              <td>8.58%</td>
+              <td>28.9 / min</td>
+              <td>34.2%</td>
+            </tr>
+            <tr>
+              <td><span class="method-tag method-m2">M2: Point-Estimate</span></td>
+              <td>95.73%</td>
+              <td>12.15 ms</td>
+              <td>4.27%</td>
+              <td>14.2 / min</td>
+              <td>18.5%</td>
+            </tr>
+            <tr>
+              <td><span class="method-tag method-m3">M3: Conservative Margin</span></td>
+              <td>97.80%</td>
+              <td>15.30 ms</td>
+              <td>2.20%</td>
+              <td>8.7 / min</td>
+              <td>8.1%</td>
+            </tr>
+            <tr class="highlight">
+              <td><span class="method-tag method-m4">M4: CAPRO (Proposed)</span></td>
+              <td class="metric-best">99.41% (+7.99%)</td>
+              <td class="metric-best">6.82 ms (-63.0%)</td>
+              <td class="metric-best">0.59% (14.5x reduction)</td>
+              <td class="metric-best">3.1 / min (-89.3%)</td>
+              <td class="metric-best">1.2% (Negligible)</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Research Publication Figures -->
+      <div class="figures-grid">
+        <div class="figure-card" data-lightbox>
+          <div class="figure-img-wrap">
+            <img src="assets/images/fig1_pdr_comparison.png" alt="Packet Delivery Ratio Comparison" loading="lazy">
+          </div>
+          <div class="figure-caption">
+            <h5>Figure 1: Packet Delivery Ratio</h5>
+            <p>Cumulative PDR distribution across 400 trials showing CAPRO achieving 99.41% reliability.</p>
+          </div>
+        </div>
+
+        <div class="figure-card" data-lightbox>
+          <div class="figure-img-wrap">
+            <img src="assets/images/fig2_latency_vs_outage.png" alt="Tail Latency vs Outage Pareto Trade-off" loading="lazy">
+          </div>
+          <div class="figure-caption">
+            <h5>Figure 2: Latency vs. Outage Pareto</h5>
+            <p>Pareto frontier demonstrating simultaneous minimization of tail latency (6.82 ms) and outage (0.59%).</p>
+          </div>
+        </div>
+
+        <div class="figure-card" data-lightbox>
+          <div class="figure-img-wrap">
+            <img src="assets/images/fig3_handover_stability.png" alt="Handover Stability Analysis" loading="lazy">
+          </div>
+          <div class="figure-caption">
+            <h5>Figure 3: Handover Stability</h5>
+            <p>Suppression of ping-pong transitions (89.3% reduction) via risk-adjusted utility and hysteresis.</p>
+          </div>
+        </div>
+
+        <div class="figure-card" data-lightbox>
+          <div class="figure-img-wrap">
+            <img src="assets/images/fig4_prediction_calibration.png" alt="Conformal Prediction Calibration" loading="lazy">
+          </div>
+          <div class="figure-caption">
+            <h5>Figure 4: Prediction Calibration</h5>
+            <p>Empirical coverage vs nominal quantile confidence showing well-calibrated conformal bounds.</p>
+          </div>
+        </div>
+
+        <div class="figure-card" data-lightbox>
+          <div class="figure-img-wrap">
+            <img src="assets/images/fig5_sinr_temporal_trace.png" alt="Temporal SINR Tracking Trace" loading="lazy">
+          </div>
+          <div class="figure-caption">
+            <h5>Figure 5: Temporal SINR Tracking</h5>
+            <p>Real-time channel tracking under shadowing, Doppler shifts, and handover transitions.</p>
+          </div>
+        </div>
+
+        <div class="figure-card" data-lightbox>
+          <div class="figure-img-wrap">
+            <img src="assets/images/fig7_energy_efficiency.png" alt="Network Energy Efficiency" loading="lazy">
+          </div>
+          <div class="figure-caption">
+            <h5>Figure 6: Energy Efficiency</h5>
+            <p>Bit-per-joule energy efficiency comparison accounting for RF power penalties across nodes.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================================
+       Research Documentation & Citation
+       ========================================================================= -->
+  <section class="section" id="docs">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Publications & Docs</span>
+        <h2 class="section-title">Research Documentation & Artifacts</h2>
+        <p class="section-desc">
+          Complete scientific documentation, system specifications, demonstration guide, and reproducible artifacts.
+        </p>
+      </div>
+
+      <div class="docs-grid">
+        <div class="doc-card">
+          <div class="doc-icon">📐</div>
+          <div>
+            <h4>System Architecture Specification</h4>
+            <p>Complete formal mathematical formulations, 5-tier entity models, channel propagation equations, and WebSocket API specifications.</p>
+          </div>
+          <a href="https://github.com/SlockAhuja/orbit-intel-6g/blob/main/docs/SYSTEM_ARCHITECTURE.md" target="_blank" rel="noopener" class="doc-link">
+            Read SYSTEM_ARCHITECTURE.md →
+          </a>
+        </div>
+
+        <div class="doc-card">
+          <div class="doc-icon">🖥️</div>
+          <div>
+            <h4>STLC Demonstration Guide</h4>
+            <p>Step-by-step presentation script, keyboard shortcuts, scenario triggers, and walkthrough for the IEEE ComSoc STLC showcase.</p>
+          </div>
+          <a href="https://github.com/SlockAhuja/orbit-intel-6g/blob/main/docs/DEMONSTRATION_GUIDE.md" target="_blank" rel="noopener" class="doc-link">
+            Read DEMONSTRATION_GUIDE.md →
+          </a>
+        </div>
+
+        <div class="doc-card">
+          <div class="doc-icon">🛡️</div>
+          <div>
+            <h4>Technical Validation Report</h4>
+            <p>Comprehensive audit report covering 70/70 passing test cases, unit test coverage, and physics model validation.</p>
+          </div>
+          <a href="https://github.com/SlockAhuja/orbit-intel-6g/blob/main/STLC_SHOWCASE/TECHNICAL_VALIDATION_REPORT.md" target="_blank" rel="noopener" class="doc-link">
+            Read TECHNICAL_VALIDATION_REPORT.md →
+          </a>
+        </div>
+      </div>
+
+      <!-- BibTeX Citation Box -->
+      <div class="citation-box">
+        <div class="citation-header">
+          <h4>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M6 17h3l2-4V7H5v6h3zm8 0h3l2-4V7h-6v6h3z"/></svg>
+            BibTeX Citation
+          </h4>
+          <button class="copy-btn" data-copy-target="bibtexSnippet">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z"/></svg>
+            Copy Citation
+          </button>
+        </div>
+        <pre class="citation-pre" id="bibtexSnippet">@inproceedings{ahuja2026orbitintel,
+  title     = {ORBIT-INTEL 6G: Predictive Intelligence for Reliability-Aware Resource Orchestration in Integrated 6G Non-Terrestrial Networks},
+  author    = {Ahuja, Slock and Sharma, Praveen Kumar},
+  booktitle = {IEEE Communications Society Student Tech Leadership Conference (STLC)},
+  address   = {Tunisia},
+  year      = {2026},
+  url       = {https://github.com/SlockAhuja/orbit-intel-6g}
+}</pre>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================================
+       Project Contributors
+       ========================================================================= -->
+  <section class="section section-alt" id="team">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Research Team</span>
+        <h2 class="section-title">Project Contributors</h2>
+        <p class="section-desc">
+          ORBIT-INTEL 6G is developed through the collaboration between engineering innovation and academic research in wireless communications and non-terrestrial networks.
+        </p>
+      </div>
+
+      <div class="team-grid">
+        <!-- Contributor 1: Slock Ahuja -->
+        <div class="team-card">
+          <div class="team-card-header">
+            <div class="avatar-frame">SA</div>
+            <div class="team-info">
+              <h3>Slock Ahuja</h3>
+              <div class="team-role">Project Co-Creator & Mission Control Developer</div>
+              <div class="team-affiliation">Wireless Systems & 3D Interactive Visualization</div>
+            </div>
+          </div>
+          <p class="team-bio">
+            Co-creator and systems developer of ORBIT-INTEL 6G. Architected the interactive Three.js 3D Mission Control dashboard, real-time WebSocket telemetry pipeline, decomposed physical latency engine, and automated Monte Carlo benchmark framework.
+          </p>
+          <div class="team-meta-pills">
+            <span class="meta-pill">3D Mission Control</span>
+            <span class="meta-pill">Physical Latency Engine</span>
+            <span class="meta-pill">WebSocket Telemetry</span>
+            <span class="meta-pill">Full-Stack Simulation</span>
+          </div>
+          <div class="team-links">
+            <a href="https://github.com/SlockAhuja" target="_blank" rel="noopener" class="social-btn">
+              <svg viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+              GitHub
+            </a>
+            <a href="https://www.linkedin.com/in/slock-ahuja-32839b315/" target="_blank" rel="noopener" class="social-btn">
+              <svg viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+              LinkedIn
+            </a>
+          </div>
+        </div>
+
+        <!-- Contributor 2: Dr. Praveen Kumar Sharma -->
+        <div class="team-card">
+          <div class="team-card-header">
+            <div class="avatar-frame">PS</div>
+            <div class="team-info">
+              <h3>Dr. Praveen Kumar Sharma</h3>
+              <div class="team-role">Project Co-Creator & Academic Research Advisor</div>
+              <div class="team-affiliation">Professor & Head, ECE, MIT-ADT University, Pune</div>
+            </div>
+          </div>
+          <p class="team-bio">
+            Professor and Head of the Department of Electronics and Communication Engineering at MIT-ADT University Pune. Research specializations include Antennas, Flexible Electronics, Metamaterials, Metasurfaces, Wearable Devices, and Machine Learning applications in wireless telecommunications.
+          </p>
+          <div class="team-meta-pills">
+            <span class="meta-pill">Antenna Design</span>
+            <span class="meta-pill">Metasurfaces</span>
+            <span class="meta-pill">Flexible Electronics</span>
+            <span class="meta-pill">ML in Telecom</span>
+          </div>
+          <div class="team-links">
+            <a href="https://www.linkedin.com/in/dr-praveen-kumar-sharma-832aa11aa/" target="_blank" rel="noopener" class="social-btn">
+              <svg viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+              LinkedIn
+            </a>
+            <a href="https://orcid.org/0000-0003-0833-7954" target="_blank" rel="noopener" class="social-btn">
+              <svg viewBox="0 0 24 24"><path d="M12 0C5.372 0 0 5.372 0 12s5.372 12 12 12 12-5.372 12-12S18.628 0 12 0zM7.369 4.378c.525 0 .947.431.947.947s-.422.947-.947.947a.95.95 0 0 1-.947-.947c0-.516.422-.947.947-.947zm-.722 3.038h1.444v10.041H6.647V7.416zm3.562 0h3.9c3.712 0 5.344 2.653 5.344 5.025 0 2.578-2.016 5.016-5.325 5.016h-3.919V7.416zm1.444 1.303v7.444h2.297c3.272 0 4.022-2.484 4.022-3.722 0-2.016-1.284-3.722-4.097-3.722h-2.222z"/></svg>
+              ORCID
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================================
+       Footer
+       ========================================================================= -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <h4>ORBIT-INTEL 6G</h4>
+          <p>
+            Predictive Intelligence for Reliability-Aware Resource Orchestration in Integrated 6G Non-Terrestrial Networks. Prepared for the IEEE Communications Society Student Tech Leadership Conference (STLC) Tunisia 2026.
+          </p>
+          <div class="hud-status-badge">● STLC 2026 SHOWCASE READY</div>
+        </div>
+
+        <div class="footer-col">
+          <h5>Quick Navigation</h5>
+          <ul class="footer-links">
+            <li><a href="#overview">Project Overview</a></li>
+            <li><a href="#architecture">5-Tier Architecture</a></li>
+            <li><a href="#technology">CAPRO Formulation</a></li>
+            <li><a href="#dashboard">Mission Control Interface</a></li>
+            <li><a href="#results">Experimental Benchmark</a></li>
+            <li><a href="#team">Research Team</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h5>Resources & Repository</h5>
+          <ul class="footer-links">
+            <li><a href="https://github.com/SlockAhuja/orbit-intel-6g" target="_blank" rel="noopener">GitHub Repository</a></li>
+            <li><a href="https://github.com/SlockAhuja/orbit-intel-6g/blob/main/docs/SYSTEM_ARCHITECTURE.md" target="_blank" rel="noopener">System Architecture Doc</a></li>
+            <li><a href="https://github.com/SlockAhuja/orbit-intel-6g/blob/main/docs/DEMONSTRATION_GUIDE.md" target="_blank" rel="noopener">Showcase Demo Script</a></li>
+            <li><a href="https://github.com/SlockAhuja/orbit-intel-6g/blob/main/LICENSE" target="_blank" rel="noopener">MIT License</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div>© 2026 ORBIT-INTEL 6G. Developed by Slock Ahuja & Dr. Praveen Kumar Sharma.</div>
+        <div>IEEE ComSoc STLC Tunisia 2026 • MIT-ADT University, Pune</div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- =========================================================================
+       Lightbox Modal
+       ========================================================================= -->
+  <div class="lightbox-modal" id="lightboxModal">
+    <div class="lightbox-content">
+      <button class="lightbox-close" id="lightboxClose" aria-label="Close Lightbox">&times;</button>
+      <div class="lightbox-img-wrap">
+        <img id="lightboxImg" src="" alt="Enlarged Showcase View">
+      </div>
+      <div class="lightbox-caption" id="lightboxCaption"></div>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="assets/js/three.min.js"></script>
+  <script src="assets/js/OrbitControls.js"></script>
+  <script src="assets/js/main.js"></script>
+</body>
+</html>
