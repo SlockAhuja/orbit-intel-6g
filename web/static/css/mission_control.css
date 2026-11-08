@@ -878,16 +878,42 @@ body {
     line-height: 1.5;
 }
 .team-contributors-card {
-    background: rgba(15, 28, 52, 0.6);
-    border: 1px solid rgba(0, 229, 255, 0.25);
-    border-radius: 6px;
-    padding: 14px 18px;
+    background: rgba(15, 28, 52, 0.7);
+    border: 1px solid rgba(0, 229, 255, 0.3);
+    border-radius: 8px;
+    padding: 16px 20px;
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    gap: 16px;
+    align-items: stretch;
+}
+.c-divider {
+    border-right: 1px solid rgba(0, 229, 255, 0.25);
+    height: 100%;
+}
+.contributor-item {
     display: flex;
-    justify-content: space-around;
+    flex-direction: column;
+    align-items: center;
     text-align: center;
 }
+.c-avatar-wrap {
+    width: 68px;
+    height: 68px;
+    border-radius: 50%;
+    border: 2px solid var(--accent-cyan);
+    overflow: hidden;
+    margin-bottom: 8px;
+    box-shadow: 0 0 15px rgba(0, 229, 255, 0.3);
+}
+.c-avatar-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
 .contributor-item .c-name {
-    font-size: 16px;
+    font-size: 15px;
     font-weight: 800;
     color: #ffffff;
     font-family: var(--font-mono);
@@ -895,7 +921,53 @@ body {
 .contributor-item .c-role {
     font-size: 11px;
     color: var(--accent-cyan);
+    font-weight: 600;
     margin-top: 2px;
+}
+.contributor-item .c-affiliation {
+    font-size: 10px;
+    color: #94a3b8;
+    margin-top: 2px;
+    max-width: 260px;
+    line-height: 1.35;
+}
+.c-links {
+    display: flex;
+    gap: 8px;
+    margin-top: 8px;
+    justify-content: center;
+}
+.c-link-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    padding: 3px 8px;
+    background: rgba(10, 19, 36, 0.8);
+    border: 1px solid rgba(0, 229, 255, 0.25);
+    border-radius: 4px;
+    font-size: 10px;
+    font-family: var(--font-mono);
+    color: #cbd5e1;
+    text-decoration: none;
+    transition: all 0.2s ease;
+}
+.c-link-btn svg {
+    width: 11px;
+    height: 11px;
+    fill: currentColor;
+}
+.c-link-btn:hover {
+    background: rgba(0, 229, 255, 0.15);
+    border-color: var(--accent-cyan);
+    color: var(--accent-cyan);
+    transform: translateY(-1px);
+}
+.c-scholar-pending {
+    font-size: 9.5px;
+    font-family: var(--font-mono);
+    color: #64748b;
+    margin-top: 6px;
+    font-style: italic;
 }
 
 /* ==========================================================================

@@ -8,13 +8,13 @@
 
 ## 1. Verified Contributor Profiles
 
-| Contributor | GitHub | LinkedIn | Google Scholar |
-|---|---|---|---|
-| **Slock Ahuja** | [![GitHub](https://img.shields.io/badge/GitHub-SlockAhuja-181717?logo=github)](https://github.com/SlockAhuja) | [![LinkedIn](https://img.shields.io/badge/LinkedIn-slock--ahuja-0A66C2?logo=linkedin)](https://www.linkedin.com/in/slock-ahuja-32839b315/) | *[TODO: Profile Pending User Confirmation]* |
-| **Dr. Praveen Kumar Sharma** | *[TODO: Optional / Pending User Confirmation]* | *[TODO: Profile Pending User Confirmation]* | *[TODO: Profile Pending User Confirmation]* |
+| Contributor | Photo | Affiliation & Focus | Profile Links | Google Scholar |
+|---|:---:|---|---|---|
+| **Slock Ahuja** | <img src="assets/images/team/slock_ahuja.jpg" alt="Slock Ahuja" width="95" style="border-radius:50%;"/> | Project Co-Creator, Research Contributor & Mission Control Developer<br>• Wireless Systems & 3D Interactive Telemetry | [![LinkedIn](https://img.shields.io/badge/LinkedIn-slock--ahuja-0A66C2?logo=linkedin)](https://www.linkedin.com/in/slock-ahuja-32839b315/)<br>[![GitHub](https://img.shields.io/badge/GitHub-SlockAhuja-181717?logo=github)](https://github.com/SlockAhuja) | *Pending exact profile verification.* |
+| **Dr. Praveen Kumar Sharma** | <img src="assets/images/team/praveen_kumar_sharma.jpg" alt="Dr. Praveen Kumar Sharma" width="95" style="border-radius:50%;"/> | Research Mentor, Technical Contributor & Project Co-Creator<br>• Professor and Head, Department of Electronics & Communication Engineering, MIT-ADT University, Pune | [![LinkedIn](https://img.shields.io/badge/LinkedIn-dr--praveen--kumar--sharma-0A66C2?logo=linkedin)](https://www.linkedin.com/in/dr-praveen-kumar-sharma-832aa11aa/)<br>[![ORCID](https://img.shields.io/badge/ORCID-0000--0003--0833--7954-A6CE39?logo=orcid)](https://orcid.org/0000-0003-0833-7954) | *Pending exact profile verification.* |
 
 > **Attribution & Verification Note:**
-> In accordance with strict academic and project presentation guidelines, only verified profiles are linked above. Links marked *[TODO: Profile Pending User Confirmation]* will be updated upon explicit confirmation from the repository owner to prevent association with unrelated researcher profiles sharing similar names. Both contributors receive equal professional recognition.
+> Both contributors are acknowledged with equal visual and technical prominence. Only verified links (LinkedIn, GitHub, ORCID) are incorporated. Google Scholar profiles are noted as pending exact verification to prevent association with unrelated researcher profiles sharing similar names.
 
 ---
 
@@ -30,6 +30,7 @@
 - **Theoretical Guidance & Physical Modeling:** Provided scientific oversight on 3GPP TR 38.811 / TR 38.821 non-terrestrial network (NTN) propagation standards, speed-of-light delay decomposition, and ITU-R P.618 rain fading models.
 - **Uncertainty Quantification:** Guided the mathematical formulation of dual-uncertainty decomposition, separating epistemic model variance from aleatoric channel flutter via conformal quantile regression.
 - **Experimental Methodology:** Supervised the 400-trial Monte Carlo benchmark evaluation, statistical hypothesis testing (Wilcoxon and Mann-Whitney U tests), and scientific audit compliance.
+- **Academic Mentorship:** Led research scoping for the IEEE Communications Society Student Tech Leadership Conference (STLC) Tunisia 2026 showcase.
 
 ---
 
@@ -37,7 +38,7 @@
 
 The two-person project identity is reflected uniformly across all project interfaces:
 - **Mission Control Web Header:** `PROJECT CONTRIBUTORS: Slock Ahuja | Dr. Praveen Kumar Sharma`
-- **Interactive About Modal:** Accessible via the `[ℹ️ About & Team]` button on the web workstation.
+- **Interactive About & Team Modal:** Accessible via the `[ℹ️ About & Team]` button on the web workstation.
+- **Public Showcase Website:** Featured at [https://slockahuja.github.io/orbit-intel-6g/#contributors](https://slockahuja.github.io/orbit-intel-6g/#contributors) with high-resolution portraits and working links.
 - **API Endpoint:** Machine-readable contributor metadata at `/api/team`.
 - **Automated Tests:** Verified via `test_team_attribution_endpoint` in `tests/test_mission_control_web.py`.
-

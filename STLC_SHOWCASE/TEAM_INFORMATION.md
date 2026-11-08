@@ -7,14 +7,16 @@
 
 ---
 
-## 1. Project Contributors
+## 1. Verified Project Contributors
 
-The ORBIT-INTEL 6G project is contributed by:
+Both contributors are equally acknowledged as the official research co-creators of ORBIT-INTEL 6G:
 
-1. **Slock Ahuja**
-2. **Dr. Praveen Kumar Sharma**
+| Contributor | Photo | Affiliation & Focus | Profile Links | Google Scholar |
+|---|:---:|---|---|---|
+| **Slock Ahuja** | <img src="../docs/assets/images/team/slock_ahuja.jpg" alt="Slock Ahuja" width="95" style="border-radius:50%;"/> | Project Co-Creator, Research Contributor & Mission Control Developer<br>• Wireless Systems & 3D Interactive Telemetry | [![LinkedIn](https://img.shields.io/badge/LinkedIn-slock--ahuja-0A66C2?logo=linkedin)](https://www.linkedin.com/in/slock-ahuja-32839b315/)<br>[![GitHub](https://img.shields.io/badge/GitHub-SlockAhuja-181717?logo=github)](https://github.com/SlockAhuja) | *Pending exact profile verification.* |
+| **Dr. Praveen Kumar Sharma** | <img src="../docs/assets/images/team/praveen_kumar_sharma.jpg" alt="Dr. Praveen Kumar Sharma" width="95" style="border-radius:50%;"/> | Research Mentor, Technical Contributor & Project Co-Creator<br>• Professor & Head, Department of ECE, MIT-ADT University, Pune | [![LinkedIn](https://img.shields.io/badge/LinkedIn-dr--praveen--kumar--sharma-0A66C2?logo=linkedin)](https://www.linkedin.com/in/dr-praveen-kumar-sharma-832aa11aa/)<br>[![ORCID](https://img.shields.io/badge/ORCID-0000--0003--0833--7954-A6CE39?logo=orcid)](https://orcid.org/0000-0003-0833-7954) | *Pending exact profile verification.* |
 
-> **Attribution Policy Notice:** Both contributors are acknowledged equally as the official project contributors. In accordance with strict conference integrity policies, no fabricated academic affiliations, invented corporate titles, degrees, or student designations have been introduced.
+> **Attribution Policy Notice:** Both contributors receive equal visual and academic prominence. No fabricated author IDs or unverified profile links have been introduced. Google Scholar profiles are noted as pending exact verification.
 
 ---
 
@@ -30,6 +32,7 @@ The ORBIT-INTEL 6G project is contributed by:
 - **Theoretical Formulation & Scientific Guidance:** Provided rigorous scientific oversight on non-terrestrial network (NTN) propagation physics, 3GPP Release 17/18 NTN standards, and reliability-aware resource allocation.
 - **Dual-Uncertainty AI Framework:** Guided the mathematical formulation of conformal quantile regression and the decomposition of prediction variance into epistemic model uncertainty and aleatoric channel flutter.
 - **Experimental Methodology & Verification:** Supervised the 400-run Monte Carlo experimental validation, statistical benchmark comparisons against reactive and threshold baselines, and independent audit compliance.
+- **Academic Scoping:** Advised on research presentation strategy for the IEEE Communications Society Student Tech Leadership Conference (STLC) Tunisia 2026.
 
 ---
 
@@ -37,7 +40,7 @@ The ORBIT-INTEL 6G project is contributed by:
 
 The project identity is prominently integrated into every user-facing layer:
 - **Mission Control Web Header:** Top navigation display: `PROJECT CONTRIBUTORS: Slock Ahuja | Dr. Praveen Kumar Sharma`.
-- **"About the Project & Team" Modal (`#about-modal-backdrop`):** Interactive modal presenting the project's background, contributors, core innovation, and conference venue.
+- **"About the Project & Team" Modal (`#about-modal-backdrop`):** Interactive modal presenting contributor portraits, verified credentials, and conference showcase details.
+- **Public Showcase Website:** Featured with equal visual prominence at [https://slockahuja.github.io/orbit-intel-6g/#contributors](https://slockahuja.github.io/orbit-intel-6g/#contributors).
 - **REST API Endpoint (`/api/team`):** Machine-readable endpoint returning exact contributor names and conference metadata.
 - **Automated Regression Suite (`tests/test_mission_control_web.py`):** Verified by `test_team_attribution_endpoint` ensuring persistent attribution integrity.
-

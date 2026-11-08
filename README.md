@@ -110,12 +110,12 @@ Open your browser and navigate to:
 
 ## 👥 Project Contributors
 
-| Contributor | GitHub | LinkedIn | Google Scholar |
+| Contributor | Affiliation & Focus | Profile Links | Google Scholar |
 |---|---|---|---|
-| **Slock Ahuja** | [![GitHub](https://img.shields.io/badge/GitHub-SlockAhuja-181717?logo=github)](https://github.com/SlockAhuja) | [![LinkedIn](https://img.shields.io/badge/LinkedIn-slock--ahuja-0A66C2?logo=linkedin)](https://www.linkedin.com/in/slock-ahuja-32839b315/) | *[TODO: Profile Pending User Confirmation]* |
-| **Dr. Praveen Kumar Sharma** | *[TODO: Optional / Pending User Confirmation]* | *[TODO: Profile Pending User Confirmation]* | *[TODO: Profile Pending User Confirmation]* |
+| **Slock Ahuja**<br><img src="docs/assets/images/team/slock_ahuja.jpg" alt="Slock Ahuja" width="90" style="border-radius:50%; margin-top:6px;"/> | Project Co-Creator & Mission Control Developer<br>• Wireless Systems & 3D Interactive Telemetry | [![LinkedIn](https://img.shields.io/badge/LinkedIn-slock--ahuja-0A66C2?logo=linkedin)](https://www.linkedin.com/in/slock-ahuja-32839b315/) [![GitHub](https://img.shields.io/badge/GitHub-SlockAhuja-181717?logo=github)](https://github.com/SlockAhuja) | *Pending exact profile verification.* |
+| **Dr. Praveen Kumar Sharma**<br><img src="docs/assets/images/team/praveen_kumar_sharma.jpg" alt="Dr. Praveen Kumar Sharma" width="90" style="border-radius:50%; margin-top:6px;"/> | Research Mentor, Technical Contributor & Co-Creator<br>• Professor & Head, Department of ECE, MIT-ADT University, Pune | [![LinkedIn](https://img.shields.io/badge/LinkedIn-dr--praveen--kumar--sharma-0A66C2?logo=linkedin)](https://www.linkedin.com/in/dr-praveen-kumar-sharma-832aa11aa/) [![ORCID](https://img.shields.io/badge/ORCID-0000--0003--0833--7954-A6CE39?logo=orcid)](https://orcid.org/0000-0003-0833-7954) | *Pending exact profile verification.* |
 
-*For detailed roles and technical responsibilities, see [docs/TEAM.md](docs/TEAM.md).*
+*Both contributors are equally acknowledged as the official research co-creators of ORBIT-INTEL 6G. For comprehensive research roles and responsibilities, see [docs/TEAM.md](docs/TEAM.md) and [STLC_SHOWCASE/TEAM_INFORMATION.md](STLC_SHOWCASE/TEAM_INFORMATION.md).*
 
 ---
 
