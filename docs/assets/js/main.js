@@ -842,11 +842,13 @@ function initLightbox() {
   const modalImg = document.getElementById('lightboxImg');
   const modalCap = document.getElementById('lightboxCaption');
   const closeBtn = document.getElementById('lightboxClose');
+  const imgWrap = modal ? modal.querySelector('.lightbox-img-wrap') : null;
 
   if (!modal || !modalImg) return;
 
   document.querySelectorAll('[data-lightbox]').forEach(card => {
-    card.addEventListener('click', () => {
+    card.addEventListener('click', (e) => {
+      e.preventDefault();
       const img = card.querySelector('img');
       const title = card.querySelector('h4, h5')?.textContent || '';
       const desc = card.querySelector('p')?.textContent || '';
@@ -854,15 +856,26 @@ function initLightbox() {
       if (img) {
         modalImg.src = img.src;
         modalCap.innerHTML = `<strong>${title}</strong> — ${desc}`;
+        if (imgWrap) {
+          if (img.src.includes('dashboard') || img.src.includes('earth') || img.src.includes('space') || img.src.includes('telemetry') || img.src.includes('ground')) {
+            imgWrap.classList.add('dark-bg');
+          } else {
+            imgWrap.classList.remove('dark-bg');
+          }
+        }
         modal.classList.add('active');
+        document.body.style.overflow = 'hidden';
       }
     });
   });
 
-  const closeModal = () => modal.classList.remove('active');
+  const closeModal = () => {
+    modal.classList.remove('active');
+    document.body.style.overflow = '';
+  };
   if (closeBtn) closeBtn.addEventListener('click', closeModal);
   modal.addEventListener('click', (e) => {
-    if (e.target === modal) closeModal();
+    if (e.target === modal || e.target.classList.contains('lightbox-content')) closeModal();
   });
 
   document.addEventListener('keydown', (e) => {

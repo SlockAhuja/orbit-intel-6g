@@ -936,66 +936,77 @@
         <div class="figure-card" data-lightbox>
           <div class="figure-thumb">
             <img src="assets/images/fig1_pdr_comparison.png" alt="Figure 1: Packet Delivery Ratio Comparison" loading="lazy">
-            <div class="thumb-overlay"><span class="thumb-tag">CLICK TO ENLARGE</span></div>
+            <div class="figure-zoom-badge">🔍 ENLARGE</div>
           </div>
           <div class="figure-caption">
             <h5>Figure 1: PDR Comparison</h5>
-            <p>Monte Carlo 400-trial PDR across varying traffic loads and rain rates.</p>
+            <p>Monte Carlo 400-trial PDR across varying traffic loads and convective rain rates.</p>
           </div>
         </div>
 
         <div class="figure-card" data-lightbox>
           <div class="figure-thumb">
             <img src="assets/images/fig2_latency_vs_outage.png" alt="Figure 2: Latency vs Outage Tradeoff" loading="lazy">
-            <div class="thumb-overlay"><span class="thumb-tag">CLICK TO ENLARGE</span></div>
+            <div class="figure-zoom-badge">🔍 ENLARGE</div>
           </div>
           <div class="figure-caption">
-            <h5>Figure 2: Latency vs Outage</h5>
-            <p>99th-percentile tail latency versus session outage probability.</p>
+            <h5>Figure 2: Latency vs Outage Tradeoff</h5>
+            <p>99th-percentile tail latency versus session outage probability showing sub-10ms URLLC bounds.</p>
           </div>
         </div>
 
         <div class="figure-card" data-lightbox>
           <div class="figure-thumb">
-            <img src="assets/images/fig3_handover_stability.png" alt="Figure 3: Handover Stability & Ping-Pong" loading="lazy">
-            <div class="thumb-overlay"><span class="thumb-tag">CLICK TO ENLARGE</span></div>
+            <img src="assets/images/fig3_handover_stability.png" alt="Figure 3: Handover Stability & Ping-Pong Suppression" loading="lazy">
+            <div class="figure-zoom-badge">🔍 ENLARGE</div>
           </div>
           <div class="figure-caption">
             <h5>Figure 3: Handover Stability</h5>
-            <p>Ping-pong suppression achieved via CAPRO switching cost &gamma;.</p>
+            <p>89.3% ping-pong suppression achieved via CAPRO risk penalty and switching hysteresis.</p>
           </div>
         </div>
 
         <div class="figure-card" data-lightbox>
           <div class="figure-thumb">
-            <img src="assets/images/fig4_prediction_calibration.png" alt="Figure 4: Conformal Calibration" loading="lazy">
-            <div class="thumb-overlay"><span class="thumb-tag">CLICK TO ENLARGE</span></div>
+            <img src="assets/images/fig4_prediction_calibration.png" alt="Figure 4: Conformal Prediction Calibration" loading="lazy">
+            <div class="figure-zoom-badge">🔍 ENLARGE</div>
           </div>
           <div class="figure-caption">
             <h5>Figure 4: Conformal Calibration</h5>
-            <p>Empirical coverage curves confirming nominal 95% interval guarantees.</p>
+            <p>Empirical coverage curves confirming nominal 95% distribution-free interval guarantees.</p>
           </div>
         </div>
 
         <div class="figure-card" data-lightbox>
           <div class="figure-thumb">
             <img src="assets/images/fig5_sinr_temporal_trace.png" alt="Figure 5: Temporal SINR Trace" loading="lazy">
-            <div class="thumb-overlay"><span class="thumb-tag">CLICK TO ENLARGE</span></div>
+            <div class="figure-zoom-badge">🔍 ENLARGE</div>
           </div>
           <div class="figure-caption">
             <h5>Figure 5: Temporal SINR Trace</h5>
-            <p>Real-time channel response during dynamic convective rain fade.</p>
+            <p>Real-time channel response and proactive offloading during sudden convective rain fading.</p>
           </div>
         </div>
 
         <div class="figure-card" data-lightbox>
           <div class="figure-thumb">
-            <img src="assets/images/fig6_ablation_risk_kappa.png" alt="Figure 6: Risk-Aversion Ablation" loading="lazy">
-            <div class="thumb-overlay"><span class="thumb-tag">CLICK TO ENLARGE</span></div>
+            <img src="assets/images/fig6_ablation_risk_kappa.png" alt="Figure 6: Risk-Aversion Coefficient Ablation" loading="lazy">
+            <div class="figure-zoom-badge">🔍 ENLARGE</div>
           </div>
           <div class="figure-caption">
             <h5>Figure 6: Risk-Aversion &kappa; Ablation</h5>
-            <p>Parameter sensitivity analysis of risk-penalty parameter &kappa; on outage.</p>
+            <p>Parameter sensitivity analysis of risk-penalty parameter &kappa; on outage minimization.</p>
+          </div>
+        </div>
+
+        <div class="figure-card" data-lightbox>
+          <div class="figure-thumb">
+            <img src="assets/images/fig7_energy_efficiency.png" alt="Figure 7: Energy Consumption Efficiency" loading="lazy">
+            <div class="figure-zoom-badge">🔍 ENLARGE</div>
+          </div>
+          <div class="figure-caption">
+            <h5>Figure 7: Energy Consumption Efficiency</h5>
+            <p>Energy consumption per delivered megabit across baseline heuristics and CAPRO dynamic power control.</p>
           </div>
         </div>
       </div>
@@ -1216,6 +1227,32 @@
       </div>
 
       <div class="docs-grid">
+        <!-- FEATURED TECHNICAL RESEARCH BRIEF CARD -->
+        <div class="doc-card" style="border-color: rgba(0, 240, 255, 0.45); background: linear-gradient(135deg, rgba(0, 240, 255, 0.08) 0%, rgba(2, 6, 23, 0.7) 100%); grid-column: 1 / -1; box-shadow: 0 8px 30px rgba(0, 240, 255, 0.12);">
+          <div class="doc-icon" style="font-size: 2.2rem;">📄</div>
+          <div style="flex: 1;">
+            <div style="display: flex; flex-wrap: wrap; gap: 0.5rem; align-items: center; margin-bottom: 0.4rem;">
+              <span class="badge-data-origin badge-recorded">OFFICIAL RESEARCH BRIEF</span>
+              <span style="font-family: var(--font-mono); font-size: 0.72rem; color: #38bdf8; font-weight: 700; text-transform: uppercase;">EXACTLY TWO PAGES • SINGLE COLUMN</span>
+              <span class="badge-data-origin badge-live" style="font-size:0.65rem;">PDF + LATEX SOURCE</span>
+            </div>
+            <h4 style="color: #ffffff; margin-bottom: 0.4rem; font-size: 1.15rem; font-weight: 700;">ORBIT-INTEL 6G: Intelligent Resource Management and Predictive Reliability Orchestration for Integrated Non-Terrestrial Networks</h4>
+            <p style="font-size: 0.85rem; color: var(--text-dim); line-height: 1.55; margin-bottom: 0.85rem;">
+              Official 2-page technical research brief by Slock Ahuja and Dr. Praveen Kumar Sharma. Formulates the Space-Air-Ground SAGIN architecture, physical-layer PPO deep reinforcement learning (subcarrier slicing and water-filling power control), network-layer CAPRO reliability orchestration (multi-horizon neural forecasting and conformal quantile bounds), and verified 400-trial Monte Carlo benchmark campaign results.
+            </p>
+            <div style="display: flex; flex-wrap: wrap; gap: 0.75rem; align-items: center;">
+              <a href="assets/reports/ORBIT_INTEL_6G_Technical_Report.pdf" target="_blank" rel="noopener" class="btn btn-primary" style="padding: 0.45rem 1.1rem; font-size: 0.82rem; font-weight: 700;">
+                📄 View Technical Brief (PDF)
+              </a>
+              <a href="assets/reports/ORBIT_INTEL_6G_Technical_Report.pdf" download="ORBIT_INTEL_6G_Technical_Report.pdf" class="btn btn-outline" style="padding: 0.45rem 1.1rem; font-size: 0.82rem;">
+                ⬇️ Download PDF
+              </a>
+              <a href="https://github.com/SlockAhuja/orbit-intel-6g/blob/main/reports/technical_report/main.tex" target="_blank" rel="noopener" class="btn btn-outline" style="padding: 0.45rem 1.1rem; font-size: 0.82rem;">
+                💻 View LaTeX Source (main.tex)
+              </a>
+            </div>
+          </div>
+        </div>
         <div class="doc-card">
           <div class="doc-icon">📐</div>
           <div>
