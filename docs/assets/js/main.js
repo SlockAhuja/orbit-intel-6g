@@ -888,63 +888,92 @@ function initFaqAccordion() {
 }
 
 /* ==========================================================================
-   15. Presentation Mode (16:9 Conference Slide Deck) - Exact 11-Slide Sequence
+   15. Presentation Mode (16:9 Conference Slide Deck) - Exact 14-Step Sequence
    ========================================================================== */
 const presentationSlides = [
   {
-    title: '1. Project Introduction: ORBIT-INTEL 6G',
-    subtitle: 'Predictive Intelligence for Reliability-Aware Resource Orchestration in Integrated 6G Non-Terrestrial Networks',
-    body: 'An official research technology framework developed for the IEEE Communications Society Student Tech Leadership Conference (STLC) Tunisia 2026. ORBIT-INTEL 6G bridges the gap between physics-grounded NTN simulation and autonomous predictive resource management, achieving deterministic sub-10ms URLLC latency across volatile space-air-ground networks.'
+    stepNum: 1,
+    title: '1. Welcome to ORBIT-INTEL 6G',
+    subtitle: 'AI-Enabled Resource Management & Predictive Reliability Orchestration for 6G NTN',
+    body: 'Welcome to the official research technology demonstration for the IEEE Communications Society STLC Tunisia 2026. This platform unites deep reinforcement learning (PPO) for physical layer resource management with confidence-aware predictive reliability orchestration (CAPRO) across heterogeneous space-air-ground networks.'
   },
   {
-    title: '2. Research Challenge & Motivation',
-    subtitle: 'Why Conventional Reactive Schemes Fail in 6G Non-Terrestrial Networks',
-    body: 'LEO satellites travel at hypersonic orbital velocities (7.56 km/s), generating rapid Doppler shifts exceeding ±37 kHz and fleeting 8–14 minute visibility windows. Combined with Ka-band convective rain fading (>15 dB attenuation) and 600–1200 km propagation delays (2.5–5.0 ms one-way), traditional reactive 3GPP A3-event handovers suffer 8.58% session dropouts and destructive ping-pong thrashing (14.8%).'
+    stepNum: 2,
+    title: '2. LEO Satellite Constellation Kinematics',
+    subtitle: 'Hypersonic Orbital Velocities (7.56 km/s) & Fleeting Coverage Windows',
+    body: 'Observe the LEO constellation moving across Keplerian orbits at 600 km altitude. Each satellite spot beam footprint covers ~1,050 km, but with a pass duration of only 8–14 minutes, continuous beam tracking and Doppler management (±37 kHz) are paramount.'
   },
   {
-    title: '3. 5-Tier Heterogeneous SAGIN Architecture',
-    subtitle: 'Hierarchical Cross-Tier Space-Air-Ground Integration',
-    body: 'Coordinates a multi-tiered heterogeneous topology: (1) Space Tier: 6 Keplerian LEO satellites at 600 km with optical inter-satellite links; (2) Stratospheric Tier: 2 solar-powered HAPS aerostats at 20 km providing wide-area rain-resilient relaying; (3) Aerial Tier: 4 tactical UAVs at 300 m for localized hotspot surge relief; (4) Terrestrial Tier: optical feeder gateways and 5G/6G gNodeBs; and (5) Edge User Tier: autonomous vehicles (V2X), maritime vessels, and emergency first responders.'
+    stepNum: 3,
+    title: '3. Multi-Tier Ground Users & Traffic Profiling',
+    subtitle: 'Urban, Rural, Maritime, Remote Mountain, and Disaster Relief',
+    body: 'Ground terminals represent diverse 6G application classes: eMBB smart city mobile users (45 Mbps), mMTC agricultural sensors, maritime shipping vessels with pure satellite connectivity, and mission-critical URLLC emergency first responders in disaster zones.'
   },
   {
-    title: '4. Physics-Grounded Network Simulation',
-    subtitle: 'Rigorous Compliance with 3GPP TR 38.811/821 & ITU-R P.618 Standards',
-    body: 'Built on true physical propagation mechanics: Keplerian two-body orbital dynamics, vis-viva velocity calculation, Doppler shift modeling, ITU-R P.618-13 specific rain attenuation (gamma_R = k * R^alpha), ITU-R P.676 atmospheric gas absorption, and physical decomposition of end-to-end latency: T_E2E = T_prop + T_trans + T_proc + T_queue + T_ho.'
+    stepNum: 4,
+    title: '4. Network Stress-Testing: Congestion & Rain Fading',
+    subtitle: '15 dB Ka-Band Rain Spikes & Channel Capacity Saturation',
+    body: 'When sudden convective rain cells strike maritime/remote paths or traffic surges in urban hotspots, available communication capacity collapses. Conventional networks drop sessions and suffer severe packet loss without intelligent resource intervention.'
   },
   {
-    title: '5. Predictive Link Intelligence & Uncertainty',
-    subtitle: 'Multi-Horizon Neural Forecasting with Aleatoric & Epistemic Decomposition',
-    body: 'Deep temporal predictors forecast channel trajectories over multi-second horizons (H = 1s, 3s, 5s, 10s) with RMSE < 0.42 dB. Crucially decomposes total uncertainty into: (a) Aleatoric Uncertainty (inherent physical rain flutter and tropospheric scintillation), and (b) Epistemic Uncertainty (model lack of knowledge in out-of-distribution regimes like solar storms), preventing overconfident handover failures.'
+    stepNum: 5,
+    title: '5. Conventional Rule-Based Greedy Allocation (Baseline)',
+    subtitle: 'Shortest Euclidean Distance & Static Equal Power Slicing',
+    body: 'Under baseline rule-based matching, ground terminals associate blindly to the nearest satellite and divide power equally. Result: severe co-channel collisions, 8.0% packet loss, ping-pong handover thrashing, and high reconnection latency (55 ms).'
   },
   {
-    title: '6. CAPRO Technology & Decision Workflow',
-    subtitle: 'Confidence-Aware Predictive Reliability Orchestration',
-    body: 'Formulates multi-objective risk-adjusted utility optimization: J(a, u, t) = R_hat - kappa*sigma_total - beta*P_tx - gamma*I(handover). Enforces deterministic hard URLLC reliability constraints before scoring: (1) Conformal lower bound q05(SINR) >= 3.0 dB (95% viability); (2) End-to-end latency T_E2E <= 10.0 ms; and (3) Orbital visibility margin T_vis >= 12.0 s.'
+    stepNum: 6,
+    title: '6. Autonomous PPO AI Resource Management',
+    subtitle: 'Multi-Objective Actor-Critic Policy Optimization',
+    body: 'Activating the Proximal Policy Optimization (PPO) agent: The trained neural policy evaluates multi-dimensional state vectors [h, gamma, B, P, Alt], balancing orbital dwell times, elevation angles, traffic priorities, and load balancing across available satellites.'
   },
   {
-    title: '7. Intelligent Multi-Tier Handover',
-    subtitle: 'Preemptive Zero-Loss Switching & 89.3% Ping-Pong Suppression',
-    body: 'Executes proactive handovers during overlapping visibility footprints before link degradation occurs. The synergistic combination of epistemic risk penalty kappa and handover switching cost gamma suppresses destructive ping-pong flapping by 89.3%, stabilizing session continuity across LEO-to-LEO horizontal and LEO-to-HAPS vertical transitions.'
+    stepNum: 7,
+    title: '7. Dynamic Satellite-to-User Association',
+    subtitle: 'Handover Hysteresis & Dwell-Time Optimization',
+    body: 'Notice how the PPO agent avoids connecting users to setting satellites with short remaining visibility. The +4.5 hysteresis bonus prevents rapid oscillations between satellites with comparable signal levels, stabilizing connections.'
   },
   {
-    title: '8. Experimental Results & Benchmark Evaluation',
-    subtitle: 'Documented 400-Trial Monte Carlo Benchmarking Against Industry Baselines',
-    body: 'Independently verified against Reactive (M1), Threshold Predictive (M2), and AI Point-Prediction (M3): CAPRO achieves 99.41% Packet Delivery Ratio (+7.36% gain over reactive), 6.82 ms 99th-percentile tail latency (-63.0% reduction), 0.59% outage probability (14.5x suppression), and 1.58% ping-pong rate (89.3% reduction).'
+    stepNum: 8,
+    title: '8. Orthogonal Subcarrier Allocation & Interference Avoidance',
+    subtitle: 'Dynamic Slicing Eliminating Co-Channel Collisions',
+    body: 'The AI agent dynamically coordinates subcarrier indices across adjacent spot beams, achieving orthogonal frequency reuse that suppresses inter-beam interference by 14 dB and boosts spectral efficiency by +14.82%.'
   },
   {
-    title: '9. Mission Control Center Operations Interface',
-    subtitle: 'Aerospace Operations Console with Live 3D Earth & Real-Time Telemetry',
-    body: 'A full-featured Python/Flask operations console featuring an interactive Three.js 3D Earth, real-time WebSocket telemetry stream, multi-horizon prediction curves, dynamic scenario stress-testing injection, and side-by-side 4-method benchmark visualization.'
+    stepNum: 9,
+    title: '9. Water-Filling Transmit Power Adaptation',
+    subtitle: 'Neural Power Steering to Fading Links & URLLC Users',
+    body: 'Rather than wasteful equal power splitting, the PPO policy implements adaptive water-filling power control, steering higher power (up to 46 dBm) to mission-critical URLLC terminals and links undergoing rain attenuation.'
   },
   {
-    title: '10. Research Contributions & Scientific Novelty',
-    subtitle: 'Five Distinct Academic & Engineering Breakthroughs',
-    body: '(1) Physics-grounded SAGIN simulator compliant with 3GPP NTN standards; (2) Dual-uncertainty channel forecasting separating aleatoric flutter from epistemic risk; (3) Conformal prediction framework guaranteeing finite-sample coverage for 6G URLLC; (4) CAPRO optimization formulation with hard reliability constraints; and (5) Reproducible 400-trial Monte Carlo benchmark framework.'
+    stepNum: 10,
+    title: '10. Empirical Measured Performance Comparison',
+    subtitle: 'PPO vs Baseline Side-by-Side Validation',
+    body: 'Compared against conventional heuristics: System throughput increases from 2253.55 Mbps to 2587.56 Mbps (+14.82%), packet loss drops from 8.0% to 3.0% (-62.5%), and handover reconnection latency falls from 55 ms to 30 ms (-45.4%).'
   },
   {
-    title: '11. Project Contributors & Research Collaboration',
-    subtitle: 'Slock Ahuja & Dr. Praveen Kumar Sharma — Equal Research Co-Creators',
-    body: 'Co-created by Slock Ahuja (Project Co-Creator, Research Contributor & Mission Control Developer) and Dr. Praveen Kumar Sharma (Research Mentor, Technical Contributor & Project Co-Creator; Professor & Head, Department of ECE, MIT-ADT University Pune; Focus: Antennas, metamaterials, wearable devices & machine learning). Prepared for IEEE ComSoc STLC Tunisia 2026.'
+    stepNum: 11,
+    title: '11. PPO Decision Pipeline & Reward Function',
+    subtitle: 'R = Throughput - Delay - 10 * PacketLoss',
+    body: 'The Gymnasium Markov Decision Process (MDP) continuously evaluates link states, computes actor-critic policy actions, and optimizes cumulative reward. The AI transparently explains every allocation decision in real-time.'
+  },
+  {
+    stepNum: 12,
+    title: '12. Cross-Tier Predictive Reliability & CAPRO',
+    subtitle: 'From Intra-Tier Spectrum to Multi-Tier Orchestration',
+    body: 'PPO handles intra-tier physical resources (channels & power). For cross-tier space-air-ground network survivability, ORBIT-INTEL 6G introduces CAPRO: Confidence-Aware Predictive Reliability Orchestration, forecasting channel quality over multi-second horizons (H = 1s to 10s).'
+  },
+  {
+    stepNum: 13,
+    title: '13. Conformal Quantile Bounds & Preemptive Handover',
+    subtitle: '95% Coverage Guarantees & 89.3% Ping-Pong Suppression',
+    body: 'Conformal quantile regression separates aleatoric rain flutter from model epistemic uncertainty. When the 95% worst-case lower bound (q05) indicates link viability drop, CAPRO preemptively initiates cross-tier vertical handovers to HAPS or UAVs before packet loss occurs.'
+  },
+  {
+    stepNum: 14,
+    title: '14. Research Conclusions & STLC 2026 Showcase Summary',
+    subtitle: 'Deterministic 6.82 ms URLLC Tail Latency & 99.41% PDR',
+    body: 'ORBIT-INTEL 6G demonstrates that unifying deep reinforcement learning (PPO) with conformal predictive reliability (CAPRO) enables deterministic sub-10ms URLLC across volatile 6G non-terrestrial networks. Both research modules are reproducible, verified, and open-source.'
   }
 ];
 
