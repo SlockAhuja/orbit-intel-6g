@@ -888,53 +888,63 @@ function initFaqAccordion() {
 }
 
 /* ==========================================================================
-   15. Presentation Mode (16:9 Conference Slide Deck)
+   15. Presentation Mode (16:9 Conference Slide Deck) - Exact 11-Slide Sequence
    ========================================================================== */
 const presentationSlides = [
   {
-    title: 'ORBIT-INTEL 6G',
+    title: '1. Project Introduction: ORBIT-INTEL 6G',
     subtitle: 'Predictive Intelligence for Reliability-Aware Resource Orchestration in Integrated 6G Non-Terrestrial Networks',
-    body: 'A research framework developed for the IEEE Communications Society Student Tech Leadership Conference (STLC) Tunisia 2026. Combines 3GPP-standard physical SAGIN simulation, dual-uncertainty conformal link forecasting, and risk-adjusted multi-tier orchestration.'
+    body: 'An official research technology framework developed for the IEEE Communications Society Student Tech Leadership Conference (STLC) Tunisia 2026. ORBIT-INTEL 6G bridges the gap between physics-grounded NTN simulation and autonomous predictive resource management, achieving deterministic sub-10ms URLLC latency across volatile space-air-ground networks.'
   },
   {
-    title: 'The NTN Challenge: Why Reactive Schemes Fail',
-    subtitle: 'Extreme Velocities (7.56 km/s), Rain Fading & Doppler Shifts',
-    body: 'LEO satellites cross the sky in brief 8–14 minute passes with Doppler shifts exceeding ±37 kHz. Stale CSI feedback under 600–1200 km propagation delays causes reactive handovers to drop active sessions (8.58% outage probability).'
+    title: '2. Research Challenge & Motivation',
+    subtitle: 'Why Conventional Reactive Schemes Fail in 6G Non-Terrestrial Networks',
+    body: 'LEO satellites travel at hypersonic orbital velocities (7.56 km/s), generating rapid Doppler shifts exceeding ±37 kHz and fleeting 8–14 minute visibility windows. Combined with Ka-band convective rain fading (>15 dB attenuation) and 600–1200 km propagation delays (2.5–5.0 ms one-way), traditional reactive 3GPP A3-event handovers suffer 8.58% session dropouts and destructive ping-pong thrashing (14.8%).'
   },
   {
-    title: '5-Tier Space-Air-Ground Integrated Network (SAGIN)',
-    subtitle: 'Space (LEO) • Stratosphere (HAPS) • Aerial (UAV) • Terrestrial • User Layer',
-    body: 'Hierarchical cross-tier topology coordinating 6 Keplerian LEO satellites, 2 stratospheric HAPS relays (20 km), 4 tactical edge UAVs (300 m), optical feeder ground gateways, and heterogeneous ground terminals.'
+    title: '3. 5-Tier Heterogeneous SAGIN Architecture',
+    subtitle: 'Hierarchical Cross-Tier Space-Air-Ground Integration',
+    body: 'Coordinates a multi-tiered heterogeneous topology: (1) Space Tier: 6 Keplerian LEO satellites at 600 km with optical inter-satellite links; (2) Stratospheric Tier: 2 solar-powered HAPS aerostats at 20 km providing wide-area rain-resilient relaying; (3) Aerial Tier: 4 tactical UAVs at 300 m for localized hotspot surge relief; (4) Terrestrial Tier: optical feeder gateways and 5G/6G gNodeBs; and (5) Edge User Tier: autonomous vehicles (V2X), maritime vessels, and emergency first responders.'
   },
   {
-    title: 'Predictive Link Intelligence & Uncertainty',
-    subtitle: 'Multi-Horizon Forecasting with Aleatoric & Epistemic Decomposition',
-    body: 'Neural predictors forecast future channel trajectories across H = 1, 3, 5, and 10 second horizons. Conformal quantile bounds [q05, q95] separate environmental channel flutter from model epistemic uncertainty.'
+    title: '4. Physics-Grounded Network Simulation',
+    subtitle: 'Rigorous Compliance with 3GPP TR 38.811/821 & ITU-R P.618 Standards',
+    body: 'Built on true physical propagation mechanics: Keplerian two-body orbital dynamics, vis-viva velocity calculation, Doppler shift modeling, ITU-R P.618-13 specific rain attenuation (gamma_R = k * R^alpha), ITU-R P.676 atmospheric gas absorption, and physical decomposition of end-to-end latency: T_E2E = T_prop + T_trans + T_proc + T_queue + T_ho.'
   },
   {
-    title: 'Core Contribution: CAPRO Decision Engine',
+    title: '5. Predictive Link Intelligence & Uncertainty',
+    subtitle: 'Multi-Horizon Neural Forecasting with Aleatoric & Epistemic Decomposition',
+    body: 'Deep temporal predictors forecast channel trajectories over multi-second horizons (H = 1s, 3s, 5s, 10s) with RMSE < 0.42 dB. Crucially decomposes total uncertainty into: (a) Aleatoric Uncertainty (inherent physical rain flutter and tropospheric scintillation), and (b) Epistemic Uncertainty (model lack of knowledge in out-of-distribution regimes like solar storms), preventing overconfident handover failures.'
+  },
+  {
+    title: '6. CAPRO Technology & Decision Workflow',
     subtitle: 'Confidence-Aware Predictive Reliability Orchestration',
-    body: 'Risk-adjusted utility optimization: J(a, u) = R̂(a, u) − κ·σ_total − β·P_tx − γ·𝕀(handover). Enforces deterministic hard constraints: q05(SINR) ≥ 3.0 dB, T_E2E ≤ 10.0 ms, and remaining visibility T_vis > 12.0 s.'
+    body: 'Formulates multi-objective risk-adjusted utility optimization: J(a, u, t) = R_hat - kappa*sigma_total - beta*P_tx - gamma*I(handover). Enforces deterministic hard URLLC reliability constraints before scoring: (1) Conformal lower bound q05(SINR) >= 3.0 dB (95% viability); (2) End-to-end latency T_E2E <= 10.0 ms; and (3) Orbital visibility margin T_vis >= 12.0 s.'
   },
   {
-    title: 'Intelligent Multi-Tier Handover',
-    subtitle: 'Preemptive Switching with Zero Packet Interruption',
-    body: 'Handovers are triggered proactively during overlapping visibility footprints. Eliminates catastrophic link failures and suppresses destructive ping-pong switching by 89.3%.'
+    title: '7. Intelligent Multi-Tier Handover',
+    subtitle: 'Preemptive Zero-Loss Switching & 89.3% Ping-Pong Suppression',
+    body: 'Executes proactive handovers during overlapping visibility footprints before link degradation occurs. The synergistic combination of epistemic risk penalty kappa and handover switching cost gamma suppresses destructive ping-pong flapping by 89.3%, stabilizing session continuity across LEO-to-LEO horizontal and LEO-to-HAPS vertical transitions.'
   },
   {
-    title: 'Empirical Results: 400-Trial Monte Carlo Benchmark',
-    subtitle: '99.41% PDR • 6.82 ms Tail Latency • 0.59% Outage Probability',
-    body: 'Independently verified against 3 baselines: CAPRO achieves 99.41% packet delivery (+7.99% gain over reactive RSSI), slashes 99th-percentile tail latency to 6.82 ms (-63.0%), and delivers a 14.5x reduction in connection outages.'
+    title: '8. Experimental Results & Benchmark Evaluation',
+    subtitle: 'Documented 400-Trial Monte Carlo Benchmarking Against Industry Baselines',
+    body: 'Independently verified against Reactive (M1), Threshold Predictive (M2), and AI Point-Prediction (M3): CAPRO achieves 99.41% Packet Delivery Ratio (+7.36% gain over reactive), 6.82 ms 99th-percentile tail latency (-63.0% reduction), 0.59% outage probability (14.5x suppression), and 1.58% ping-pong rate (89.3% reduction).'
   },
   {
-    title: 'Mission Control Center Operations Interface',
-    subtitle: 'Aerospace Operations Console with Live 3D Earth & Telemetry HUD',
-    body: 'Full-featured Python/Flask operations console featuring interactive Three.js 3D Earth, real-time WebSocket telemetry stream, scenario stress-test sandbox, and 4-method comparative analytics.'
+    title: '9. Mission Control Center Operations Interface',
+    subtitle: 'Aerospace Operations Console with Live 3D Earth & Real-Time Telemetry',
+    body: 'A full-featured Python/Flask operations console featuring an interactive Three.js 3D Earth, real-time WebSocket telemetry stream, multi-horizon prediction curves, dynamic scenario stress-testing injection, and side-by-side 4-method benchmark visualization.'
   },
   {
-    title: 'Project Contributors & Research Collaboration',
-    subtitle: 'Slock Ahuja & Dr. Praveen Kumar Sharma',
-    body: 'Co-created by Slock Ahuja (Platform Developer & Lead Visualization Engineer) and Dr. Praveen Kumar Sharma (Professor & Head, Department of ECE, MIT-ADT University Pune). Prepared for IEEE ComSoc STLC Tunisia 2026.'
+    title: '10. Research Contributions & Scientific Novelty',
+    subtitle: 'Five Distinct Academic & Engineering Breakthroughs',
+    body: '(1) Physics-grounded SAGIN simulator compliant with 3GPP NTN standards; (2) Dual-uncertainty channel forecasting separating aleatoric flutter from epistemic risk; (3) Conformal prediction framework guaranteeing finite-sample coverage for 6G URLLC; (4) CAPRO optimization formulation with hard reliability constraints; and (5) Reproducible 400-trial Monte Carlo benchmark framework.'
+  },
+  {
+    title: '11. Project Contributors & Research Collaboration',
+    subtitle: 'Slock Ahuja & Dr. Praveen Kumar Sharma — Equal Research Co-Creators',
+    body: 'Co-created by Slock Ahuja (Project Co-Creator, Research Contributor & Mission Control Developer) and Dr. Praveen Kumar Sharma (Research Mentor, Technical Contributor & Project Co-Creator; Professor & Head, Department of ECE, MIT-ADT University Pune; Focus: Antennas, metamaterials, wearable devices & machine learning). Prepared for IEEE ComSoc STLC Tunisia 2026.'
   }
 ];
 
