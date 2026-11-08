@@ -604,82 +604,62 @@
     <div class="container">
       <div class="section-header">
         <span class="section-tag">SECTION 03: THEORETICAL FOUNDATIONS</span>
-        <h2 class="section-title">Deep Reinforcement Learning (PPO) for 6G NTN Resource Management</h2>
+        <h2 class="section-title">Physical-Layer AI Resource Management (PPO Formulation)</h2>
         <p class="section-desc">
-          Formal mathematical formulation of the Proximal Policy Optimization (PPO) Markov Decision Process for joint satellite association, spectrum allocation, and transmit-power control in Non-Terrestrial Networks.
+          Autonomous radio resource allocation via deep reinforcement learning, coordinating dynamic user association, orthogonal subcarrier slicing, and adaptive power control in high-mobility Non-Terrestrial Networks.
         </p>
       </div>
 
-      <!-- The 6-Question Research Explanation Structure -->
+      <!-- Conceptual 3-Pillar Research Explanation Structure -->
       <div class="grid-2col" style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5rem; margin-bottom: 2rem;">
         <div class="infra-card">
           <div class="infra-card-header">
-            <h4 style="color: var(--accent-cyan); font-size: 1.05rem;">1. What is the Problem?</h4>
+            <h4 style="color: var(--accent-cyan); font-size: 1.05rem;">1. Dynamic Terminal Association</h4>
           </div>
           <p class="infra-desc">
-            In 6G Non-Terrestrial Networks, LEO satellites move at 7.56 km/s across rapidly shifting geometries. Terrestrial users in heterogeneous zones (urban, maritime, disaster) experience severe path loss, rapid Doppler shifts, and convective rain fade. Static greedy heuristics cause link drops, channel collisions, and high handover latency (55 ms).
+            LEO satellites traverse the sky at ~7.56 km/s, yielding narrow visibility windows (&lt;8 min). Rather than naive signal-strength association that triggers frequent premature switching, the policy balances topocentric elevation angle, remaining orbital dwell time, and handover hysteresis to guarantee stable link serving.
           </p>
         </div>
 
         <div class="infra-card">
           <div class="infra-card-header">
-            <h4 style="color: var(--accent-cyan); font-size: 1.05rem;">2. What does the AI Observe?</h4>
+            <h4 style="color: var(--accent-cyan); font-size: 1.05rem;">2. Orthogonal Subcarrier Slicing</h4>
           </div>
           <p class="infra-desc">
-            The Gymnasium MDP state vector consists of 5 continuous features per transmission link:
-            <br><code>State s = [ channel_gain |h|², SINR γ, allocated_BW B, transmit_power P, sat_altitude Alt ]</code>.
-            This captures both instantaneous physical channel state and topological constellation geometry.
+            To prevent severe inter-beam co-channel interference across dense satellite spot beams, the agent dynamically allocates orthogonal subcarrier partitions (16–32 sub-bands) across adjacent geographical cells, ensuring non-overlapping frequency reuse and optimal spectral efficiency.
           </p>
         </div>
 
         <div class="infra-card">
           <div class="infra-card-header">
-            <h4 style="color: var(--accent-cyan); font-size: 1.05rem;">3. What Decision does the AI Make?</h4>
+            <h4 style="color: var(--accent-cyan); font-size: 1.05rem;">3. Water-Filling Power Adaptation</h4>
           </div>
           <p class="infra-desc">
-            The PPO Actor-Critic neural network outputs joint control actions: (A) Satellite-to-user association based on remaining orbital dwell time; (B) Dynamic subcarrier channel assignment with orthogonal reuse; and (C) Water-filling transmit-power allocation boosting URLLC and fading links.
+            Dynamic transmitter power control scales wattage ($P_c \le P_{\max}$) to compensate for localized tropospheric rain fading (ITU-R P.618) and slant-range path loss, prioritizing mission-critical URLLC flows while preserving the satellite's solar battery power budget.
           </p>
         </div>
 
         <div class="infra-card">
           <div class="infra-card-header">
-            <h4 style="color: var(--accent-cyan); font-size: 1.05rem;">4. How is the Decision Applied?</h4>
+            <h4 style="color: var(--accent-cyan); font-size: 1.05rem;">4. Two-Tier Intelligence Separation</h4>
           </div>
           <p class="infra-desc">
-            Decisions are executed at the satellite payload phased-array beam controller. Subcarriers are sliced orthogonally to eliminate inter-beam interference, and satellite RF power amplifiers dynamically steer wattage to users demanding strict QoS.
-          </p>
-        </div>
-
-        <div class="infra-card">
-          <div class="infra-card-header">
-            <h4 style="color: var(--accent-cyan); font-size: 1.05rem;">5. What Changes in the Network?</h4>
-          </div>
-          <p class="infra-desc">
-            Ping-pong handovers are suppressed by +4.5 hysteresis dwell-time bonuses. Co-channel interference drops by 14 dB via orthogonal sub-band spacing, and packet loss drops by 62.5% as power is proactively boosted before deep rain fading dips occur.
-          </p>
-        </div>
-
-        <div class="infra-card">
-          <div class="infra-card-header">
-            <h4 style="color: var(--accent-cyan); font-size: 1.05rem;">6. How is Performance Measured?</h4>
-          </div>
-          <p class="infra-desc">
-            Evaluated via Gymnasium reward function: <code>R = Throughput - Delay - (10 * PacketLoss)</code>. Measured metrics include system throughput (Mbps), packet loss rate (%), handover latency (ms), Jain's fairness index, and energy efficiency (Mbits/Joule).
+            <b>Crucial Architectural Distinction:</b> Physical-layer PPO manages localized intra-tier radio resource slicing, whereas CAPRO operates independently at the network orchestration layer to forecast multi-horizon link trajectories and dispatch proactive handovers across LEO, HAPS, and UAV relays.
           </p>
         </div>
       </div>
 
-      <!-- Published Model Checkpoint & Repository Card -->
+      <!-- Published Model Reference & Repository Card -->
       <div class="interactive-panel" style="padding: 1.5rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;">
         <div>
-          <span class="badge-data-origin badge-recorded" style="margin-bottom: 0.5rem;">VERIFIED RESEARCH ARTIFACT</span>
-          <h4 style="color: #ffffff; margin-bottom: 0.25rem;">Trained PPO Neural Policy Checkpoint: <code>models/rl_ntn_model.zip</code></h4>
+          <span class="badge-data-origin badge-recorded" style="margin-bottom: 0.5rem;">RELATED RESEARCH REPOSITORY</span>
+          <h4 style="color: #ffffff; margin-bottom: 0.25rem;">AI-Enabled 6G NTN Radio Resource Management Framework</h4>
           <p style="font-size: 0.85rem; color: var(--text-dim); margin: 0;">
-            Derived from the open-source repository <a href="https://github.com/SlockAhuja/AI_NTN_6G_RESOURCE_MANAGEMENT" target="_blank" rel="noopener" style="color: var(--accent-cyan);">SlockAhuja/AI_NTN_6G_RESOURCE_MANAGEMENT</a>. Trained with Stable-Baselines3 on ~12,000 realistic NTN samples.
+            Underpinning deep reinforcement learning implementation for satellite traffic matching and radio resource allocation: <a href="https://github.com/SlockAhuja/AI_NTN_6G_RESOURCE_MANAGEMENT" target="_blank" rel="noopener" style="color: var(--accent-cyan);">SlockAhuja/AI_NTN_6G_RESOURCE_MANAGEMENT</a>.
           </p>
         </div>
         <a href="https://github.com/SlockAhuja/AI_NTN_6G_RESOURCE_MANAGEMENT" target="_blank" rel="noopener" class="btn btn-outline">
-          Inspect Model Code on GitHub &rarr;
+          View Repository on GitHub &rarr;
         </a>
       </div>
     </div>
@@ -1071,28 +1051,6 @@
             <p>16:9 optimized operations HUD designed for high-resolution auditorium and projector demonstration.</p>
           </div>
         </div>
-
-        <div class="dashboard-card" data-lightbox>
-          <div class="dashboard-thumb">
-            <img src="assets/images/orbit_track_reference.jpg" alt="Aerospace Mission Control Reference" loading="lazy">
-            <div class="thumb-overlay"><span class="thumb-tag">AEROSPACE CONSOLE</span></div>
-          </div>
-          <div class="dashboard-card-body">
-            <h5>OrbitTrack Operations Reference</h5>
-            <p>Professional dark-navy aerospace console architecture with central 3D globe and telemetry HUD matrix.</p>
-          </div>
-        </div>
-
-        <div class="dashboard-card" data-lightbox>
-          <div class="dashboard-thumb">
-            <img src="assets/images/telemetry_triage_reference.jpg" alt="Orbital Telemetry & Incident Triage Reference" loading="lazy">
-            <div class="thumb-overlay"><span class="thumb-tag">ORBITAL TRIAGE</span></div>
-          </div>
-          <div class="dashboard-card-body">
-            <h5>Orbital Telemetry Triage System</h5>
-            <p>True Keplerian orbit trajectory projection, incident timeline tracking, and subsystem health matrix.</p>
-          </div>
-        </div>
       </div>
 
       <!-- Local Launch Instructions -->
@@ -1156,13 +1114,20 @@
             <div>
               <h3>Slock Ahuja</h3>
               <div class="team-role">Project Co-Creator, Research Contributor &amp; Mission Control Developer</div>
-              <div class="team-focus">Wireless Systems, Machine Learning Forecasting &amp; 3D Interactive Telemetry HUD</div>
+              <div class="team-focus">Undergraduate Student, B.Tech in ICT, Marwadi University</div>
             </div>
           </div>
           <p class="team-bio">
-            Co-created the ORBIT-INTEL 6G architecture. Designed and implemented the physics-grounded SAGIN simulator, neural multi-horizon channel prediction models, CAPRO orchestration decision engine, and the Three.js aerospace mission control center.
+            Co-created the ORBIT-INTEL 6G platform. Conceived and implemented the physics-grounded SAGIN simulator, neural multi-horizon link forecasting models, CAPRO orchestration framework, and the 3D interactive aerospace mission control workstation.
           </p>
+          <div style="font-size: 0.82rem; color: var(--text-dim); margin-bottom: 0.75rem; line-height: 1.4;">
+            <b style="color: var(--text-main);">Research Interests:</b> Artificial Intelligence, Quantum AI, Machine Learning, 6G Communications, Non-Terrestrial Networks.
+          </div>
           <div class="team-links">
+            <a href="https://scholar.google.com/citations?user=f4EQzx4AAAAJ&amp;hl=en" target="_blank" rel="noopener" class="team-link-pill">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 3L1 9l11 6 9-4.91V17h2V9M5 13.18v4L12 21l7-3.82v-4L12 17l-7-3.82z"/></svg>
+              Google Scholar
+            </a>
             <a href="https://www.linkedin.com/in/slock-ahuja-32839b315/" target="_blank" rel="noopener" class="team-link-pill">
               <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
               LinkedIn
@@ -1171,9 +1136,6 @@
               <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
               GitHub
             </a>
-          </div>
-          <div style="font-size: 0.78rem; color: var(--text-dim); margin-top: 0.75rem; font-style: italic;">
-            Google Scholar: Pending exact profile verification.
           </div>
         </div>
 
@@ -1186,16 +1148,20 @@
             <div>
               <h3>Dr. Praveen Kumar Sharma</h3>
               <div class="team-role">Research Mentor, Technical Contributor &amp; Project Co-Creator</div>
-              <div class="team-focus">Professor &amp; Head, Department of ECE, MIT-ADT University, Pune</div>
+              <div class="team-focus">Professor &amp; Head, Dept. of ECE, MIT-ADT University, Pune</div>
             </div>
           </div>
           <p class="team-bio">
             Academic research mentor and project co-creator. Provided scientific oversight on 3GPP NTN propagation standards, mathematical formulation of dual-uncertainty conformal prediction, statistical benchmark methodology, and research presentation for IEEE ComSoc STLC 2026.
           </p>
           <div style="font-size: 0.82rem; color: var(--text-dim); margin-bottom: 0.75rem; line-height: 1.4;">
-            <b style="color: var(--text-main);">Research Interests:</b> Antennas, flexible electronics, metamaterials, metasurfaces, wearable devices and machine learning.
+            <b style="color: var(--text-main);">Research Interests:</b> Flexible Antennas, Materials, Metamaterials, RF Communications, Wearable Devices, and Machine Learning.
           </div>
           <div class="team-links">
+            <a href="https://scholar.google.com/citations?user=GjM7CAYAAAAJ&amp;hl=en" target="_blank" rel="noopener" class="team-link-pill">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 3L1 9l11 6 9-4.91V17h2V9M5 13.18v4L12 21l7-3.82v-4L12 17l-7-3.82z"/></svg>
+              Google Scholar
+            </a>
             <a href="https://www.linkedin.com/in/dr-praveen-kumar-sharma-832aa11aa/" target="_blank" rel="noopener" class="team-link-pill">
               <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
               LinkedIn
@@ -1204,9 +1170,6 @@
               <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.372 0 0 5.372 0 12s5.372 12 12 12 12-5.372 12-12S18.628 0 12 0zM7.369 4.378c.525 0 .947.431.947.947s-.422.947-.947.947a.95.95 0 0 1-.947-.947c0-.516.422-.947.947-.947zm-.722 3.038h1.444v10.041H6.647V7.416zm3.562 0h3.9c3.712 0 5.344 2.653 5.344 5.025 0 2.578-2.016 5.016-5.325 5.016h-3.919V7.416zm1.444 1.303v7.444h2.297c3.272 0 4.022-2.484 4.022-3.722 0-2.016-1.284-3.722-4.097-3.722h-2.222z"/></svg>
               ORCID
             </a>
-          </div>
-          <div style="font-size: 0.78rem; color: var(--text-dim); margin-top: 0.75rem; font-style: italic;">
-            Google Scholar: Pending exact profile verification.
           </div>
         </div>
       </div>

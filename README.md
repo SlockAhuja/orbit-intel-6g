@@ -112,8 +112,8 @@ Open your browser and navigate to:
 
 | Contributor | Affiliation & Focus | Profile Links | Google Scholar |
 |---|---|---|---|
-| **Slock Ahuja**<br><img src="docs/assets/images/team/slock_ahuja.jpg" alt="Slock Ahuja" width="90" style="border-radius:50%; margin-top:6px;"/> | **Project Co-Creator, Research Contributor & Mission Control Developer**<br>• Wireless Systems, Neural Link Forecasting & 3D Interactive Telemetry | [![LinkedIn](https://img.shields.io/badge/LinkedIn-slock--ahuja-0A66C2?logo=linkedin)](https://www.linkedin.com/in/slock-ahuja-32839b315/) [![GitHub](https://img.shields.io/badge/GitHub-SlockAhuja-181717?logo=github)](https://github.com/SlockAhuja) | *Pending exact profile verification.* |
-| **Dr. Praveen Kumar Sharma**<br><img src="docs/assets/images/team/praveen_kumar_sharma.jpg" alt="Dr. Praveen Kumar Sharma" width="90" style="border-radius:50%; margin-top:6px;"/> | **Research Mentor, Technical Contributor & Project Co-Creator**<br>• Professor and Head, Department of Electronics and Communication Engineering, MIT-ADT University, Pune<br>• *Research Interests*: Antennas, flexible electronics, metamaterials, metasurfaces, wearable devices and machine learning | [![LinkedIn](https://img.shields.io/badge/LinkedIn-dr--praveen--kumar--sharma-0A66C2?logo=linkedin)](https://www.linkedin.com/in/dr-praveen-kumar-sharma-832aa11aa/) [![ORCID](https://img.shields.io/badge/ORCID-0000--0003--0833--7954-A6CE39?logo=orcid)](https://orcid.org/0000-0003-0833-7954) | *Pending exact profile verification.* |
+| **Slock Ahuja**<br><img src="docs/assets/images/team/slock_ahuja.jpg" alt="Slock Ahuja" width="90" style="border-radius:50%; margin-top:6px;"/> | **Project Co-Creator, Research Contributor & Mission Control Developer**<br>• Undergraduate Student, B.Tech in Information and Communication Technology, Marwadi University<br>• *Research Interests*: Artificial Intelligence, Quantum AI, Machine Learning, 6G Communications, Non-Terrestrial Networks | [![LinkedIn](https://img.shields.io/badge/LinkedIn-slock--ahuja-0A66C2?logo=linkedin)](https://www.linkedin.com/in/slock-ahuja-32839b315/) [![GitHub](https://img.shields.io/badge/GitHub-SlockAhuja-181717?logo=github)](https://github.com/SlockAhuja) | [![Google Scholar](https://img.shields.io/badge/Google%20Scholar-f4EQzx4AAAAJ-4285F4?logo=google-scholar&logoColor=white)](https://scholar.google.com/citations?user=f4EQzx4AAAAJ&hl=en) |
+| **Dr. Praveen Kumar Sharma**<br><img src="docs/assets/images/team/praveen_kumar_sharma.jpg" alt="Dr. Praveen Kumar Sharma" width="90" style="border-radius:50%; margin-top:6px;"/> | **Research Mentor, Technical Contributor & Project Co-Creator**<br>• Professor and Head, Department of Electronics and Communication Engineering, MIT-ADT University, Pune<br>• *Research Interests*: Antennas, flexible electronics, metamaterials, metasurfaces, wearable devices and machine learning | [![LinkedIn](https://img.shields.io/badge/LinkedIn-dr--praveen--kumar--sharma-0A66C2?logo=linkedin)](https://www.linkedin.com/in/dr-praveen-kumar-sharma-832aa11aa/) [![ORCID](https://img.shields.io/badge/ORCID-0000--0003--0833--7954-A6CE39?logo=orcid)](https://orcid.org/0000-0003-0833-7954) | [![Google Scholar](https://img.shields.io/badge/Google%20Scholar-GjM7CAYAAAAJ-4285F4?logo=google-scholar&logoColor=white)](https://scholar.google.com/citations?user=GjM7CAYAAAAJ&hl=en) |
 
 *Both contributors are equally acknowledged as the official research co-creators of ORBIT-INTEL 6G. For comprehensive research roles and responsibilities, see [docs/TEAM.md](docs/TEAM.md) and [STLC_SHOWCASE/TEAM_INFORMATION.md](STLC_SHOWCASE/TEAM_INFORMATION.md).*
 
@@ -140,6 +140,12 @@ The official **2-Page Technical Research Brief** formulated for the IEEE Communi
 
 ---
 
-## 📄 License
+## 📄 Intellectual Property & Licensing
 
-*License terms will be added upon confirmation with the repository owner. Please refer to the repository owner before redistributing or using commercially.*
+Copyright (c) 2026 Slock Ahuja & Dr. Praveen Kumar Sharma. All rights reserved.
+
+The source code, simulation architectures, mathematical formulations, and trained model artifacts in this repository are published for academic peer-review, educational evaluation, and reproducibility purposes in connection with the **IEEE Communications Society Student Tech Leadership Conference (STLC) Tunisia 2026 Project Showcase**.
+
+- **Permitted Use:** Academic evaluation, peer review, scientific reproduction, and personal educational study.
+- **Prohibited Use:** Commercial exploitation, unauthorized closed-source derivation, or patenting of the underlying algorithmic frameworks without explicit written consent from the project co-creators.
+- **License Terms:** Distributed under the terms of the **Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)** license.
