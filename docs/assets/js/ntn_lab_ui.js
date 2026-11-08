@@ -356,9 +356,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // 2. Power Meter
     if (powerMeterFill && powerUsedText) {
-      const usedWatts = metrics.usedPowerWatts;
-      const totalWatts = metrics.totalPowerWatts;
-      const pct = Math.min(100, (usedWatts / totalWatts) * 100);
+      const usedWatts = Math.min(metrics.totalPowerWatts, Math.max(0, metrics.usedPowerWatts));
+      const totalWatts = Math.max(1, metrics.totalPowerWatts);
+      const pct = Math.min(100, Math.max(0, (usedWatts / totalWatts) * 100));
       powerMeterFill.style.width = `${pct}%`;
       powerUsedText.textContent = `${usedWatts}W / ${totalWatts}W (${pct.toFixed(0)}%)`;
     }

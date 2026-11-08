@@ -395,10 +395,10 @@
           user.connectedSatelliteId = bestSat.id;
           user.connectedChannelId = channelId;
 
-          // Static equal power splitting
-          const equalPowerWatts = totalSatPower / Math.max(1, bestSat.connectedUserIds.length);
-          bestSat.usedPowerWatts += equalPowerWatts;
-          const powerDbm = 10 * Math.log10(equalPowerWatts * 1000);
+          // Static equal power splitting across available channels
+          const perChannelWatts = totalSatPower / Math.max(1, bestSat.totalChannels);
+          bestSat.usedPowerWatts = Math.min(totalSatPower, bestSat.connectedUserIds.length * perChannelWatts);
+          const powerDbm = 10 * Math.log10(Math.max(1, perChannelWatts) * 1000);
           user.allocatedPowerDbm = Number(powerDbm.toFixed(1));
 
           // Fixed static bandwidth
@@ -529,15 +529,18 @@
           user.connectedSatelliteId = bestSat.id;
           user.connectedChannelId = channelId;
 
-          // PPO Water-filling adaptive power control
+          // PPO Water-filling adaptive power control (strictly bounded by satellite budget)
           const demandRatio = user.trafficDemandMbps / 45;
           const priorityPowerMultiplier = user.priority === 'URLLC' ? 1.6 : 1.0;
           const rainLoss = (this.params.rainRateMmHr > 0) ? (this.params.rainRateMmHr * 0.20) : 0;
           const fadeCompensation = (rainLoss > 2.0) ? 1.3 : 1.0;
 
-          const adaptiveWatts = (totalSatPower / (bestSat.connectedUserIds.length + 3)) * demandRatio * priorityPowerMultiplier * fadeCompensation;
-          bestSat.usedPowerWatts += Math.min(50, adaptiveWatts);
-          const powerDbm = 10 * Math.log10(Math.max(1, adaptiveWatts) * 1000);
+          const basePerChannel = totalSatPower / Math.max(1, bestSat.totalChannels);
+          const rawWatts = basePerChannel * demandRatio * priorityPowerMultiplier * fadeCompensation;
+          const remainingPower = Math.max(0, bestSat.totalPowerWatts - bestSat.usedPowerWatts);
+          const allocatedWatts = Math.min(remainingPower, Math.max(5, rawWatts));
+          bestSat.usedPowerWatts = Math.min(bestSat.totalPowerWatts, bestSat.usedPowerWatts + allocatedWatts);
+          const powerDbm = 10 * Math.log10(Math.max(1, allocatedWatts) * 1000);
           user.allocatedPowerDbm = Number(Math.min(46, Math.max(28, powerDbm)).toFixed(1));
 
           // Adaptive bandwidth slicing
@@ -685,8 +688,9 @@
         totalChannels += this.satellites[s].totalChannels;
         usedChannels += (this.satellites[s].totalChannels - this.satellites[s].availableChannels);
         totalPower += this.satellites[s].totalPowerWatts;
-        usedPower += this.satellites[s].usedPowerWatts;
+        usedPower += Math.min(this.satellites[s].totalPowerWatts, this.satellites[s].usedPowerWatts);
       }
+      usedPower = Math.min(totalPower, usedPower);
       const resourceUtilization = totalChannels > 0 ? (usedChannels / totalChannels) * 100 : 0;
 
       // Energy Efficiency (bits per Joule)
