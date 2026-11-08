@@ -119,6 +119,21 @@ Open your browser and navigate to:
 
 ---
 
+## 📄 Technical Research Report
+
+The official **2-Page Technical Research Brief** formulated for the IEEE Communications Society Student Tech Leadership Conference (STLC) Tunisia 2026:
+
+> **Title:** *ORBIT-INTEL 6G: Intelligent Resource Management and Predictive Reliability Orchestration for Integrated Non-Terrestrial Networks*  
+> **Authors:** Slock Ahuja and Dr. Praveen Kumar Sharma  
+> **Affiliation:** Department of Electronics and Communication Engineering, MIT-ADT University, Pune, India  
+> **Format:** Formal single-column academic research report, strictly 2 pages, Times New Roman typography.
+
+- 📄 **[Download Official 2-Page Technical Report (PDF)](https://slockahuja.github.io/orbit-intel-6g/assets/reports/ORBIT_INTEL_6G_Technical_Report.pdf)**
+- 📄 **[Local Technical Report PDF](reports/technical_report/main.pdf)**
+- 💻 **[LaTeX Source (main.tex)](reports/technical_report/main.tex)**
+
+---
+
 ## 🏆 Conference Showcase
 
 **IEEE Communications Society Student Tech Leadership Conference (STLC) Tunisia 2026** — *Project Showcase*.

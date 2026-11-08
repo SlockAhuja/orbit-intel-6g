@@ -1,103 +1,100 @@
-\documentclass[9pt,a4paper]{article}
+\documentclass[a4paper]{article}
 
-% --- Packages ---
-\usepackage[utf8]{inputenc}
-\usepackage[T1]{fontenc}
-\usepackage{mathptmx} % Clean Times font
-\usepackage[top=1.0cm,bottom=1.1cm,left=1.35cm,right=1.35cm]{geometry}
+% --- Typography: Times New Roman Throughout ---
+\usepackage{fontspec}
+\setmainfont{Times New Roman}[Ligatures=TeX]
+
+% --- Page Geometry ---
+\usepackage[top=1.25cm,bottom=1.25cm,left=1.50cm,right=1.50cm]{geometry}
 \usepackage{amsmath,amssymb,amsfonts}
-\usepackage{graphicx}
 \usepackage{booktabs}
 \usepackage{array}
-\usepackage{cite}
-\usepackage{url}
 \usepackage{microtype}
-\usepackage{xcolor}
 \usepackage{caption}
 \usepackage{titlesec}
-\usepackage{enumitem}
-\usepackage[colorlinks=true,linkcolor=blue,citecolor=blue,urlcolor=blue]{hyperref}
+\usepackage{url}
 
-% --- Typography & Spacing Optimization ---
-\captionsetup{font=scriptsize,labelfont=bf,skip=2pt}
-\titlespacing*{\section}{0pt}{3pt plus 0.5pt minus 0.5pt}{1pt plus 0.5pt minus 0.5pt}
-\setlist{nosep,leftmargin=1.0em,itemsep=0.5pt,topsep=0.5pt}
-\setlength{\parskip}{1.2pt plus 0.3pt minus 0.3pt}
-\setlength{\parindent}{0.8em}
-\pagestyle{empty} % Clean technical brief format without page numbers
+% Academic styling
+\captionsetup{font=small,labelfont=bf,skip=2.5pt}
+\titlespacing*{\section}{0pt}{3.5pt plus 0.8pt minus 0.5pt}{1.5pt plus 0.5pt minus 0.3pt}
+\titleformat{\section}{\fontsize{10}{11.5}\bfseries}{\thesection.}{0.4em}{}
+
+\setlength{\parskip}{1.2pt plus 0.4pt minus 0.2pt}
+\setlength{\parindent}{1.0em}
+\pagestyle{empty}
 
 \begin{document}
+\fontsize{8.8}{10.8}\selectfont
 
-% --- Title & Author Metadata ---
+% --- Title, Authors, and Institutional Affiliation ---
 \begin{center}
-  {\large\bfseries ORBIT-INTEL 6G: Intelligent Resource Management and Predictive\\[1pt]
+  {\fontsize{12.5}{14.2}\bfseries ORBIT-INTEL 6G: Intelligent Resource Management and Predictive\\[1.2pt]
   Reliability Orchestration for Integrated Non-Terrestrial Networks\par}
-  \vspace{2pt}
-  {\small\bfseries Slock Ahuja\quad and\quad Dr. Praveen Kumar Sharma\par}
-  \vspace{1pt}
-  {\footnotesize Department of Electronics and Communication Engineering, MIT-ADT University, Pune, India\par}
-  \vspace{0.5pt}
-  {\scriptsize IEEE ComSoc STLC Tunisia 2026 Showcase $\,\cdot\,$ Code: \url{https://github.com/SlockAhuja/orbit-intel-6g} $\,\cdot\,$ Platform: \url{https://slockahuja.github.io/orbit-intel-6g/}\par}
+  \vspace{3pt}
+  {\fontsize{9.8}{11.5}\bfseries Slock Ahuja\quad and\quad Dr. Praveen Kumar Sharma\par}
+  \vspace{1.2pt}
+  {\fontsize{8.5}{10.2}\itshape Department of Electronics and Communication Engineering, MIT-ADT University, Pune, India\par}
+  \vspace{1.2pt}
+  {\fontsize{7.8}{9.5}\rmfamily Project Showcase: IEEE Communications Society Student Tech Leadership Conference (STLC) Tunisia 2026\par}
+  {\fontsize{7.8}{9.5}\rmfamily Repository: \url{https://github.com/SlockAhuja/orbit-intel-6g} $\,\cdot\,$ Showcase: \url{https://slockahuja.github.io/orbit-intel-6g/}\par}
 \end{center}
 
-\vspace{-6pt}
-\begin{quote}
-\footnotesize\textbf{Abstract}---Integrated Space-Air-Ground Non-Terrestrial Networks (NTN) constitute a foundational pillar for 6G wireless communication, offering ubiquitous coverage across terrestrial white-spots. However, severe orbital velocities ($v \approx 7.56\text{ km/s}$), transient line-of-sight visibility windows ($<8\text{ min}$), non-stationary rain fade at Ka/Q/V bands, and co-channel interference undermine ultra-reliable low-latency communications (URLLC). This technical report presents \textbf{ORBIT-INTEL 6G}, an integrated research and demonstration platform featuring a synergistic two-tier intelligence framework: (i)~a physical-layer \textbf{Proximal Policy Optimization (PPO)} deep reinforcement learning agent governing terminal association, orthogonal subcarrier slicing, and water-filling power control; and (ii)~a network-layer \textbf{Confidence-Aware Predictive Reliability Orchestration (CAPRO)} engine that performs multi-horizon channel forecasting ($H \in \{1, 3, 5, 10\}\text{ s}$) coupled with split-conformal prediction intervals ($1-\alpha=95\%$) and dual-uncertainty quantification ($\sigma_{\text{aleat}}, \sigma_{\text{epist}}$). Preemptive multi-tier handovers across LEO, HAPS, and UAV nodes are evaluated via a risk-adjusted utility function. Reported experimental results from an exhaustive 400-trial Monte Carlo campaign validate a \textbf{99.41\%} packet delivery ratio, a 99th-percentile tail latency of \textbf{6.82 ms} (guaranteeing deterministic sub-10ms URLLC bounds), an outage rate of \textbf{0.59\%}, and an \textbf{89.3\%} suppression in handover ping-pong flapping.
-\end{quote}
-\vspace{-4pt}
+\vspace{-3pt}
+\begin{abstract}
+\fontsize{8.2}{10.1}\selectfont
+\noindent Integrated Space-Air-Ground Non-Terrestrial Networks (SAGIN) form an indispensable pillar of Sixth-Generation (6G) wireless systems, delivering pervasive connectivity across maritime, aeronautical, and remote wilderness regions. However, high orbital velocity ($v \approx 7.56\text{ km/s}$), brief visibility windows ($<8\text{ min}$), Doppler shifts ($\pm 48\text{ kHz}$), and atmospheric rain fade ($>15\text{ dB}$) severely challenge Ultra-Reliable Low-Latency Communication (URLLC). This paper presents \textbf{ORBIT-INTEL 6G}, a two-tier intelligence framework addressing these bottlenecks. At Tier~1, an intra-tier Proximal Policy Optimization (PPO) reinforcement learning agent governs dynamic user association, orthogonal subcarrier allocation, and adaptive power control. At Tier~2, Confidence-Aware Predictive Reliability Orchestration (CAPRO) performs multi-horizon link forecasting ($H \in \{1, 3, 5, 10\}\text{ s}$) with distribution-free split-conformal calibration ($1-\alpha=95\%$) and dual aleatoric-epistemic uncertainty estimation to execute risk-adjusted proactive handovers. Reported experimental results from an extensive 400-trial Monte Carlo benchmark campaign demonstrate a packet delivery ratio of \textbf{99.41\%}, a 99th-percentile tail latency of \textbf{6.82 ms} (meeting sub-10ms URLLC requirements), an outage probability of \textbf{0.59\%}, and an \textbf{89.3\%} reduction in handover ping-pong flapping relative to conventional 3GPP reactive baselines.
+\end{abstract}
+
+\vspace{0.5pt}
+\noindent\textbf{\fontsize{8.2}{10.1}\selectfont Keywords}---{\fontsize{8.2}{10.1}\selectfont 6G, Non-Terrestrial Networks, SAGIN, Resource Management, PPO, Predictive Intelligence, CAPRO.}
 
 \section{Introduction}
-Non-Terrestrial Networks (NTN) in 3GPP Rel-17/18 extend 6G New Radio (NR) across Low Earth Orbit (LEO) satellite constellations, High-Altitude Platform Stations (HAPS), and UAVs~\cite{3gpp_tr38811}. However, end-to-end reliability is challenged by three physical bottlenecks: (1)~\textbf{Hypersonic Kinematics}: LEO satellites orbit at $v \approx 7.56\text{ km/s}$, causing severe Doppler shifts ($\pm 48\text{ kHz}$) and fleeting pass windows ($<8\text{ min}$); (2)~\textbf{Atmospheric Fade}: Millimeter-wave links experience heavy attenuation during convective rain storms ($>15\text{ dB}$ per ITU-R P.618~\cite{itur_p618}); and (3)~\textbf{Reactive Handover Latency}: Traditional 3GPP A3/A4 triggers initiate switching only after link degradation occurs, causing packet drop and ping-pong flapping across cell boundaries.
+Non-Terrestrial Networks (NTN) have emerged as a foundational architecture in 3GPP Releases 17 and 18 to bridge the digital divide by integrating satellite, high-altitude platform, and terrestrial infrastructure into unified 6G communications. The resulting Space-Air-Ground Integrated Network (SAGIN) offers unprecedented coverage resilience across oceanic transport routes, polar corridors, and disaster zones. However, delivering deterministic URLLC guarantees over non-terrestrial links is hindered by three core physical limitations: rapid Low Earth Orbit (LEO) satellite motion inducing transient topocentric visibility windows ($<8\text{ minutes}$); severe Doppler dynamics ($\pm 48\text{ kHz}$ at Ka-band $28\text{ GHz}$); and dynamic atmospheric attenuation (ITU-R P.618) during convective precipitation events.
+
+Crucially, standard cellular handover mechanisms (such as 3GPP Event A3/A4 triggers) operate purely reactively, initiating target node search only after signal degradation or radio link failure (RLF) has already manifested. In satellite-terrestrial feeder topologies characterized by round-trip propagation delays of tens of milliseconds, reactive re-association induces packet dropping, retransmission storms, and severe handover ping-pong flapping. To overcome these constraints, 6G NTN requires a paradigm shift toward uncertainty-aware proactive orchestration.
 
 \section{Proposed ORBIT-INTEL 6G Framework}
-ORBIT-INTEL 6G addresses these challenges through a unified Space-Air-Ground Integrated Network (SAGIN) architecture (Fig.~\ref{fig:architecture}):
-\textbf{Tier 1 (LEO Satellites, 500--600 km)} provides high-capacity backhaul and wide-area access with steerable phased-array spot beams.
-\textbf{Tiers 2 \& 3 (Stratospheric HAPS, 20 km \& Tactical UAVs, 0.3--2 km)} incorporate solar aerostats providing quasi-stationary coverage with 100\% rain-fade immunity (operating above cloud decks) and tactical UAVs deployed for emergency blind-spot coverage.
-\textbf{Tiers 4 \& 5 (Terrestrial gNodeBs \& Multi-Tier UEs)} encompass ground infrastructure and mobile terminals distributed across five environments: Urban Hotspots, Rural Farmlands, Maritime Sea Corridors, Remote Mountain Observatories, and Post-Disaster Relief Zones.
+The ORBIT-INTEL 6G architecture models a five-tier heterogeneous SAGIN hierarchy: Tier~1 comprises LEO satellites ($500\text{--}600\text{ km}$ altitude) providing wide-area backhaul and dynamic spot beams; Tier~2 incorporates stratospheric High-Altitude Platform Stations (HAPS, $20\text{ km}$) acting as quasi-stationary aerial base stations free from tropospheric rain fade; Tier~3 deploys tactical Unmanned Aerial Vehicles (UAVs, $0.3\text{--}2\text{ km}$) for localized line-of-sight restoration in obstructed areas; and Tiers~4 and~5 encompass terrestrial gNodeBs ($30\text{ m}$) and mobile user terminals distributed across five representative geographic environments (Urban Hotspots, Rural Farmlands, Maritime Corridors, Mountain Observatories, and Post-Disaster Emergency Zones). The platform couples a standard-compliant orbital propagation engine with a two-tier intelligence hierarchy: an intra-tier physical resource optimizer and a cross-tier predictive reliability orchestrator.
 
-\vspace{-2pt}
-\begin{center}
-  \includegraphics[width=0.85\linewidth,height=2.05cm]{figures/architecture.png}\vspace{-2pt}
-  \captionof{figure}{Proposed ORBIT-INTEL 6G Space-Air-Ground architecture: Physical PPO slicing + Network CAPRO orchestration.}
-  \label{fig:architecture}
-\end{center}
-\vspace{-4pt}
+\section{AI-Based Resource Management}
+Physical-layer radio resource allocation within active satellite footprints is orchestrated by an autonomous deep reinforcement learning agent based on Proximal Policy Optimization (PPO). Interacting with a standardized Gymnasium non-terrestrial environment, the agent observes the normalized state $s_t = [h_t, \gamma_t, B_t, P_t, \text{Alt}_t] \in \mathbb{R}^5$, representing channel gain, SINR, available bandwidth, transmit power budget, and satellite altitude. The actor-critic network selects discrete actions governing: (i)~\textit{Terminal Association}, weighting topocentric elevation and dwell time with a hysteresis bonus ($+4.5$) to prevent premature handoffs; (ii)~\textit{Orthogonal Subcarrier Slicing}, assigning orthogonal frequency partitions ($16\text{--}32$ channels) across adjacent spot beams to eliminate co-channel interference; and (iii)~\textit{Water-Filling Power Control}, allocating transmit power ($P_c \le P_{\max}$) to mitigate localized path attenuation. The policy optimizes the scalar reward:
+\begin{equation}
+  R_t = \text{Throughput}_t - \text{Delay}_t - 10 \cdot \text{PacketLoss}_t
+\end{equation}
+Heavily penalizing packet losses, the PPO agent reliably maintains maximal spectral efficiency during stable orbital passes.
 
-\section{AI-Enabled Resource Management (Module 1)}
-To resolve physical-layer resource contention within active satellite footprints, ORBIT-INTEL 6G implements an autonomous \textbf{Proximal Policy Optimization (PPO)} deep reinforcement learning agent~\cite{lin2021jsac}. The agent interacts with a standardized Gymnasium NTN environment:
-\textbf{Observation Space}: State $s_t = [h_t, \gamma_t, B_t, P_t, \text{Alt}_t] \in \mathbb{R}^5$ captures normalized channel gain $h_t$, instantaneous SINR $\gamma_t$, available channel bandwidth $B_t$, power budget $P_t$, and satellite altitude $\text{Alt}_t$.
-\textbf{Action Space \& Decisions}: Discrete action $a_t \in \mathcal{A}$ governs three coupled resource decisions: (i)~\textit{Dynamic Association}: Dwell-time and elevation-aware terminal-to-satellite association with handover hysteresis ($+4.5$ bonus); (ii)~\textit{Orthogonal Subcarrier Slicing}: Conflict-free channel grid assignment ($16\text{--}32$ subcarriers) eliminating co-channel interference; and (iii)~\textit{Water-Filling Transmit Power Allocation}: Channel-state adaptive power control ($P_c \le P_{\max}$) prioritizing URLLC and fade-impacted links.
-\textbf{Reward Formulation}: Multi-objective scalar reward enforcing throughput, delay, and reliability: $R_t = \text{Throughput}_t - \text{Delay}_t - 10 \cdot \text{PacketLoss}_t$.
-\textit{Architectural Distinction}: PPO operates strictly at the physical layer to optimize instantaneous intra-tier resource utilization, whereas CAPRO (Section~\ref{sec:capro}) operates at the network orchestration layer to execute proactive cross-tier routing and handover dispatch.
+\section{Predictive Reliability Orchestration}
+While physical-layer PPO manages intra-tier spectrum and power slicing, network-layer continuity across constellation handovers requires predictive intelligence. ORBIT-INTEL 6G introduces Confidence-Aware Predictive Reliability Orchestration (CAPRO), operating as an independent network-layer framework. Crucially, PPO and CAPRO perform distinct functions: PPO manages intra-tier physical resources, whereas CAPRO orchestrates cross-tier proactive handovers and routing across LEO, HAPS, and UAV relays. They are complementary components rather than a single joint model.
 
-\section{Predictive Reliability Orchestration: CAPRO (Module 2)}
-\label{sec:capro}
-Conventional reactive handover algorithms trigger when RSRP falls below an outage threshold, incurring high signaling overhead and dropped packets. The \textbf{Confidence-Aware Predictive Reliability Orchestration (CAPRO)} framework executes proactive, risk-averse cross-tier handovers through three key stages:
-\textbf{1) Multi-Horizon Neural Link Forecasting}: Temporal channel metrics are ingested over a rolling lookahead window to predict link qualities at horizons $H \in \{1\text{ s}, 3\text{ s}, 5\text{ s}, 10\text{ s}\}$.
-\textbf{2) Split-Conformal Uncertainty Quantification}: Rather than assuming Gaussian errors, CAPRO employs distribution-free split conformal prediction~\cite{angelopoulos2021conformal}. Given non-conformity scores $s_i = |y_i - \hat{\mu}(x_i)| / \hat{\sigma}(x_i)$, calibrated conformal quantiles yield prediction interval bounds $[\hat{y}_{t+H}^{\text{lower}}, \hat{y}_{t+H}^{\text{upper}}]$ guaranteeing finite-sample marginal coverage $\mathbb{P}(Y_{t+H} \in \mathcal{C}(X_t)) \ge 1 - \alpha$ at nominal $1 - \alpha = 95\%$. The variance decomposes into \textit{aleatoric uncertainty} $\sigma_{\text{aleat}}$ (irreducible rain flutter) and \textit{epistemic uncertainty} $\sigma_{\text{epist}}$ (model variance).
-\textbf{3) Risk-Adjusted Handover Utility}: Candidate multi-tier target nodes $c \in \{\text{LEO}_2, \text{HAPS}, \text{UAV}\}$ are scored via risk-adjusted utility: $\mathcal{U}(c) = \hat{\gamma}_c(t+H) - \lambda \cdot (\sigma_{\text{aleat}, c}(t+H) + \sigma_{\text{epist}, c}(t+H)) - C_{\text{handover}}$, where $\lambda = 1.5$ is the empirical risk-aversion penalty and $C_{\text{handover}}$ is the switching cost preventing ping-pong flapping. Preemptive handover is dispatched $1.8\text{ seconds}$ before the active link degrades below the URLLC threshold.
+CAPRO executes three sequential stages: (i)~\textit{Multi-Horizon Neural Forecasting}, ingesting rolling telemetry time-series to predict link quality trajectories over lookahead horizons $H \in \{1, 3, 5, 10\}\text{ s}$; (ii)~\textit{Split-Conformal Calibration}, deriving distribution-free prediction intervals $[\hat{y}_{t+H}^{\text{lower}}, \hat{y}_{t+H}^{\text{upper}}]$ from non-conformity residuals with finite-sample marginal coverage $\mathbb{P}(Y_{t+H} \in \mathcal{C}(X_t)) \ge 95\%$, decomposing variance into aleatoric channel noise $\sigma_{\text{aleat}}$ and epistemic model uncertainty $\sigma_{\text{epist}}$; and (iii)~\textit{Risk-Adjusted Utility Maximization}, ranking candidate target nodes $c \in \{\text{LEO}_2, \text{HAPS}, \text{UAV}\}$ via:
+\begin{equation}
+  \mathcal{U}(c) = \hat{\gamma}_c(t+H) - \lambda \cdot (\sigma_{\text{aleat}, c}(t+H) + \sigma_{\text{epist}, c}(t+H)) - C_{\text{handover}}
+\end{equation}
+where $\lambda = 1.5$ balances risk aversion and $C_{\text{handover}}$ penalizes signaling overhead. When the active link utility degrades, CAPRO triggers a proactive handover $1.8\text{ s}$ before line-of-sight failure, enabling seamless transition without packet loss.
 
-\clearpage % EXACT PAGE 2 START
+\clearpage % ==================== STRICT TRANSITION TO PAGE 2 ====================
 
-\section{Experimental Simulation Environment}
-The simulation platform faithfully implements 3GPP and ITU-R physical propagation models:
-\textbf{Orbital Mechanics}: Keplerian two-body propagators with topocentric elevation angles ($\theta \ge 20^\circ$) and slant range distance $d(t) = \sqrt{R_E^2 \sin^2\theta + 2 R_E h + h^2} - R_E \sin\theta$.
-\textbf{Propagation \& Doppler Physics}: 3GPP TR 38.811~\cite{3gpp_tr38811} Free Space Path Loss ($\text{FSPL} = 20\log_{10}(d) + 20\log_{10}(f_c) - 147.55\text{ dB}$ at $f_c = 28\text{ GHz}$ Ka-band), shadow fading, and Doppler frequency progression $f_D(t) = f_c \cdot (v_{\text{rel}}(t) / c)$ spanning $\pm 48\text{ kHz}$.
-\textbf{Rain Fading Attenuation}: ITU-R P.618-13~\cite{itur_p618} model computing specific attenuation $\gamma_R = k R^\alpha\text{ dB/km}$ across storm intensities up to $100\text{ mm/h}$.
+\section{Simulation and Experimental Methodology}
+The ORBIT-INTEL 6G evaluation framework implements physical aerospace kinematics and propagation models adhering to international telecommunications standards:
+\begin{itemize}\setlength{\itemsep}{1.2pt}\setlength{\parskip}{0pt}
+  \item \textbf{Kinematics \& Orbit Propagation}: LEO circular orbits at $500\text{--}600\text{ km}$ altitude with minimum elevation threshold $\theta \ge 20^\circ$. Slant range distance is evaluated geometrically as $d(t) = \sqrt{R_E^2 \sin^2\theta + 2 R_E h + h^2} - R_E \sin\theta$, where $R_E = 6371\text{ km}$ is Earth's mean radius and $h$ is orbital altitude.
+  \item \textbf{Path Loss \& Doppler Dynamics}: Free Space Path Loss obeys 3GPP TR 38.811 at Ka-band ($f_c = 28\text{ GHz}$): $\text{FSPL} = 20\log_{10}(d) + 20\log_{10}(f_c) - 147.55\text{ dB}$. Doppler shifts $f_D(t) = f_c \cdot (v_{\text{rel}}(t) / c)$ span $\pm 48\text{ kHz}$ across typical LEO satellite passes.
+  \item \textbf{Hydrometeor Fading}: Atmospheric rain attenuation follows ITU-R P.618-13, implementing specific attenuation $\gamma_R = k R^\alpha\text{ dB/km}$ across precipitation rates from clear sky ($0\text{ mm/h}$) to severe convective downpours ($100\text{ mm/h}$).
+  \item \textbf{Benchmark Baseline Configurations}: Three established schemes are evaluated: (M1)~\textit{Reactive Baseline} (standard 3GPP Event A3/A4 triggers with hysteresis and time-to-trigger timers); (M2)~\textit{Threshold-Based} (static $10\text{ dB}$ SNR margin); and (M3)~\textit{Prediction-Only} (neural point forecast without conformal uncertainty bounds).
+\end{itemize}
 
 \section{Experimental Evaluation}
-The proposed architecture is evaluated against three standard benchmark methodologies across an exhaustive \textbf{400-trial Monte Carlo} experimental campaign: (M1)~\textbf{Reactive Baseline}: Standard 3GPP A3/A4 event triggers; (M2)~\textbf{Threshold-Based}: Handover triggered upon fixed SNR margin ($10\text{ dB}$); and (M3)~\textbf{Prediction-Only}: Handover driven by point-forecast predictions without uncertainty intervals.
+The proposed architecture was evaluated across an exhaustive \textbf{400-trial Monte Carlo} simulation campaign under stochastic rain fading, dynamic multi-user mobility across five topological environments, and orbital satellite transitions. The reported experimental results are summarized in Table~\ref{tab:benchmarks}.
 
-\vspace{-2pt}
 \begin{table}[h!]
   \centering
+  \fontsize{8.2}{10.2}\selectfont
   \caption{Reported Experimental Benchmark Results (400-Trial Monte Carlo Campaign)}
   \label{tab:benchmarks}
-  \footnotesize
-  \renewcommand{\arraystretch}{1.08}
+  \renewcommand{\arraystretch}{1.12}
   \begin{tabular}{lccccc}
     \toprule
-    \textbf{Methodology} & \textbf{PDR (\%)} & \textbf{99\% Tail Latency} & \textbf{Outage Rate} & \textbf{Ping-Pong / hr} & \textbf{Energy (J/Mbit)} \\
+    \textbf{Orchestration Methodology} & \textbf{PDR (\%)} & \textbf{99\% Tail Latency} & \textbf{Outage Rate} & \textbf{Ping-Pong / hr} & \textbf{Energy (J/Mbit)} \\
     \midrule
     M1: Reactive Baseline (3GPP A3/A4) & $91.20 \pm 1.45$ & $38.45\text{ ms}$ & $8.80\%$ & $18.4 \pm 2.1$ & $4.85 \pm 0.35$ \\
     M2: Threshold-Based Heuristic & $94.65 \pm 1.10$ & $26.12\text{ ms}$ & $5.20\%$ & $12.1 \pm 1.6$ & $3.92 \pm 0.28$ \\
@@ -107,44 +104,40 @@ The proposed architecture is evaluated against three standard benchmark methodol
     \textit{Measured Relative Improvement} & \textbf{+8.21\% Gain} & \textbf{-82.26\% Reduction} & \textbf{-93.30\% Reduction} & \textbf{-89.30\% Reduction} & \textbf{-56.70\% Efficiency} \\
     \bottomrule
   \end{tabular}
-  \vspace{1pt}
-  \parbox{\linewidth}{\scriptsize\textit{Note}: Values reflect reported experimental data from the verified 400-trial Monte Carlo benchmark campaign.}
+  \vspace{2pt}
+  \parbox{\linewidth}{\fontsize{7.6}{9.2}\selectfont\textit{Note}: Reported experimental results from the verified 400-trial Monte Carlo benchmark campaign.}
 \end{table}
-\vspace{-4pt}
 
-\begin{center}
-  \includegraphics[width=0.88\linewidth,height=2.7cm]{figures/results_benchmark.png}\vspace{-2pt}
-  \captionof{figure}{Reported Monte Carlo experimental evaluation: (a)~Packet Delivery Ratio (PDR) under increasing rain fading intensity; (b)~99th-percentile tail latency versus session outage probability showing deterministic sub-10ms URLLC compliance.}
-  \label{fig:results}
-\end{center}
-\vspace{-4pt}
+The reported experimental data confirms four pivotal performance findings:
+\begin{enumerate}\setlength{\itemsep}{1.2pt}\setlength{\parskip}{0pt}
+  \item \textbf{Packet Delivery Ratio (99.41\%)}: CAPRO attains a $99.41\%$ delivery ratio, significantly outperforming reactive baselines ($91.20\%$) and point prediction ($97.15\%$). By preemptively transferring traffic to stratospheric HAPS prior to convective rain cells, CAPRO maintains link continuity above $98\%$ even during intense precipitation ($100\text{ mm/h}$).
+  \item \textbf{Deterministic Tail Latency (6.82 ms)}: CAPRO achieves a 99th-percentile tail latency of $6.82\text{ ms}$, strictly satisfying the sub-10ms URLLC requirement. In contrast, reactive baselines experience large tail delays ($38.45\text{ ms}$) caused by reconnection and packet buffering during sudden outages.
+  \item \textbf{Outage Rate Suppression (0.59\%)}: Network outage probability drops from $8.80\%$ to $0.59\%$, representing a $93.3\%$ relative outage reduction across diverse terrestrial clutter and weather states.
+  \item \textbf{Handover Stability \& Energy Efficiency}: Risk-adjusted utility suppresses unnecessary handover ping-pong flapping by \textbf{89.3\%} ($1.9$ vs. $18.4$ events/hr), dramatically minimizing signaling overhead and cutting transmission energy per megabit by $56.7\%$ ($2.10$ vs. $4.85\text{ J/Mbit}$).
+\end{enumerate}
 
-As documented in Table~\ref{tab:benchmarks} and Fig.~\ref{fig:results}:
-\textbf{Packet Delivery Ratio (PDR)}: CAPRO attains a reported \textbf{99.41\%} PDR, outperforming reactive baseline M1 ($91.20\%$) and point prediction M3 ($97.15\%$). Even under severe rain rates ($100\text{ mm/h}$), CAPRO sustains over $98.2\%$ delivery through proactive HAPS/UAV offloading.
-\textbf{Deterministic Sub-10ms Tail Latency}: CAPRO achieves a 99th-percentile tail latency of \textbf{6.82 ms}, successfully enforcing the strict 3GPP URLLC boundary ($<10\text{ ms}$), whereas reactive baseline M1 suffers tail latencies of $38.45\text{ ms}$ due to queuing during link re-establishment.
-\textbf{Outage Probability \& Ping-Pong Suppression}: Outage rate drops from $8.80\%$ to \textbf{0.59\%} (a $93.3\%$ outage reduction), while handover ping-pong flapping is suppressed by \textbf{89.3\%} via hysteresis scoring.
+\section{Research Significance and Applications}
+The validated algorithmic contributions provide practical operational benefits across critical 6G deployment domains:
+\begin{itemize}\setlength{\itemsep}{1.2pt}\setlength{\parskip}{0pt}
+  \item \textbf{Aeronautical \& Maritime Routes}: Guarantees continuous, low-latency broadband for transoceanic flights and deep-sea vessels traversing satellite spot-beam boundaries outside terrestrial radar coverage.
+  \item \textbf{Post-Disaster Communications}: Rapidly restores resilient connectivity by dynamically bridging terrestrial first responders to stratospheric HAPS and UAV relays when terrestrial cell towers are incapacitated.
+  \item \textbf{Massive Remote IoT}: Provides deterministic telemetry collection for isolated pipeline networks, national power grids, and environmental sensor clusters without local terrestrial base stations.
+  \item \textbf{Scalable 6G Architecture}: Demonstrates a modular paradigm separating physical resource allocation (PPO) from cross-tier proactive handover routing (CAPRO) for future mega-constellations.
+\end{itemize}
 
-\section{Research Significance and 6G Applications}
-The demonstrated capabilities of ORBIT-INTEL 6G yield direct operational relevance for emerging 6G infrastructure:
-\textbf{Resilient Satellite Broadband \& Aviation}: Continuous low-latency streaming for passenger and avionics telemetry across oceanic and polar corridors devoid of terrestrial infrastructure.
-\textbf{Emergency Post-Disaster Communications}: Immediate automated handover routing to stratospheric HAPS or tactical UAV relays when ground cellular base stations are destroyed by disaster events.
-\textbf{Massive Remote IoT \& Logistics}: High-reliability monitoring of cross-continental pipelines, smart agriculture, and maritime fleets with guaranteed delivery intervals.
+\section{Conclusion and Future Scope}
+ORBIT-INTEL 6G presents a comprehensive framework integrating physical-layer deep reinforcement learning with network-layer predictive reliability orchestration for 6G Space-Air-Ground Non-Terrestrial Networks. Combining PPO resource management with distribution-free split-conformal uncertainty calibration enables proactive circumvention of severe atmospheric rain fade and rapid satellite transitions. The 400-trial Monte Carlo evaluation verifies a 99.41\% packet delivery ratio, a 6.82 ms tail latency meeting URLLC requirements, and an 89.3\% reduction in handover ping-pong instability. Future work includes federated reinforcement learning across inter-satellite cross-links, software-defined radio (SDR) hardware-in-the-loop testbed validation, and dynamic spectrum co-existence with terrestrial cellular networks.
 
-\section{Conclusion and Future Directions}
-ORBIT-INTEL 6G demonstrates an end-to-end framework integrating physical-layer PPO resource management with network-layer confidence-aware predictive reliability orchestration (CAPRO) across 5-tier SAGIN topologies. By incorporating conformal quantile prediction intervals, the platform transforms uncertain channel dynamics into actionable, risk-averse routing decisions, achieving a reported 99.41\% PDR and sub-10ms tail latency. Future research will explore decentralized federated reinforcement learning across inter-satellite swarms and hardware-in-the-loop software-defined radio (SDR) testbed validation.
-
-% --- References ---
-\vspace{-2pt}
 \begin{thebibliography}{6}
-\footnotesize
-\setlength{\itemsep}{0.2pt}
+\fontsize{7.6}{9.2}\selectfont
+\setlength{\itemsep}{1.2pt}
 \setlength{\parskip}{0pt}
-\bibitem{3gpp_tr38811} 3GPP, ``Study on New Radio (NR) to support non-terrestrial networks,'' \textit{3GPP TR 38.811}, V15.4.0, Rel-15, 2020.
-\bibitem{3gpp_tr38821} 3GPP, ``Solutions for NR to support non-terrestrial networks,'' \textit{3GPP TR 38.821}, V16.1.0, Rel-16, 2021.
-\bibitem{itur_p618} ITU-R, ``Propagation data and prediction methods required for Earth-space systems,'' \textit{Rec. ITU-R P.618-13}, 2017.
-\bibitem{lin2021jsac} X. Lin, B. Daneshmand, and Y. Gao, ``Multi-beam satellite traffic matching via unconstrained DRL,'' \textit{IEEE JSAC}, vol.~39, no.~4, pp.~1120--1134, 2021.
-\bibitem{cui2022twc} J. Cui, Y. Liu, and Q. Wu, ``Resource allocation in space-air-ground integrated networks using DRL,'' \textit{IEEE TWC}, vol.~21, no.~8, pp.~6210--6224, 2022.
-\bibitem{angelopoulos2021conformal} A.~N. Angelopoulos and S.~Bates, ``A gentle introduction to conformal prediction and distribution-free UQ,'' \textit{arXiv:2107.07511}, 2021.
+\bibitem{3gpp_tr38811} 3GPP, ``Study on New Radio to support non-terrestrial networks,'' \textit{3GPP TR 38.811}, Rel-15, 2020.
+\bibitem{3gpp_tr38821} 3GPP, ``Solutions for NR to support non-terrestrial networks,'' \textit{3GPP TR 38.821}, Rel-16, 2021.
+\bibitem{itur_p618} ITU-R, ``Propagation data and prediction methods for Earth-space systems,'' \textit{Rec. ITU-R P.618-13}, 2017.
+\bibitem{lin2021jsac} X. Lin et al., ``Multi-beam satellite traffic matching via unconstrained DRL,'' \textit{IEEE JSAC}, 39(4):1120--1134, 2021.
+\bibitem{cui2022twc} J. Cui et al., ``Resource allocation in SAGIN using deep reinforcement learning,'' \textit{IEEE TWC}, 21(8):6210--6224, 2022.
+\bibitem{angelopoulos2021conformal} A.~N. Angelopoulos and S.~Bates, ``A gentle introduction to conformal prediction,'' \textit{arXiv:2107.07511}, 2021.
 \end{thebibliography}
 
 \end{document}
